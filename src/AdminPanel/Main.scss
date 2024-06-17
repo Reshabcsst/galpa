@@ -1,0 +1,22 @@
+@import '../Components/variables';
+
+.home_input {
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+    h1 {
+        color: $black-text-color;
+    }
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin: 1rem 0;
+}

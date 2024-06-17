@@ -1,0 +1,531 @@
+:root {
+    --background-color: #2c2c2c;
+    --black-text-color: #000000;
+    --white-color: #fff;
+    --white-btn-hover-color: #d1d1d1;
+    --bottom-nav-bg-color: linear-gradient(233.34deg, #FFE1DA 19.71%, #FFFFFF 72.76%);
+    --hover-bg-color: rgba(255, 255, 255, 0.1);
+    --purple-btn-bg-color: rgba(138, 7, 240, 1);
+    --card-heading-text-color: rgba(241, 86, 50, 1);
+    --banner-blend-color: radial-gradient(50% 50% at 50% 50%, #653F36 0%, #292220 100%);
+    --gray-text-color: #4D4C4C;
+    --card-paragraph-text-color: rgba(34, 34, 34, 1);
+    --pink-background: #FFE0E0;
+    ;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1285px;
+    justify-content: center;
+}
+
+.home-slider {
+    position: relative;
+    height: 480px;
+    width: 100%;
+    opacity: .9;
+    background-image: url("../../Assets/BannerBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--banner-blend-color);
+    mix-blend-mode: multiply;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.home-slider .inr {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    align-items: center;
+}
+
+.home-slider .inr .bnr-heading {
+    position: relative;
+    width: fit-content;
+    margin: .2rem;
+}
+
+.home-slider .inr .bnr-heading .img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
+    margin: 2rem 0 4rem 0;
+}
+
+.cards .card {
+    height: 100%;
+    padding: 1.5rem;
+    background: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    box-shadow: 1px 10px 31px -3px rgba(0, 0, 0, 0.137);
+}
+
+.cards .card:nth-child(1) {
+    box-shadow: -72px 38px 108px -37px rgba(239, 85, 50, 0.479);
+}
+
+.cards .card:nth-child(2) {
+    box-shadow: 88px 50px 108px -37px rgba(239, 85, 50, 0.479);
+}
+
+.cards .card h2 {
+    color: var(--card-heading-text-color);
+    font-size: 22px;
+    font-weight: 475;
+
+}
+
+.cards .card p {
+    color: var(--card-paragraph-text-color);
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 1rem;
+}
+
+.home-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-about .about-company {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.home-about .about-company .lft {
+    display: flex;
+    width: 48%;
+    height: 100%;
+    padding: 1rem;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.home-about .about-company .lft h2 {
+    color: var(--black-text-color);
+    font-size: 2rem;
+    position: relative;
+    width: fit-content;
+    font-weight: 472;
+}
+
+.home-about .about-company .lft h2 img {
+    position: absolute;
+    top: 10%;
+    width: 300px;
+    right: -8%;
+}
+
+.home-about .about-company .lft p {
+    color: var(--black-text-color);
+    font-size: 14px;
+    margin-top: 1rem;
+    font-weight: 417;
+}
+
+.home-about .about-company .lft button {
+    width: fit-content;
+    margin-top: 1rem;
+}
+
+.home-about .about-company .rht {
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 1.5rem;
+}
+
+.home-about .about-company .rht .top {
+    position: absolute;
+    width: 127px;
+    height: 127px;
+    top: 0;
+    left: 0;
+}
+
+.home-about .about-company .rht .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 214px;
+    height: 214px;
+    right: 0;
+}
+
+
+
+.home-about .about-company .rht img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.services h2 {
+    position: relative;
+    width: fit-content;
+    font-size: 2rem;
+}
+
+.services h2 img {
+    position: absolute;
+    width: 300px;
+    top: 8%;
+    right: -8%;
+}
+
+.services .cards1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-gap: 40px;
+    margin: 3rem 0 4rem 0;
+}
+
+.services .card1 {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--white-color);
+    box-shadow: 0px 11px 28px -1px #0000001F;
+}
+
+.services .card1:nth-child(1) {
+    box-shadow: 0px 11px 28px -1px #0000001F;
+}
+
+.services .card1:nth-child(2) {
+    box-shadow: -40px -40px 154px -59px rgba(239, 85, 50, 0.479);
+}
+
+.services .card1 .head {
+    display: flex;
+    height: auto;
+}
+
+.services .card1 .head h2 {
+    margin-left: 2ch;
+    font-size: 23px;
+    color: var(--black-text-color);
+    font-weight: 500;
+}
+
+.services .card1 p {
+    color: var(--gray-text-color);
+    font-size: 14px;
+    font-weight: 410;
+    margin-top: 1rem;
+}
+
+.services .card1 .head .imgs {
+    position: relative;
+    height: 61px;
+    width: 70px;
+}
+
+.services .card1 .head .imgs .main {
+    position: absolute;
+    z-index: 1;
+    left: 10%;
+}
+
+.services .card1 .head .imgs .shadow {
+    position: absolute;
+    left: 0;
+    bottom: -10%;
+}
+
+.help {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    background: url('../../Assets/picofgirl.png');
+    mix-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F85833;
+}
+
+.help .inr {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 2rem;
+}
+
+.help .inr h2 {
+    font-size: 32px;
+    font-weight: 544;
+    color: var(--white-color);
+    position: relative;
+}
+
+.help .inr h2 img {
+    position: absolute;
+    width: 250px;
+    right: -5%;
+    top: 0;
+}
+
+.help .inr .btns {
+    display: flex;
+    gap: 2rem;
+}
+
+.help .inr .btns button {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    background: var(--white-color);
+    color: var(--purple-btn-bg-color);
+}
+
+.help .inr .btns button:hover {
+    background: var(--white-btn-hover-color);
+}
+
+.pink-bg {
+    width: 100%;
+    background: var(--pink-background);
+}
+
+.our-work {
+    width: 100%;
+    max-width: 1285px;
+    margin: 0 auto;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.our-work h2 {
+    font-size: 32px;
+    position: relative;
+    font-weight: 472;
+    color: var(--black-text-color);
+}
+
+.our-work h2 img {
+    position: absolute;
+    top: 12%;
+    right: -5%;
+    width: 250px;
+}
+
+.our-work p {
+    font-size: 17px;
+    color: var(--black-text-color);
+    font-weight: 500;
+}
+
+@media screen and (min-width:2237px) {
+    .home-slider .inr .bnr-heading .img {
+        right: -5%;
+        width: 340px;
+    }
+}
+
+@media screen and (max-width:1334px) {
+    .cards {
+        margin: 2rem 2rem 4rem 2rem;
+    }
+
+    .home-about .about-company {
+        margin: 2rem 2rem;
+    }
+}
+
+@media screen and (max-width:1294px) {
+    .home-about .about-company .rht img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .services .cards1 {
+        margin: 3rem 2rem 4rem 2rem;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .home-about .about-company .rht .top {
+        width: 73px;
+        height: 73px;
+    }
+
+    .home-about .about-company .rht .bottom {
+        width: 160px;
+        height: 160px;
+    }
+
+    .home-about .about-company .rht {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:870px) {
+    .home-slider .inr .bnr-heading .img {
+        position: absolute;
+        top: 0;
+        right: -2%;
+        width: fit-content;
+    }
+
+    .help .inr {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:855px) {
+
+    .home-about .about-company {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem 2rem;
+    }
+
+    .home-about .about-company .rht {
+        width: 100%;
+    }
+
+    .home-about .about-company .lft {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width:780px) {
+    .home-slider {
+        height: fit-content;
+        padding: 50px 0px;
+    }
+
+    .home-slider .inr {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:544px) {
+    .help .inr {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .services .card1 .head h2 {
+        font-size: 20px;
+    }
+
+    .services .card1 {
+        padding: 2rem;
+    }
+
+}
+
+@media screen and (max-width:478px) {
+    .help .inr {
+        width: 100%;
+        margin: 2rem 0;
+        padding: 2rem;
+    }
+
+    .help .inr .btns {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width:435px) {
+    .home-about .about-company .lft h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-about .about-company .lft h2 img {
+        top: 15%;
+        width: 200px;
+    }
+
+    .services .cards1 {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .services .cards1 .head {
+        height: auto;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .home-slider {
+        padding: 50px 10px;
+    }
+
+    .home-slider .inr {
+        width: 90%;
+    }
+
+    .home-about .about-company .lft button {
+        font-size: 13px;
+    }
+
+    .home-about .about-company .rht .top {
+        width: 60px;
+        height: 60px;
+    }
+
+    .home-about .about-company .rht .bottom {
+        width: 110px;
+        height: 110px;
+    }
+}

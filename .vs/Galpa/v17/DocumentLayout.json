@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\galpa\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\galpa\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\galpa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\galpa\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\galpa\\models\\registrationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\registrationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\galpa\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\galpa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAAAHwAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T06:13:54.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Response.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Models\\Response.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Response.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Models\\Response.cs",
+              "RelativeToolTip": "Galpa\\Models\\Response.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T06:09:32.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegistrationModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Models\\RegistrationModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\RegistrationModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Models\\RegistrationModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\RegistrationModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T06:07:59.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Models\\LoginModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\LoginModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Models\\LoginModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\LoginModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T06:06:58.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\appsettings.json",
+              "RelativeDocumentMoniker": "Galpa\\appsettings.json",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\appsettings.json",
+              "RelativeToolTip": "Galpa\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-16T05:55:10.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Program.cs",
+              "RelativeDocumentMoniker": "Galpa\\Program.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Galpa\\Program.cs",
+              "RelativeToolTip": "Galpa\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA8AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-16T05:54:03.103Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
