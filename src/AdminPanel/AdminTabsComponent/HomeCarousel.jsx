@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import EditCarouselDialog from './EditCarouselDialog';
-import DeleteCarouselDialog from './DeleteCarouselDialog';
+import DeleteDialog from './DeleteDialog';
 
 const CarouselTable = () => {
     const [carousels, setCarousels] = useState([]);
@@ -77,6 +77,11 @@ const CarouselTable = () => {
     };
 
     const handleAdd = () => {
+        if (!selectedCarousel.heading || !selectedCarousel.subheading || !selectedCarousel.backgroundImage) {
+            alert('All fields are required for adding a new carousel.');
+            return;
+        }
+
         const formData = new FormData();
         formData.append('heading', selectedCarousel.heading);
         formData.append('subheading', selectedCarousel.subheading);
@@ -109,6 +114,7 @@ const CarouselTable = () => {
         setIsEditDialogOpen(false);
     };
 
+
     const handleEditClick = (carousel) => {
         setSelectedCarousel(carousel);
         setIsEditDialogOpen(true);
@@ -140,7 +146,7 @@ const CarouselTable = () => {
     };
 
     return (
-        <Box sx={{ height: 'auto', width: '100%', maxWidth: "1285px", position: 'relative', marginTop: { xs: "11rem", md: "8rem" }, padding: '0 16px' }}>
+        <Box sx={{ height: 'auto', width: '100%', maxWidth: "974px", position: 'relative', marginTop: { xs: "11rem", md: "8rem" }, padding: '0 16px' }}>
             <button className='add' onClick={handleAddClick}>
                 Add Carousel
                 <AddIcon />
@@ -150,8 +156,8 @@ const CarouselTable = () => {
                     rows={carousels}
                     columns={[
                         { field: 'id', headerName: 'ID', width: 90 },
-                        { field: 'heading', headerName: 'Heading', width: 200 },
-                        { field: 'subheading', headerName: 'Subheading', width: 200 },
+                        { field: 'heading', headerName: 'Heading', width: 250 },
+                        { field: 'subheading', headerName: 'Subheading', width: 250 },
                         {
                             field: 'backgroundImage',
                             headerName: 'Background Image',
@@ -167,7 +173,7 @@ const CarouselTable = () => {
                         {
                             field: 'actions',
                             headerName: 'Actions',
-                            width: 150,
+                            width: 100,
                             renderCell: (params) => (
                                 <div>
                                     <IconButton aria-label="edit" onClick={() => handleEditClick(params.row)}>
@@ -195,8 +201,10 @@ const CarouselTable = () => {
                 onFileChange={handleFileChange}
             />
 
-            <DeleteCarouselDialog
+            <DeleteDialog
                 open={isDeleteDialogOpen}
+                Name='carousel'
+                Data={selectedCarousel}
                 onClose={() => setIsDeleteDialogOpen(false)}
                 onDelete={() => handleDelete(selectedCarousel)}
             />

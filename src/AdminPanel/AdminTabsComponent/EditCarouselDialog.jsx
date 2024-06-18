@@ -3,11 +3,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 
 const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, onFileChange }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         if (carousel && carousel.backgroundImage) {
@@ -29,37 +28,65 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
         }
     };
 
+    const validateFields = () => {
+        const newErrors = {};
+        if (!carousel.heading) newErrors.heading = 'Heading is required';
+        if (!carousel.subheading) newErrors.subheading = 'Subheading is required';
+        if (!carousel.backgroundImage) newErrors.backgroundImage = 'Background image is required';
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSave = () => {
+        if (carousel && !carousel.id && !validateFields()) {
+            return;
+        }
+        onSave();
+    };
+
     return (
         <Dialog open={open} onClose={onClose}>
             <DialogTitle>{carousel && carousel.id ? 'Edit Carousel' : 'Add Carousel'}</DialogTitle>
             <DialogContent style={{ display: 'flex', gap: '20px' }}>
                 <div style={{ flex: 1 }}>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="heading"
-                        name="heading"
-                        label="Heading"
-                        fullWidth
-                        value={carousel ? carousel.heading : ''}
-                        onChange={onFieldChange}
-                    />
-                    <TextField
-                        margin="dense"
-                        id="subheading"
-                        name="subheading"
-                        label="Subheading"
-                        fullWidth
-                        value={carousel ? carousel.subheading : ''}
-                        onChange={onFieldChange}
-                    />
-                    <input
-                        margin="dense"
-                        id="backgroundImage"
-                        name="backgroundImage"
-                        type="file"
-                        onChange={handleImageChange}
-                    />
+                    <div>
+                        <label htmlFor="heading">Heading</label>
+                        <input
+                            type="text"
+                            id="heading"
+                            placeholder='heading'
+                            name="heading"
+                            value={carousel ? carousel.heading : ''}
+                            onChange={onFieldChange}
+                            style={{ width: '100%', padding: '8px', margin: '8px 0', boxSizing: 'border-box' }}
+                        />
+                        {errors.heading && <p style={{ color: 'red' }}>{errors.heading}</p>}
+                    </div>
+                    <div style={{ marginBottom: '10px' }}>
+                        <label htmlFor="subheading">Subheading</label>
+                        <input
+                            type="text"
+                            id="subheading"
+                            placeholder='subheading'
+                            name="subheading"
+                            value={carousel ? carousel.subheading : ''}
+                            onChange={onFieldChange}
+                            style={{ width: '100%', padding: '8px', margin: '8px 0', boxSizing: 'border-box' }}
+                        />
+                        {errors.subheading && <p style={{ color: 'red' }}>{errors.subheading}</p>}
+                    </div>
+                    <div className="custom-file-input">
+                    <label style={{marginRight:".5rem"}} htmlFor="backgroundImage">Choose image</label>
+                        <button className="button">Choose File</button>
+                        <input
+                            margin="dense"
+                            id="backgroundImage"
+                            name="backgroundImage"
+                            type="file"
+                            onChange={handleImageChange}
+                        />
+                    </div>
+                    {errors.backgroundImage && <p style={{ color: 'red' }}>{errors.backgroundImage}</p>}
                 </div>
                 {previewUrl && (
                     <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -68,7 +95,7 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
                 )}
             </DialogContent>
             <DialogActions>
-                <button className='add' onClick={onSave}>Save</button>
+                <button className='add' onClick={handleSave}>Save</button>
                 <button className='add' onClick={onClose}>Cancel</button>
             </DialogActions>
         </Dialog>

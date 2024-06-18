@@ -33,6 +33,8 @@ function App() {
 
         {/* Admin */}
         <Route path='/admin-panel' element={isAdminLogin ? <AdminHome /> : <AdminLogin />} />
+
+        <Route path='/*' element={<Home />} />
       </Routes>
       <Footer />
     </BrowserRouter>

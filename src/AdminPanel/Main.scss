@@ -13,10 +13,74 @@
     }
 }
 
-.add{
+.deletion_message {
+    font-size: 20px;
+    font-weight: 400;
+    color: $gray-text-color;
+
+    span {
+        color: $black-text-color;
+        font-weight: 600;
+        border-bottom: 1px solid $black-text-color;
+    }
+}
+
+
+.add {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .5rem;
     margin: 1rem 0;
+}
+
+
+label {
+    font-size: 14px;
+    font-weight: 472;
+    color: $black-text-color;
+    margin-top: .5rem;
+}
+
+input {
+    width: 100%;
+    border: 1px solid $input-border-color;
+    padding: .5rem;
+    border-radius: 4px;
+    outline: none;
+    background: none;
+
+    &:focus {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border: 1px solid $purple-btn-bg-color;
+    }
+}
+
+
+
+.custom-file-input {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+    input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+    }
+
+    .button {
+        padding: 5px 15px;
+        margin-top: .5rem;
+        font-size: 11px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover {
+            background-color: $button-hover-bg-color;
+        }
+    }
 }

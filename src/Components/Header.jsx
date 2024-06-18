@@ -7,6 +7,8 @@ import { CiLogin } from 'react-icons/ci';
 import { Link, useLocation } from 'react-router-dom';
 import SignIn from './SignInOptions/SignIn';
 import AvtarMenu from './AvtarMenu';
+import TabMenu from './TabMenu';
+import MenuItems from '../DemoData/TabMenus';
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -46,12 +48,23 @@ const Header = () => {
   const LogoutFunction = () => {
     window.localStorage.removeItem("UserData");
     window.location.reload();
-};
+  };
 
-const LogoutFunctionForAdmin = () => {
+  const LogoutFunctionForAdmin = () => {
     window.localStorage.removeItem("AdminData");
     window.location.reload();
-};
+  };
+
+  // Tab Menu
+  const [menuAnchor, setMenuAnchor] = useState({});
+
+  const handleMenuOpen = (event, tab) => {
+    setMenuAnchor({ ...menuAnchor, [tab]: event.currentTarget });
+  };
+
+  const handleMenuClose = (tab) => {
+    setMenuAnchor({ ...menuAnchor, [tab]: null });
+  };
 
   return (
     <header>
@@ -88,9 +101,9 @@ const LogoutFunctionForAdmin = () => {
 
                 {userData ?
                   <AvtarMenu
-                   userName={userData.userName}
-                   LogoutFunction={LogoutFunction}
-                   />
+                    userName={userData.userName}
+                    LogoutFunction={LogoutFunction}
+                  />
                   :
                   <li>
                     <Link onClick={() => { toggleSidebar(); toggleModal(); }} className="sign-in">Sign In<CiLogin /></Link>
@@ -107,16 +120,37 @@ const LogoutFunctionForAdmin = () => {
           {location.pathname == '/admin-panel' && adminData && (
             <>
               <ul className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
-                <li><Link onClick={toggleSidebar} to='/admin-panel'>Home</Link></li>
-                <li><Link onClick={toggleSidebar} to='/admin-service'>Service</Link></li>
-                <li><Link onClick={toggleSidebar} to='/admin-about-us'>About Us</Link></li>
-                <li><Link onClick={toggleSidebar} to='/admin-blog'>Blog</Link></li>
-                <li><Link onClick={toggleSidebar} to='/admin-partners'>Partners</Link></li>
-                <li><Link onClick={toggleSidebar} to='/admin-Pricing'>Pricing</Link></li>
-                <li><Link onClick={toggleSidebar} to='/admin-contact-us'>Contact Us</Link></li>
-                <AvtarMenu 
-                userName={adminData.userName}
-                LogoutFunction={LogoutFunctionForAdmin} 
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'home')}>Home</Link>
+                  <TabMenu anchorEl={menuAnchor.home} open={Boolean(menuAnchor.home)} onClose={() => handleMenuClose('home')} menuItems={MenuItems.home} />
+                </li>
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'service')}>Service</Link>
+                  <TabMenu anchorEl={menuAnchor.service} open={Boolean(menuAnchor.service)} onClose={() => handleMenuClose('service')} menuItems={MenuItems.service} />
+                </li>
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'aboutUs')}>About Us</Link>
+                  <TabMenu anchorEl={menuAnchor.aboutUs} open={Boolean(menuAnchor.aboutUs)} onClose={() => handleMenuClose('aboutUs')} menuItems={MenuItems.aboutUs} />
+                </li>
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'blog')}>Blog</Link>
+                  <TabMenu anchorEl={menuAnchor.blog} open={Boolean(menuAnchor.blog)} onClose={() => handleMenuClose('blog')} menuItems={MenuItems.blog} />
+                </li>
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'partners')}>Partners</Link>
+                  <TabMenu anchorEl={menuAnchor.partners} open={Boolean(menuAnchor.partners)} onClose={() => handleMenuClose('partners')} menuItems={MenuItems.partners} />
+                </li>
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'pricing')}>Pricing</Link>
+                  <TabMenu anchorEl={menuAnchor.pricing} open={Boolean(menuAnchor.pricing)} onClose={() => handleMenuClose('pricing')} menuItems={MenuItems.pricing} />
+                </li>
+                <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'contactUs')}>Contact Us</Link>
+                  <TabMenu anchorEl={menuAnchor.contactUs} open={Boolean(menuAnchor.contactUs)} onClose={() => handleMenuClose('contactUs')} menuItems={MenuItems.contactUs} />
+                </li>
+                <AvtarMenu
+                  userName={adminData.userName}
+                  LogoutFunction={LogoutFunctionForAdmin}
                 />
                 <div className="close-sidebar"><button onClick={toggleSidebar}><RiCloseLine /></button></div>
               </ul>
