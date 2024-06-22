@@ -1,46 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Design from '../../../Assets/Rectangle 167.png';
 import { Carousel } from 'react-responsive-carousel';
+import axios from 'axios';
 
 
 const HomeCarousel = () => {
-    return (
-        <Carousel infiniteLoop showStatus={false} showArrows={false} showThumbs={false} autoPlay swipeable={false} emulateTouch>
-            <div className='home-slider'>
-                <div className="inr">
-                    <h1 className='bnr-heading'>Writing, Editing, Proofreading
-                        And Publishing Services
-                        <img className='img' src={Design} alt="design" />
-                    </h1>
-                    <p className='bnr-subheading'>Writing, Editing, Proofreading and Publishing Service. Writing,
-                        Editing, Proofreading Writing, Editing, Proofreading and Publishing Service</p>
-                    <button className="bnr-btn">Let’s Get Started</button>
-                </div>
+    const [carousels, setCarousels] = useState([]);
+    const [loading, setLoading] = useState(true);
+    // Fetching carousel data
+    useEffect(() => {
+        axios.get('http://localhost:5241/api/HomeBannerCarousel/get-home-banner-carousel')
+            .then(response => {
+                setCarousels(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // setLoading(false);
+            });
+    }, []);
 
-            </div>
-            <div className='home-slider'>
-                <div className="inr">
-                    <h1 className='bnr-heading'>Writing, Editing, Proofreading
-                        And Publishing Services
-                        <img className='img' src={Design} alt="design" />
-                    </h1>
-                    <p className='bnr-subheading'>Writing, Editing, Proofreading and Publishing Service. Writing,
-                        Editing, Proofreading Writing, Editing, Proofreading and Publishing Service</p>
-                    <button className="bnr-btn">Let’s Get Started</button>
-                </div>
-            </div>
-            <div className='home-slider'>
-                <div className="inr">
-                    <h1 className='bnr-heading'>Writing, Editing, Proofreading
-                        And Publishing Services
-                        <img className='img' src={Design} alt="design" />
-                    </h1>
-                    <p className='bnr-subheading'>Writing, Editing, Proofreading and Publishing Service. Writing,
-                        Editing, Proofreading Writing, Editing, Proofreading and Publishing Service</p>
-                    <button className="bnr-btn">Let’s Get Started</button>
-                </div>
-            </div>
-        </Carousel>
+    return (
+        <div>
+            {loading ? (
+                <p className='banner-loading'>Loading...</p>
+            ) : (
+                <Carousel
+                    showStatus={false}
+                    showArrows={false}
+                    showThumbs={false}
+                    autoPlay
+                    swipeable={false}
+                    emulateTouch
+                    infiniteLoop={true}
+                >
+                    {carousels.map((carousel, index) =>
+                    (
+                        <div key={index} style={{ backgroundImage: `url(http://localhost:5241/${carousel.backgroundImage})` }} className='home-slider'>
+                            <div className="inr">
+                                <h1 className='bnr-heading'>{carousel.heading}
+                                    <img className='img' src={Design} alt="design" />
+                                </h1>
+                                <p className='bnr-subheading'>{carousel.subheading}</p>
+                                <button className="bnr-btn">Let’s Get Started</button>
+                            </div>
+
+                        </div>
+                    ))}
+                </Carousel>
+            )}
+        </div>
     );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Forms from './Forms';
 import './Signin.scss';
 import Notification from '../Components/Home/Components/PopNotification/Notification';
+import Forms from './LoginForms';
 
 const AdminLogin = () => {
     const [activeTab, setActiveTab] = useState('signIn');

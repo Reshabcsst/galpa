@@ -139,3 +139,4 @@ C:\Users\USER\Desktop\galpa\Backend\Galpa\obj\Debug\net8.0\Galpa.pdb
 C:\Users\USER\Desktop\galpa\Backend\Galpa\obj\Debug\net8.0\Galpa.genruntimeconfig.cache
 C:\Users\USER\Desktop\galpa\Backend\Galpa\obj\Debug\net8.0\ref\Galpa.dll
 C:\Users\USER\Desktop\galpa\Backend\Galpa\bin\Debug\net8.0\Galpa.staticwebassets.runtime.json
+C:\Users\USER\Desktop\galpa\Backend\Galpa\obj\Debug\net8.0\Galpa.sourcelink.json

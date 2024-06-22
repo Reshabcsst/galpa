@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import design from '../../../Assets/whiteheadingdesign.png';
 import { IoCallOutline } from 'react-icons/io5';
 import { CiMail } from 'react-icons/ci';
+import axios from 'axios';
 
 const Help = () => {
+    const [data, setData] = useState([]);
+    // Fetching carousel data
+    useEffect(() => {
+        axios.get('http://localhost:5241/api/GalpaCanHelp/get-company-info')
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, []);
+
     const handleCallClick = () => {
         window.location.href = 'tel:+919000110009';
     };

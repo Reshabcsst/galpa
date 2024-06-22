@@ -13,6 +13,10 @@ import ScrollToTop from './ScrollToTop';
 import AdminLogin from './AdminPanel/AdminLogin';
 import Pricing from './Components/Pricing/Pricing';
 import AdminHome from './AdminPanel/AdminHome';
+import CarouselTable from './AdminPanel/AdminTabsComponent/HomeTabs/BannerCarousel/HomeCarousel';
+import LoginToVisitThePage from './AdminPanel/LoginToVisitThePage';
+import OurWorkCarouselTable from './AdminPanel/AdminTabsComponent/HomeTabs/OurWorkCarousel/OurWorkCarousel';
+import GalpaCanHelp from './AdminPanel/AdminTabsComponent/HomeTabs/GalpaCanHelp/GalpaCanHelp';
 
 function App() {
 
@@ -33,7 +37,9 @@ function App() {
 
         {/* Admin */}
         <Route path='/admin-panel' element={isAdminLogin ? <AdminHome /> : <AdminLogin />} />
-
+        <Route path='/admin-home-banner-carousel' element={isAdminLogin ? <CarouselTable /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-our-work-carousel' element={isAdminLogin ? <OurWorkCarouselTable /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-galpa-can-help' element={isAdminLogin ? <GalpaCanHelp /> : <LoginToVisitThePage />} />
         <Route path='/*' element={<Home />} />
       </Routes>
       <Footer />

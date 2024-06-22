@@ -1,5 +1,15 @@
 @import '../variables';
 
+.banner-loading{
+    font-size: 20px;
+    color: $black-text-color;
+    font-weight: 500;
+    padding-top: 12rem;
+    padding-bottom: 3rem;
+    margin: 0 auto;
+    width: fit-content;
+}
+
 .home {
     display: flex;
     flex-direction: column;
@@ -10,12 +20,11 @@
 }
 
 .home-slider {
-    margin-top: 8rem;
+    margin-top: 5.8rem;
     position: relative;
     height: 480px;
     width: 100%;
     opacity: .9;
-    background-image: url("../../Assets/BannerBG.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -358,6 +367,13 @@
         width: 100%;
         margin-top: 2rem;
         padding: 0 2rem;
+
+        .loading{
+            font-size: 20px;
+            color: $black-text-color;
+            font-weight: 500;
+            margin: 5rem 0;
+        }
 
         .book {
             overflow: hidden;
@@ -945,7 +961,7 @@
     }
 
     .home-slider {
-        margin-top: 11rem;
+        margin-top: 10rem;
     }
 
     .enquire .form .rht {

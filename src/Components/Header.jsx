@@ -88,7 +88,7 @@ const Header = () => {
           <div className="logo">
             <Link to='/'><img src={Logo} alt="Logo" /></Link>
           </div>
-          {location.pathname !== '/admin-panel' && (
+          {!location.pathname.startsWith('/admin') && (
             <>
               <ul className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
                 <li><Link onClick={toggleSidebar} to='/'>Home</Link></li>
@@ -117,7 +117,7 @@ const Header = () => {
               </button>
             </>
           )}
-          {location.pathname == '/admin-panel' && adminData && (
+         {location.pathname.startsWith('/admin') && adminData && (
             <>
               <ul className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
                 <li>

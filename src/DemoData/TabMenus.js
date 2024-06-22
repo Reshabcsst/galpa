@@ -1,8 +1,8 @@
 const MenuItems = {
     home: [
-        { label: 'Profile', path: '/profile' },
-        { label: 'My account', path: '/my-account' },
-        { label: 'Logout', path: '/logout' }
+        { label: 'Banner Carousel', path: '/admin-home-banner-carousel' },
+        { label: 'Our Work Carousel', path: '/admin-home-our-work-carousel' },
+        { label: 'Galpa Can Help', path: '/admin-home-galpa-can-help' }
     ],
     service: [
         { label: 'Option 1', path: '/option1' },

@@ -13,6 +13,37 @@
     }
 }
 
+.our_work {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: 100dvh;
+    padding-top: 8rem;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:500px) {
+    .our_work {
+        padding-top: 11rem;
+    }
+}
+
+.login_first {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin-top: 1rem;
+    }
+
+    h1 {
+        color: $black-text-color;
+    }
+}
+
 .deletion_message {
     font-size: 20px;
     font-weight: 400;
