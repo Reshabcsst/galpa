@@ -15,7 +15,7 @@ const AvtarMenu = ({ userName, LogoutFunction }) => {
 
     return (
         <div>
-            <Tooltip title="Account settings">
+            <Tooltip title="Account">
                 <Avatar onClick={handleMenu} sx={{
                     mr: {
                         xs: '0',
