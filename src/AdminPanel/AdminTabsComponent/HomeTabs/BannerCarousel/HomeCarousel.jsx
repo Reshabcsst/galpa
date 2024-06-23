@@ -9,14 +9,26 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import EditCarouselDialog from './EditCarouselDialog';
 import DeleteDialog from '../../DeleteDialog';
+import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 
 const CarouselTable = () => {
     const [carousels, setCarousels] = useState([]);
     const [selectedCarousel, setSelectedCarousel] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+    const [added, setAdded] = useState({ color: '', text: '' });
+    const [notificationOpen, setNotificationOpen] = useState(false);
 
     const token = JSON.parse(window.localStorage.getItem("AdminData"));
+
+
+     // Notification
+     const handleNotificationClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setNotificationOpen(false);
+    };
 
     // Fetching carousel data
     useEffect(() => {
@@ -37,9 +49,15 @@ const CarouselTable = () => {
         })
             .then(response => {
                 console.log(response.data);
+                setAdded({ text: 'Item Deleted Successfully!', color: 'success' });
+                setNotificationOpen(true);
                 setCarousels(carousels.filter(carousel => carousel.id !== id));
             })
-            .catch(error => { console.error(error); });
+            .catch(error => { 
+                console.error(error);
+                setAdded({ text: 'Error deleteing item!', color: 'error' });
+                setNotificationOpen(true);
+             });
         setIsDeleteDialogOpen(false);
     };
 
@@ -68,9 +86,13 @@ const CarouselTable = () => {
             })
             .then(response => {
                 setCarousels(response.data);
+                setAdded({ text: 'Item Edited Successfully!', color: 'success' });
+                setNotificationOpen(true);
             })
             .catch(error => {
                 console.error(error);
+                setAdded({ text: 'Error editing item!', color: 'error' });
+                setNotificationOpen(true);
             });
 
         setIsEditDialogOpen(false);
@@ -106,9 +128,13 @@ const CarouselTable = () => {
             })
             .then(response => {
                 setCarousels(response.data);
+                setAdded({ text: 'Added Successfully!', color: 'success' });
+                setNotificationOpen(true);
             })
             .catch(error => {
                 console.error(error);
+                setAdded({ text: 'Error adding item!', color: 'error' });
+                setNotificationOpen(true);
             });
 
         setIsEditDialogOpen(false);
@@ -208,6 +234,12 @@ const CarouselTable = () => {
                     Data={selectedCarousel}
                     onClose={() => setIsDeleteDialogOpen(false)}
                     onDelete={() => handleDelete(selectedCarousel)}
+                />
+                <Notification
+                    text={added.text}
+                    color={added.color}
+                    open={notificationOpen}
+                    handleClose={handleNotificationClose}
                 />
             </Box>
         </div>

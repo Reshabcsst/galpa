@@ -1,30 +1,40 @@
-import React from 'react';
-import img1 from '../../../Assets/FirstA.png';
-import img2 from '../../../Assets/SecondA.png';
-import img3 from '../../../Assets/ThirdA.png';
-import img4 from '../../../Assets/FourthA.png';
+import React, { useEffect, useState } from 'react';
 import design from '../../../Assets/Rectanglesmall.png';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
-import { CiTwitter } from 'react-icons/ci';
+import axios from 'axios';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Authors = () => {
-    const AuthorsData = [
-        { name: 'Mack Steev', pic: img1, role: 'Author' },
-        { name: 'Anthy Veab', pic: img2, role: 'Author' },
-        { name: 'Garry Malan', pic: img3, role: 'Author' },
-        { name: 'Abhik Sam', pic: img4, role: 'Author' },
-    ];
+    const [Authors, setAuthors] = useState([]);
+    const [loading, setLoading] = useState(true);
+    // Fetching carousel data
+    useEffect(() => {
+        axios.get('http://localhost:5241/api/MostPopularAuthors/get-authors')
+            .then(response => {
+                setAuthors(response.data);
+                setLoading(false);
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, []);
+
 
     return (
         <div className='authors'>
             <h2>Most Popular Authors
                 <img src={design} alt="design" />
             </h2>
-            <div className="authors-list">
-                {AuthorsData.map((author, index) => (
-                    <AuthorCard key={index} author={author} />
-                ))}
-            </div>
+            {loading ? (
+                <p className='loading'>Loading...</p>
+            ) : (
+                <div className="authors-list">
+                    {Authors.map((author, index) => (
+                        <AuthorCard key={index} author={author} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
@@ -34,11 +44,11 @@ const AuthorCard = ({ author }) => {
     return (
         <div className="author" >
             <div className="img-container">
-                <img src={author.pic} alt={author.name} />
+                <img src={`http://localhost:5241/${author.profilePicture}`} alt={author.name} />
                 <div className="social-icons">
-                    <FaFacebookF />
-                    <CiTwitter />
-                    <FaInstagram />
+                    <a href={author.facebookLink}> <FaFacebookF /></a>
+                    <a href={author.twitterLink}><FaXTwitter /></a>
+                    <a href={author.instagramLink}><FaInstagram /></a>
                 </div>
             </div>
             <p className='name'>{author.name}</p>

@@ -9,7 +9,7 @@ const Footer = () => {
     const location = useLocation();
     return (
         <>
-            {location.pathname !== '/admin-panel' && (
+            {!location.pathname.startsWith('/admin') && (
                 <footer>
                     <div className="container">
                         <div className="row">

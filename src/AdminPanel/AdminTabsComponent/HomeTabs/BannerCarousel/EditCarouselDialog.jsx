@@ -63,8 +63,7 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
                             name="heading"
                             value={carousel ? carousel.heading : ''}
                             onChange={onFieldChange}
-                            style={{ width: '100%', padding: '8px', margin: '8px 0', boxSizing: 'border-box' }}
-                        />
+                            />
                         {errors.heading && <p style={{ color: 'red' }}>{errors.heading}</p>}
                     </div>
                     <div style={{ marginBottom: '10px' }}>
@@ -76,8 +75,7 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
                             name="subheading"
                             value={carousel ? carousel.subheading : ''}
                             onChange={onFieldChange}
-                            style={{ width: '100%', padding: '8px', margin: '8px 0', boxSizing: 'border-box' }}
-                        />
+                            />
                         {errors.subheading && <p style={{ color: 'red' }}>{errors.subheading}</p>}
                     </div>
                     <div className="custom-file-input">

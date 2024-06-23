@@ -17,6 +17,8 @@ import CarouselTable from './AdminPanel/AdminTabsComponent/HomeTabs/BannerCarous
 import LoginToVisitThePage from './AdminPanel/LoginToVisitThePage';
 import OurWorkCarouselTable from './AdminPanel/AdminTabsComponent/HomeTabs/OurWorkCarousel/OurWorkCarousel';
 import GalpaCanHelp from './AdminPanel/AdminTabsComponent/HomeTabs/GalpaCanHelp/GalpaCanHelp';
+import MostPopularAuthors from './AdminPanel/AdminTabsComponent/HomeTabs/MostPopularAuthors/MostPopularAuthors';
+import AuthorsFeedback from './AdminPanel/AdminTabsComponent/HomeTabs/AuthorFeedBack/AuthorsFeedBack';
 
 function App() {
 
@@ -40,6 +42,8 @@ function App() {
         <Route path='/admin-home-banner-carousel' element={isAdminLogin ? <CarouselTable /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-our-work-carousel' element={isAdminLogin ? <OurWorkCarouselTable /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-galpa-can-help' element={isAdminLogin ? <GalpaCanHelp /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-most-popular-authors' element={isAdminLogin ? <MostPopularAuthors /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-authors-feedback' element={isAdminLogin ? <AuthorsFeedback /> : <LoginToVisitThePage />} />
         <Route path='/*' element={<Home />} />
       </Routes>
       <Footer />

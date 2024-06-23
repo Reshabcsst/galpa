@@ -2,7 +2,9 @@ const MenuItems = {
     home: [
         { label: 'Banner Carousel', path: '/admin-home-banner-carousel' },
         { label: 'Our Work Carousel', path: '/admin-home-our-work-carousel' },
-        { label: 'Galpa Can Help', path: '/admin-home-galpa-can-help' }
+        { label: 'Galpa Can Help', path: '/admin-home-galpa-can-help' },
+        { label: 'Most Popular Authors', path: '/admin-home-most-popular-authors' },
+        { label: 'Authors Feedback', path: '/admin-home-authors-feedback' }
     ],
     service: [
         { label: 'Option 1', path: '/option1' },

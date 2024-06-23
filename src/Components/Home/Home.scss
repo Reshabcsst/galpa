@@ -1,6 +1,15 @@
 @import '../variables';
 
-.banner-loading{
+
+.loading {
+    font-size: 20px;
+    color: $black-text-color;
+    font-weight: 500;
+    margin: 5rem 0;
+}
+
+
+.banner-loading {
     font-size: 20px;
     color: $black-text-color;
     font-weight: 500;
@@ -225,7 +234,7 @@
             transition: .5s ease;
             box-shadow: 0px 11px 28px -1px #0000001f;
 
-            &:hover{
+            &:hover {
                 background: $white-btn-hover-color;
             }
 
@@ -368,7 +377,7 @@
         margin-top: 2rem;
         padding: 0 2rem;
 
-        .loading{
+        .loading {
             font-size: 20px;
             color: $black-text-color;
             font-weight: 500;
@@ -461,7 +470,7 @@
 
                     svg {
                         font-size: 50px;
-                        padding: .5rem;
+                        padding: .6rem;
                         display: flex;
                         cursor: pointer;
                         background: $social-icn-background-color;
@@ -561,26 +570,34 @@
             .author-name {
                 font-size: 22px;
                 font-weight: 500;
+                margin-bottom: 2rem;
                 color: $white-color;
             }
 
             .stack {
                 display: flex;
+                justify-content: center;
                 align-items: center;
-                gap: 1.5rem;
-                margin-bottom: 3rem;
+                gap: 1.2rem;
+                margin-bottom: 3.5rem;
 
                 img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: contain;
+                    height: 90px;
+                    width: 90px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    transition: .3s ease-in-out;
+
+                    &.active {
+                        height: 120px;
+                        width: 120px;
+                    }
                 }
             }
         }
     }
-
-
 }
+
 
 // Carousel
 .carousel-root {
@@ -670,7 +687,7 @@
                 box-shadow: 0px 4px 4px 0px $form-box-shadow;
                 z-index: 2;
 
-                .error{
+                .error {
                     font-size: 11px;
                     color: red;
                     margin: 0;
@@ -929,12 +946,14 @@
         width: 90%;
 
         img {
-            height: 60px;
+            width: 60px;
+
+            &.active {
+                width: 90px;
+            }
         }
 
-        img:nth-child(2) {
-            height: 90px;
-        }
+
     }
 
     .authors .authors-list .author {

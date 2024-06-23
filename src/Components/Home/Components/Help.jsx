@@ -30,14 +30,13 @@ const Help = () => {
                 <h2>Galpa Can Help You
                     <img src={design} alt={design} />
                 </h2>
-                <p>We are passionate about books and committed to helping authors bring their stories to life.
-                    As a leading provider of comprehensive book writing, editing, proofreading, and publishing services</p>
+                <p>{data.subheading}</p>
                 <div className="btns">
                     <button onClick={handleCallClick}>
-                        <IoCallOutline /> +91 90001 10009
+                        <IoCallOutline /> +91 {data.phoneNumber}
                     </button>
                     <button onClick={handleEmailClick}>
-                        <CiMail /> demo@gmail.com
+                        <CiMail /> {data.email}
                     </button>
                 </div>
             </div>

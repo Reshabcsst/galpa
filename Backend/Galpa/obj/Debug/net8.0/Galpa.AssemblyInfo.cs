@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Galpa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ac54f63bc15a725d809c713ecc361a1186c81ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbfb98dc22794a93a92b9c34885514271b068252")]
 [assembly: System.Reflection.AssemblyProductAttribute("Galpa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Galpa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

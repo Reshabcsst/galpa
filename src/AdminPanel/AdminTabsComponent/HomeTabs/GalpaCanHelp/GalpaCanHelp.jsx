@@ -159,8 +159,8 @@ const GalpaCanHelp = () => {
                     <DataGrid
                         rows={companyInfo ? [companyInfo] : []}
                         columns={[
-                            { field: 'id', headerName: 'ID', width: 90 },
-                            { field: 'subheading', headerName: 'Subheading', width: 350 },
+                            { field: 'id', headerName: 'ID', width: 50 },
+                            { field: 'subheading', headerName: 'Subheading', width: 390 },
                             { field: 'phoneNumber', headerName: 'Phone Number', width: 150 },
                             { field: 'email', headerName: 'Email', width: 200 },
                             {
