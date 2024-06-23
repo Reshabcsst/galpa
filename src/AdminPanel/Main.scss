@@ -13,9 +13,23 @@
     }
 }
 
+.admin_heading {
+    font-size: 32px;
+    width: fit-content;
+    margin: 0 auto 1rem auto;
+    position: relative;
+    padding: 0 1rem;
+    border-bottom: 4px solid $purple-btn-bg-color;
+    border-radius: 15px;
+    font-weight: 472;
+    color: $black-text-color;
+}
+
 .our_work {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     min-height: 100dvh;
     padding-top: 8rem;

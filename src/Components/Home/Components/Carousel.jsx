@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Design from '../../../Assets/Rectangle 167.png';
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
+import { InfinitySpin } from 'react-loader-spinner';
 
 
 const HomeCarousel = () => {
@@ -23,7 +24,14 @@ const HomeCarousel = () => {
     return (
         <div>
             {loading ? (
-                <p className='banner-loading'>Loading...</p>
+                <p className='banner-loading'>
+                   <InfinitySpin
+                        visible={true}
+                        width="200"
+                        color="#8a07f0"
+                        ariaLabel="infinity-spin-loading"
+                    />
+                    </p>
             ) : (
                 <Carousel
                     showStatus={false}

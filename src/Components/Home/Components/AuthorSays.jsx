@@ -3,6 +3,7 @@ import quotetion from '../../../Assets/Quotetion.png';
 import design from '../../../Assets/Rectanglesmall.png';
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const AuthorSays = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,7 +16,6 @@ const AuthorSays = () => {
             .then(response => {
                 setFeedbacks(response.data);
                 setLoading(false);
-                console.log(response.data)
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -47,7 +47,14 @@ const AuthorSays = () => {
         <div className='author-says'>
             <div className="in">
                 {loading ? (
-                    <p style={{ color: "white", zIndex: "5" }} className='loading'>Loading...</p>
+                    <p style={{ color: "white", zIndex: "5",filter: "drop-shadow(2px 2px 5px #fff)" }} className='loading'>
+                        <InfinitySpin
+                            visible={true}
+                            width="200"
+                            color="#8a07f0"
+                            ariaLabel="infinity-spin-loading"
+                        />
+                    </p>
                 ) : (
                     <Carousel
                         infiniteLoop

@@ -146,6 +146,7 @@ const GalpaCanHelp = () => {
 
     return (
         <div className="our_work">
+              <h2 className='admin_heading'>Galpa Can Help</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: "974px", position: 'relative', padding: '0 16px' }}>
                 {companyInfo == null &&<button 
                     className='add' 
@@ -155,7 +156,7 @@ const GalpaCanHelp = () => {
                     Add Company Info
                     <AddIcon />
                 </button>}
-                <Box sx={{ width: '100%', overflowX: 'auto', height: 350 }}>
+                <Box sx={{ width: '100%', overflowX: 'auto', height: 163 }}>
                     <DataGrid
                         rows={companyInfo ? [companyInfo] : []}
                         columns={[

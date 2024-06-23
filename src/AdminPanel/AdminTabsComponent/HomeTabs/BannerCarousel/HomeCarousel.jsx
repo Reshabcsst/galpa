@@ -173,6 +173,7 @@ const CarouselTable = () => {
 
     return (
         <div className="our_work">
+             <h2 className='admin_heading'>Banner Carousel</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: "974px", position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
                     Add Carousel

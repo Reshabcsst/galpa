@@ -3,6 +3,7 @@ import design from '../../../Assets/Rectanglesmall.png';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import axios from 'axios';
 import { FaXTwitter } from 'react-icons/fa6';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const Authors = () => {
     const [Authors, setAuthors] = useState([]);
@@ -13,7 +14,6 @@ const Authors = () => {
             .then(response => {
                 setAuthors(response.data);
                 setLoading(false);
-                console.log(response.data)
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -27,7 +27,14 @@ const Authors = () => {
                 <img src={design} alt="design" />
             </h2>
             {loading ? (
-                <p className='loading'>Loading...</p>
+                <p className='loading'>
+                    <InfinitySpin
+                        visible={true}
+                        width="200"
+                        color="#8a07f0"
+                        ariaLabel="infinity-spin-loading"
+                    />
+                </p>
             ) : (
                 <div className="authors-list">
                     {Authors.map((author, index) => (

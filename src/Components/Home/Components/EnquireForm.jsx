@@ -1,41 +1,103 @@
 import React, { useState } from 'react';
 import design from '../../../Assets/Rectanglesmall.png';
+import Notification from './PopNotification/Notification';
+import axios from 'axios';
 
 const EnquireForm = () => {
+    const [notification, setNotification] = useState({ text: '', color: '' });
+    const [notificationOpen, setNotificationOpen] = useState(false);
+
+    const token = JSON.parse(window.localStorage.getItem("AdminData"));
+
+    const handleNotificationClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setNotificationOpen(false);
+    };
 
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        message: ''
+        Name: '',
+        Email: '',
+        Phone: '',
+        Date: '',
+        Message: ''
+    });
+
+    const [errors, setErrors] = useState({
+        Name: '',
+        Email: '',
+        Phone: '',
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+
+        // Validation
+        switch (name) {
+            case 'Name':
+                setErrors({
+                    ...errors,
+                    Name: value.length < 3 ? 'Name must be at least 3 characters long' : ''
+                });
+                break;
+            case 'Email':
+                setErrors({
+                    ...errors,
+                    Email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Email is not valid'
+                });
+                break;
+            case 'Phone':
+                setErrors({
+                    ...errors,
+                    Phone: /^\d{10}$/.test(value) ? '' : 'Phone number must be 10 digits'
+                });
+                break;
+            default:
+                break;
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Check for errors before submitting
+        if (errors.Name || errors.Email || errors.Phone) {
+            console.log('Validation errors:', errors);
+            return;
+        }
+
         try {
-            const response = await fetch('https://your-server-endpoint.com/submit', {
-                method: 'POST',
+            const response = await axios.post('http://localhost:5241/api/EnquireForm', formData, {
                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token.token}`
+                }
             });
 
-            if (response.ok) {
-                console.log('Form submitted successfully');
+            if (response.status === 200) {
+                setNotificationOpen(true);
+                setNotification({ text: 'Form submitted successfully!', color: 'success' });
+                setFormData({
+                    Name: '',
+                    Email: '',
+                    Phone: '',
+                    Date: '',
+                    Message: ''
+                });
             } else {
-                console.log('Form submission error');
+                console.error('Form submission error');
+                setNotificationOpen(true);
+                setNotification({ text: 'Error Sending Form!', color: 'error' });
             }
         } catch (error) {
             console.error('Form submission error:', error);
+            setNotificationOpen(true);
+            setNotification({ text: 'Error Sending Form!', color: 'error' });
         }
     };
+
     return (
         <div className='enquire'>
             <h2>
@@ -53,40 +115,43 @@ const EnquireForm = () => {
                         <h2>Enquire Now </h2>
                         <input
                             type="text"
-                            name="name"
+                            name="Name"
                             placeholder='Name'
-                            value={formData.name}
+                            value={formData.Name}
                             onChange={handleChange}
                             required
                         />
+                        {errors.Name && <p className="error">{errors.Name}</p>}
                         <input
                             type="email"
-                            name="email"
+                            name="Email"
                             placeholder='Email'
-                            value={formData.email}
+                            value={formData.Email}
                             onChange={handleChange}
                             required
                         />
+                        {errors.Email && <p className="error">{errors.Email}</p>}
                         <input
                             type="text"
-                            name="phone"
+                            name="Phone"
                             placeholder='Phone'
-                            value={formData.phone}
+                            value={formData.Phone}
                             onChange={handleChange}
                             required
                         />
+                        {errors.Phone && <p className="error">{errors.Phone}</p>}
                         <input
                             type="date"
-                            name="date"
+                            name="Date"
                             placeholder='Select Day and Time'
-                            value={formData.date}
+                            value={formData.Date}
                             onChange={handleChange}
                             required
                         />
                         <textarea
-                            name="message"
+                            name="Message"
                             placeholder='Enter Message'
-                            value={formData.message}
+                            value={formData.Message}
                             onChange={handleChange}
                             required
                         ></textarea>
@@ -94,6 +159,12 @@ const EnquireForm = () => {
                     </form>
                 </div>
             </div>
+            <Notification
+                text={notification.text}
+                color={notification.color}
+                open={notificationOpen}
+                handleClose={handleNotificationClose}
+            />
         </div>
     );
 };

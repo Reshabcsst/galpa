@@ -18,7 +18,7 @@ const AuthorsFeedback = () => {
     const [notification, setNotification] = useState({ text: '', color: '' });
     const [notificationOpen, setNotificationOpen] = useState(false);
 
-    const token = JSON.parse(window.localStorage.getItem("AdminData")); // Assuming token is stored in localStorage
+    const token = JSON.parse(window.localStorage.getItem("AdminData"));
 
     // Notification close handler
     const handleNotificationClose = (event, reason) => {
@@ -172,6 +172,7 @@ const AuthorsFeedback = () => {
 
     return (
         <div className="our_work">
+              <h2 className='admin_heading'>Authors Feedback</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: '974px', position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
                     Add Feedback

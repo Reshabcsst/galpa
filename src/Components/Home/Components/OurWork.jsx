@@ -4,6 +4,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import design from '../../../Assets/Rectanglesmall.png';
 import axios from 'axios';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const OurWork = () => {
     const [carousels, setCarousels] = useState([]);
@@ -32,7 +33,14 @@ const OurWork = () => {
 
             <div className="list">
                 {loading ? (
-                    <p className='loading'>Loading...</p>
+                    <p className='loading'>
+                       <InfinitySpin
+                        visible={true}
+                        width="200"
+                        color="#8a07f0"
+                        ariaLabel="infinity-spin-loading"
+                    />
+                        </p>
                 ) : (
                     <OwlCarousel
                         className='owl-carousel owl-centered'

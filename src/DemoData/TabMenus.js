@@ -4,7 +4,8 @@ const MenuItems = {
         { label: 'Our Work Carousel', path: '/admin-home-our-work-carousel' },
         { label: 'Galpa Can Help', path: '/admin-home-galpa-can-help' },
         { label: 'Most Popular Authors', path: '/admin-home-most-popular-authors' },
-        { label: 'Authors Feedback', path: '/admin-home-authors-feedback' }
+        { label: 'Authors Feedback', path: '/admin-home-authors-feedback' },
+        { label: 'Enquire Form Data', path: '/admin-home-enquire-form' }
     ],
     service: [
         { label: 'Option 1', path: '/option1' },

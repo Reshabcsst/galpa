@@ -19,6 +19,7 @@ import OurWorkCarouselTable from './AdminPanel/AdminTabsComponent/HomeTabs/OurWo
 import GalpaCanHelp from './AdminPanel/AdminTabsComponent/HomeTabs/GalpaCanHelp/GalpaCanHelp';
 import MostPopularAuthors from './AdminPanel/AdminTabsComponent/HomeTabs/MostPopularAuthors/MostPopularAuthors';
 import AuthorsFeedback from './AdminPanel/AdminTabsComponent/HomeTabs/AuthorFeedBack/AuthorsFeedBack';
+import EnquireFormGrid from './AdminPanel/AdminTabsComponent/HomeTabs/EnqurieForm/EnquireForm';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
         <Route path='/admin-home-galpa-can-help' element={isAdminLogin ? <GalpaCanHelp /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-most-popular-authors' element={isAdminLogin ? <MostPopularAuthors /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-authors-feedback' element={isAdminLogin ? <AuthorsFeedback /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-enquire-form' element={isAdminLogin ? <EnquireFormGrid /> : <LoginToVisitThePage />} />
         <Route path='/*' element={<Home />} />
       </Routes>
       <Footer />
