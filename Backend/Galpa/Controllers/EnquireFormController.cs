@@ -92,5 +92,35 @@ namespace Galpa.Controllers
             return Ok(enquireForms);
         }
 
+
+        // Delete data
+        //[Authorize]
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteEnquireForms(int id)
+        {
+            string connectionString = _configuration.GetConnectionString("UserConnection");
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand("DELETE FROM EnquireForm WHERE Id = @Id", con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    int result = cmd.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        return Ok("Enquire Form deleted successfully");
+                    }
+                    else
+                    {
+                        return BadRequest("Error deleting Enquire Form");
+                    }
+                }
+            }
+        }
+
     }
 }

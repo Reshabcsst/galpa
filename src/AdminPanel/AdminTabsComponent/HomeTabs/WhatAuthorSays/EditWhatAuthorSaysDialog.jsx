@@ -4,23 +4,23 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 
-const EditFeedbackDialog = ({ open, onClose, feedbackItem, onSave, onFieldChange, onFileChange }) => {
+const EditWhatAuthorSaysDialog = ({ open, onClose, WhatAuthorSays, onSave, onFieldChange, onFileChange }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        if (feedbackItem && feedbackItem.image) {
-            if (feedbackItem.image instanceof File) {
-                const url = URL.createObjectURL(feedbackItem.image);
+        if (WhatAuthorSays && WhatAuthorSays.image) {
+            if (WhatAuthorSays.image instanceof File) {
+                const url = URL.createObjectURL(WhatAuthorSays.image);
                 setPreviewUrl(url);
             } else {
-                const url = `http://localhost:5241${feedbackItem.image}`;
+                const url = `http://localhost:5241${WhatAuthorSays.image}`;
                 setPreviewUrl(url);
             }
         } else {
             setPreviewUrl(null);
         }
-    }, [feedbackItem]);
+    }, [WhatAuthorSays]);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -35,15 +35,15 @@ const EditFeedbackDialog = ({ open, onClose, feedbackItem, onSave, onFieldChange
 
     const validateFields = () => {
         const newErrors = {};
-        if (!feedbackItem.name) newErrors.name = 'Name is required';
-        if (!feedbackItem.quote) newErrors.quote = 'Quote is required';
-        if (!feedbackItem.image) newErrors.image = 'Image is required';
+        if (!WhatAuthorSays.name) newErrors.name = 'Name is required';
+        if (!WhatAuthorSays.quote) newErrors.quote = 'Quote is required';
+        if (!WhatAuthorSays.image) newErrors.image = 'Image is required';
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSave = () => {
-        if (feedbackItem && !feedbackItem.id && !validateFields()) {
+        if (WhatAuthorSays && !WhatAuthorSays.id && !validateFields()) {
             return;
         }
         onSave();
@@ -51,7 +51,7 @@ const EditFeedbackDialog = ({ open, onClose, feedbackItem, onSave, onFieldChange
 
     return (
         <Dialog open={open} onClose={onClose}>
-            <DialogTitle>{feedbackItem && feedbackItem.id ? 'Edit Carousel' : 'Add Carousel'}</DialogTitle>
+            <DialogTitle>{WhatAuthorSays && WhatAuthorSays.id ? 'Edit Carousel' : 'Add Carousel'}</DialogTitle>
             <DialogContent style={{ display: 'flex', gap: '20px' }}>
                 <div style={{ flex: 1 }}>
                     <div>
@@ -61,7 +61,7 @@ const EditFeedbackDialog = ({ open, onClose, feedbackItem, onSave, onFieldChange
                             id="name"
                             placeholder='Name'
                             name="name"
-                            value={feedbackItem ? feedbackItem.name : ''}
+                            value={WhatAuthorSays ? WhatAuthorSays.name : ''}
                             onChange={onFieldChange}
                         />
                         {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
@@ -73,7 +73,7 @@ const EditFeedbackDialog = ({ open, onClose, feedbackItem, onSave, onFieldChange
                             id="quote"
                             placeholder='Quote'
                             name="quote"
-                            value={feedbackItem ? feedbackItem.quote : ''}
+                            value={WhatAuthorSays ? WhatAuthorSays.quote : ''}
                             onChange={onFieldChange}
                            />
                         {errors.quote && <p style={{ color: 'red' }}>{errors.quote}</p>}
@@ -105,4 +105,4 @@ const EditFeedbackDialog = ({ open, onClose, feedbackItem, onSave, onFieldChange
     );
 };
 
-export default EditFeedbackDialog;
+export default EditWhatAuthorSaysDialog;

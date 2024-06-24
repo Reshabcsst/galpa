@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QBXBT19CIu16TBsbsP/5ovWUMJOhHDm/iGGuqWVBLEE=",
+  "Hash": "N+04WG7IObbCfU65M+TCGo5+ZjIHFc4qStQEjZGer5I=",
   "Source": "Galpa",
   "BasePath": "_content/Galpa",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\05e84ccf-85ce-4d7e-9d23-06f32a9ebdb8.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\07455447-4c86-4dff-a0c6-b9e1f331dab7.png",
+      "SourceId": "Galpa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\",
+      "BasePath": "_content/Galpa",
+      "RelativePath": "images/07455447-4c86-4dff-a0c6-b9e1f331dab7.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\07455447-4c86-4dff-a0c6-b9e1f331dab7.png"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\098c36d5-bc4c-427d-9a32-1907fef76ab7.jpg",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\10e83a3e-2022-4e8a-8214-0bd3ee5e0fad.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\11e91bfa-84d6-4a95-b2cb-3302cff8cf90.png",
+      "SourceId": "Galpa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\",
+      "BasePath": "_content/Galpa",
+      "RelativePath": "images/11e91bfa-84d6-4a95-b2cb-3302cff8cf90.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\11e91bfa-84d6-4a95-b2cb-3302cff8cf90.png"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\15ac3ce0-4f48-4cfd-a6f7-ec218dce229d.jpg",

@@ -7,12 +7,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
-import EditFeedbackDialog from './EditFeedbackDialog';
 import DeleteDialog from '../../DeleteDialog';
+import EditWhatAuthorSaysDialog from './EditWhatAuthorSaysDialog';
 
-const AuthorsFeedback = () => {
-    const [feedbackItems, setFeedbackItems] = useState([]);
-    const [selectedFeedbackItem, setSelectedFeedbackItem] = useState(null);
+const WhatAuthorSays = () => {
+    const [WhatAuthorSays, setWhatAuthorSays] = useState([]);
+    const [selectedWhatAuthorSays, setSelectedWhatAuthorSays] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [notification, setNotification] = useState({ text: '', color: '' });
@@ -30,35 +30,35 @@ const AuthorsFeedback = () => {
 
     // Fetching feedback items
     useEffect(() => {
-        axios.get('http://localhost:5241/api/AuthorsFeedback/get-authors-feedback', {
+        axios.get('http://localhost:5241/api/WhatAuthorSays', {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
         })
         .then(response => {
-            setFeedbackItems(response.data);
+            setWhatAuthorSays(response.data);
         })
         .catch(error => {
-            console.error('Error fetching feedback:', error);
+            console.error("Error fetching Author's Thought:", error);
         });
     }, []);
 
     // Delete feedback item
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/AuthorsFeedback/delete-authors-feedback/${id}`, {
+        axios.delete(`http://localhost:5241/api/WhatAuthorSays/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
         })
         .then(response => {
             console.log(response.data);
-            setNotification({ text: 'Feedback item deleted successfully', color: 'success' });
+            setNotification({ text: "Author's Thought deleted successfully", color: 'success' });
             setNotificationOpen(true);
-            setFeedbackItems(feedbackItems.filter(item => item.id !== id));
+            setWhatAuthorSays(WhatAuthorSays.filter(item => item.id !== id));
         })
         .catch(error => {
-            console.error('Error deleting feedback item:', error);
-            setNotification({ text: 'Error deleting feedback item', color: 'error' });
+            console.error("Error deleting Author's Thought:", error);
+            setNotification({ text: "Error deleting Author's Thought", color: 'error' });
             setNotificationOpen(true);
         });
         setIsDeleteDialogOpen(false);
@@ -67,13 +67,13 @@ const AuthorsFeedback = () => {
     // Edit feedback item
     const handleEdit = () => {
         const formData = new FormData();
-        formData.append('name', selectedFeedbackItem.name);
-        formData.append('quote', selectedFeedbackItem.quote);
-        if (selectedFeedbackItem.image) {
-            formData.append('image', selectedFeedbackItem.image);
+        formData.append('name', selectedWhatAuthorSays.name);
+        formData.append('quote', selectedWhatAuthorSays.quote);
+        if (selectedWhatAuthorSays.image) {
+            formData.append('image', selectedWhatAuthorSays.image);
         }
 
-        axios.put(`http://localhost:5241/api/AuthorsFeedback/edit-authors-feedback/${selectedFeedbackItem.id}`, formData, {
+        axios.put(`http://localhost:5241/api/WhatAuthorSays/${selectedWhatAuthorSays.id}`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -81,20 +81,20 @@ const AuthorsFeedback = () => {
         })
         .then(response => {
             console.log(response.data);
-            return axios.get('http://localhost:5241/api/AuthorsFeedback/get-authors-feedback', {
+            return axios.get('http://localhost:5241/api/WhatAuthorSays', {
                 headers: {
                     'Authorization': `Bearer ${token.token}`
                 }
             });
         })
         .then(response => {
-            setFeedbackItems(response.data);
-            setNotification({ text: 'Feedback item edited successfully', color: 'success' });
+            setWhatAuthorSays(response.data);
+            setNotification({ text: "Author's Thought edited successfully", color: 'success' });
             setNotificationOpen(true);
         })
         .catch(error => {
             console.error('Error editing feedback item:', error);
-            setNotification({ text: 'Error editing feedback item', color: 'error' });
+            setNotification({ text: "Error editing Author's Thought", color: 'error' });
             setNotificationOpen(true);
         });
 
@@ -104,11 +104,11 @@ const AuthorsFeedback = () => {
     // Add feedback item
     const handleAdd = () => {
         const formData = new FormData();
-        formData.append('name', selectedFeedbackItem.name);
-        formData.append('quote', selectedFeedbackItem.quote);
-        formData.append('image', selectedFeedbackItem.image);
+        formData.append('name', selectedWhatAuthorSays.name);
+        formData.append('quote', selectedWhatAuthorSays.quote);
+        formData.append('image', selectedWhatAuthorSays.image);
 
-        axios.post('http://localhost:5241/api/AuthorsFeedback/add-authors-feedback', formData, {
+        axios.post('http://localhost:5241/api/WhatAuthorSays', formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -116,20 +116,20 @@ const AuthorsFeedback = () => {
         })
         .then(response => {
             console.log(response.data);
-            return axios.get('http://localhost:5241/api/AuthorsFeedback/get-authors-feedback', {
+            return axios.get('http://localhost:5241/api/WhatAuthorSays', {
                 headers: {
                     'Authorization': `Bearer ${token.token}`
                 }
             });
         })
         .then(response => {
-            setFeedbackItems(response.data);
-            setNotification({ text: 'Feedback item added successfully', color: 'success' });
+            setWhatAuthorSays(response.data);
+            setNotification({ text: "Author's Thought added successfully", color: 'success' });
             setNotificationOpen(true);
         })
         .catch(error => {
-            console.error('Error adding feedback item:', error);
-            setNotification({ text: 'Error adding feedback item', color: 'error' });
+            console.error("Error adding Author's Thought:", error);
+            setNotification({ text: "Error adding Author's Thought", color: 'error' });
             setNotificationOpen(true);
         });
 
@@ -138,49 +138,49 @@ const AuthorsFeedback = () => {
 
     // Edit button click handler
     const handleEditClick = (item) => {
-        setSelectedFeedbackItem(item);
+        setSelectedWhatAuthorSays(item);
         setIsEditDialogOpen(true);
     };
 
     // Delete button click handler
     const handleDeleteClick = (id) => {
-        setSelectedFeedbackItem(id);
+        setSelectedWhatAuthorSays(id);
         setIsDeleteDialogOpen(true);
     };
 
     // Dialog form field change handler
     const handleFieldChange = (e) => {
-        setSelectedFeedbackItem({
-            ...selectedFeedbackItem,
+        setSelectedWhatAuthorSays({
+            ...selectedWhatAuthorSays,
             [e.target.name]: e.target.value
         });
     };
 
     // Dialog file input change handler
     const handleFileChange = (e) => {
-        setSelectedFeedbackItem({
-            ...selectedFeedbackItem,
+        setSelectedWhatAuthorSays({
+            ...selectedWhatAuthorSays,
             image: e.target.files[0]
         });
     };
 
     // Add button click handler
     const handleAddClick = () => {
-        setSelectedFeedbackItem({ name: '', quote: '', image: null });
+        setSelectedWhatAuthorSays({ name: '', quote: '', image: null });
         setIsEditDialogOpen(true);
     };
 
     return (
         <div className="our_work">
-              <h2 className='admin_heading'>Authors Feedback</h2>
+              <h2 className='admin_heading'>What Our Author Says</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: '974px', position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
-                    Add Feedback
+                    Add Author's Thought
                     <AddIcon />
                 </button>
                 <Box sx={{ width: '100%', overflowX: 'auto', height: 350 }}>
                     <DataGrid
-                        rows={feedbackItems}
+                        rows={WhatAuthorSays}
                         columns={[
                             { field: 'id', headerName: 'ID', width: 90 },
                             { field: 'name', headerName: 'Name', width: 150 },
@@ -219,21 +219,21 @@ const AuthorsFeedback = () => {
                         disableSelectionOnClick
                     />
                 </Box>
-                <EditFeedbackDialog
+                <EditWhatAuthorSaysDialog
                     open={isEditDialogOpen}
                     onClose={() => setIsEditDialogOpen(false)}
-                    feedbackItem={selectedFeedbackItem}
-                    onSave={selectedFeedbackItem && selectedFeedbackItem.id ? handleEdit : handleAdd}
+                    WhatAuthorSays={selectedWhatAuthorSays}
+                    onSave={selectedWhatAuthorSays && selectedWhatAuthorSays.id ? handleEdit : handleAdd}
                     onFieldChange={handleFieldChange}
                     onFileChange={handleFileChange}
                 />
 
                 <DeleteDialog
                     open={isDeleteDialogOpen}
-                    Name='Feedback'
-                    Data={selectedFeedbackItem}
+                    Name="Author's Thought"
+                    Data={selectedWhatAuthorSays}
                     onClose={() => setIsDeleteDialogOpen(false)}
-                    onDelete={() => handleDelete(selectedFeedbackItem)}
+                    onDelete={() => handleDelete(selectedWhatAuthorSays)}
                 />
                 <Notification
                     text={notification.text}
@@ -246,4 +246,4 @@ const AuthorsFeedback = () => {
     );
 };
 
-export default AuthorsFeedback;
+export default WhatAuthorSays;

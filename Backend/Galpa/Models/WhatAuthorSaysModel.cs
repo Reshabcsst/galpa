@@ -1,6 +1,6 @@
 ﻿namespace Galpa.Models
 {
-    public class AuthorFeedbackModel
+    public class WhatAuthorSaysModel
     {
         public int Id { get; set; }
         public string? Name { get; set; }

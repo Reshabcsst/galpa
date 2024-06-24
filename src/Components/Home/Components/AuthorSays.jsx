@@ -12,7 +12,7 @@ const AuthorSays = () => {
 
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/AuthorsFeedback/get-authors-feedback')
+        axios.get('http://localhost:5241/api/WhatAuthorSays')
             .then(response => {
                 setFeedbacks(response.data);
                 setLoading(false);
