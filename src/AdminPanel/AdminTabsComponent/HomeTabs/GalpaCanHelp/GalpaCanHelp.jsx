@@ -11,7 +11,7 @@ import EditCompanyInfoDialog from './EditCompanyInfoDialog';
 import DeleteDialog from '../../DeleteDialog';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 
-const GalpaCanHelp = () => {
+const GalpaCanHelp = ({ServerURL}) => {
     const [companyInfo, setCompanyInfo] = useState(null);
     const [selectedCompanyInfo, setSelectedCompanyInfo] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
@@ -23,7 +23,7 @@ const GalpaCanHelp = () => {
 
     // Fetching company info data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/GalpaCanHelp/get-company-info', {
+        axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -36,7 +36,7 @@ const GalpaCanHelp = () => {
     }, [token.token]);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/GalpaCanHelp/delete-company-info/${id}`, {
+        axios.delete(`${ServerURL}/api/GalpaCanHelp/delete-company-info/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -56,7 +56,7 @@ const GalpaCanHelp = () => {
     };
 
     const handleEdit = () => {
-        axios.put(`http://localhost:5241/api/GalpaCanHelp/edit-company-info/${selectedCompanyInfo.id}`, selectedCompanyInfo, {
+        axios.put(`${ServerURL}/api/GalpaCanHelp/edit-company-info/${selectedCompanyInfo.id}`, selectedCompanyInfo, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -66,7 +66,7 @@ const GalpaCanHelp = () => {
                 setAdded({ text: 'Item edited successfully!', color: 'success' });
                 console.log(response.data);
                 // Fetch updated company info data after edit
-                return axios.get('http://localhost:5241/api/GalpaCanHelp/get-company-info', {
+                return axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -85,7 +85,7 @@ const GalpaCanHelp = () => {
     };
 
     const handleAdd = () => {
-        axios.post('http://localhost:5241/api/GalpaCanHelp/add-company-info', selectedCompanyInfo, {
+        axios.post(`${ServerURL}/api/GalpaCanHelp/add-company-info`, selectedCompanyInfo, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -95,7 +95,7 @@ const GalpaCanHelp = () => {
                 setAdded({ text: 'Added Successfully!', color: 'success' });
                 console.log(response.data);
                 // Fetch updated company info data after adding
-                return axios.get('http://localhost:5241/api/GalpaCanHelp/get-company-info', {
+                return axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }

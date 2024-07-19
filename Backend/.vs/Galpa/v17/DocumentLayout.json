@@ -3,16 +3,100 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\whatauthorsayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\whatauthorsayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\blogpagecontroller\\blogpostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\blogpagecontroller\\blogpostcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\whatauthorsaysmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\whatauthorsaysmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\blog\\blogpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\blog\\blogpostmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\enquireformcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\enquireformcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\homepagecontroller\\whatauthorsayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\homepagecontroller\\whatauthorsayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\blogpagecontroller\\blogsbannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\blogpagecontroller\\blogsbannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\aboutpagecontroller\\aboutbannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\aboutpagecontroller\\aboutbannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\servicepagecontroller\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\servicepagecontroller\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\servicepagecontroller\\servicebannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\servicepagecontroller\\servicebannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\homepagecontroller\\popularitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\homepagecontroller\\popularitycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\homepagecontroller\\ourworkcarouselcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\homepagecontroller\\ourworkcarouselcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\homepagecontroller\\mostpopularauthorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\homepagecontroller\\mostpopularauthorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\homepagecontroller\\homebannercarouselcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\homepagecontroller\\homebannercarouselcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\homepagecontroller\\enquireformcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\homepagecontroller\\enquireformcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\aboutpagecontroller\\aboutdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\aboutpagecontroller\\aboutdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\aboutpagecontroller\\whatsetusapartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\aboutpagecontroller\\whatsetusapartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\controllers\\aboutpagecontroller\\faqcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\controllers\\aboutpagecontroller\\faqcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\about\\faqmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\about\\faqmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\about\\cardmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\about\\cardmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\about\\aboutdetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\about\\aboutdetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\service\\servicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\service\\servicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\home\\carouselitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\home\\carouselitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\service\\bannermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\service\\bannermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\home\\popularity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\home\\popularity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|c:\\users\\user\\desktop\\galpa\\backend\\galpa\\models\\home\\whatauthorsaysmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8D1EFAE7-B849-4D91-998D-189183B73D97}|Galpa\\Galpa.csproj|solutionrelative:galpa\\models\\home\\whatauthorsaysmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,41 +111,308 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WhatAuthorSaysModel.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\WhatAuthorSaysModel.cs",
-              "RelativeDocumentMoniker": "Galpa\\Models\\WhatAuthorSaysModel.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\WhatAuthorSaysModel.cs",
-              "RelativeToolTip": "Galpa\\Models\\WhatAuthorSaysModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Title": "BlogPostModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Blog\\BlogPostModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Blog\\BlogPostModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Blog\\BlogPostModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\Blog\\BlogPostModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-24T16:40:32.085Z",
+              "WhenOpened": "2024-07-19T16:18:53.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BlogPostController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\BlogPageController\\BlogPostController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\BlogPageController\\BlogPostController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\BlogPageController\\BlogPostController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\BlogPageController\\BlogPostController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAYwBYAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T16:18:08.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BlogsBannerController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\BlogPageController\\BlogsBannerController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\BlogPageController\\BlogsBannerController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\BlogPageController\\BlogsBannerController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\BlogPageController\\BlogsBannerController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T15:55:39.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "WhatAuthorSaysController.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\WhatAuthorSaysController.cs",
-              "RelativeDocumentMoniker": "Galpa\\Controllers\\WhatAuthorSaysController.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\WhatAuthorSaysController.cs",
-              "RelativeToolTip": "Galpa\\Controllers\\WhatAuthorSaysController.cs",
-              "ViewState": "AQIAANMAAAAAAAAAAAAcwOEAAAAYAAAA",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\WhatAuthorSaysController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\HomePageController\\WhatAuthorSaysController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\WhatAuthorSaysController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\HomePageController\\WhatAuthorSaysController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-24T16:39:59.156Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "ServiceBannerController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\ServicePageController\\ServiceBannerController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\ServicePageController\\ServiceBannerController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\ServicePageController\\ServiceBannerController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\ServicePageController\\ServiceBannerController.cs",
+              "ViewState": "AQIAANYAAAAAAAAAAAAcwBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T06:09:17.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ServicesController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\ServicePageController\\ServicesController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\ServicePageController\\ServicesController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\ServicePageController\\ServicesController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\ServicePageController\\ServicesController.cs",
+              "ViewState": "AQIAAMgAAAAAAAAAAAAIwMoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T07:23:57.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AboutBannerController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\AboutBannerController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\AboutPageController\\AboutBannerController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\AboutBannerController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\AboutPageController\\AboutBannerController.cs",
+              "ViewState": "AQIAAOEAAAAAAAAAAAAuwOoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T13:33:40.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PopularityController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\PopularityController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\HomePageController\\PopularityController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\PopularityController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\HomePageController\\PopularityController.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAwwDQAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T15:33:32.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAAABAAAAAAAAAAAcwA8BAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-14T05:32:53.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "OurWorkCarouselController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\OurWorkCarouselController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\HomePageController\\OurWorkCarouselController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\OurWorkCarouselController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\HomePageController\\OurWorkCarouselController.cs",
+              "ViewState": "AQIAANAAAAAAAAAAAAAcwBYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T15:47:51.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MostPopularAuthorsController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\MostPopularAuthorsController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\HomePageController\\MostPopularAuthorsController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\MostPopularAuthorsController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\HomePageController\\MostPopularAuthorsController.cs",
+              "ViewState": "AQIAAOsAAAAAAAAAAAAcwB0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-19T15:47:37.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AboutDetailsController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\AboutDetailsController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\AboutPageController\\AboutDetailsController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\AboutDetailsController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\AboutPageController\\AboutDetailsController.cs",
+              "ViewState": "AQIAAJ8AAAAAAAAAAADwvxIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T17:19:26.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "EnquireFormController.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\EnquireFormController.cs",
-              "RelativeDocumentMoniker": "Galpa\\Controllers\\EnquireFormController.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\EnquireFormController.cs",
-              "RelativeToolTip": "Galpa\\Controllers\\EnquireFormController.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAAwwFwAAAAJAAAA",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\EnquireFormController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\HomePageController\\EnquireFormController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\EnquireFormController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\HomePageController\\EnquireFormController.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAwwGAAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-23T16:28:35.113Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HomeBannerCarouselController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\HomeBannerCarouselController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\HomePageController\\HomeBannerCarouselController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\HomePageController\\HomeBannerCarouselController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\HomePageController\\HomeBannerCarouselController.cs",
+              "ViewState": "AQIAANwAAAAAAAAAAAAcwBAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T06:05:49.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WhatSetUsApartController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\WhatSetUsApartController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\AboutPageController\\WhatSetUsApartController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\WhatSetUsApartController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\AboutPageController\\WhatSetUsApartController.cs",
+              "ViewState": "AQIAAOsAAAAAAAAAAAAcwBkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T16:15:56.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FAQController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\FAQController.cs",
+              "RelativeDocumentMoniker": "Galpa\\Controllers\\AboutPageController\\FAQController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Controllers\\AboutPageController\\FAQController.cs",
+              "RelativeToolTip": "Galpa\\Controllers\\AboutPageController\\FAQController.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAApwJMAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T16:49:27.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CardModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\About\\CardModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\About\\CardModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\About\\CardModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\About\\CardModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T16:21:05.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AboutDetailsModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\About\\AboutDetailsModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\About\\AboutDetailsModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\About\\AboutDetailsModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\About\\AboutDetailsModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T17:26:26.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "FAQModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\About\\FAQModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\About\\FAQModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\About\\FAQModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\About\\FAQModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T16:53:28.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CarouselItemModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Home\\CarouselItemModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Home\\CarouselItemModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Home\\CarouselItemModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\Home\\CarouselItemModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T06:11:39.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "BannerModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Service\\BannerModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Service\\BannerModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Service\\BannerModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\Service\\BannerModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T06:12:27.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServiceModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Service\\ServiceModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Service\\ServiceModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Service\\ServiceModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\Service\\ServiceModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-17T07:24:50.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Popularity.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Home\\Popularity.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Home\\Popularity.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Home\\Popularity.cs",
+              "RelativeToolTip": "Galpa\\Models\\Home\\Popularity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T15:37:36.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "WhatAuthorSaysModel.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Home\\WhatAuthorSaysModel.cs",
+              "RelativeDocumentMoniker": "Galpa\\Models\\Home\\WhatAuthorSaysModel.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Models\\Home\\WhatAuthorSaysModel.cs",
+              "RelativeToolTip": "Galpa\\Models\\Home\\WhatAuthorSaysModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T16:40:32.085Z"
             }
           ]
         }

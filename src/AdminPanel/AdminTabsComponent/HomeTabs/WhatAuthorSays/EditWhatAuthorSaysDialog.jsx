@@ -4,7 +4,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 
-const EditWhatAuthorSaysDialog = ({ open, onClose, WhatAuthorSays, onSave, onFieldChange, onFileChange }) => {
+const EditWhatAuthorSaysDialog = ({ open, onClose, WhatAuthorSays, onSave, onFieldChange, onFileChange, ServerURL }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [errors, setErrors] = useState({});
 
@@ -14,7 +14,7 @@ const EditWhatAuthorSaysDialog = ({ open, onClose, WhatAuthorSays, onSave, onFie
                 const url = URL.createObjectURL(WhatAuthorSays.image);
                 setPreviewUrl(url);
             } else {
-                const url = `http://localhost:5241${WhatAuthorSays.image}`;
+                const url = `${ServerURL}${WhatAuthorSays.image}`;
                 setPreviewUrl(url);
             }
         } else {
@@ -75,7 +75,7 @@ const EditWhatAuthorSaysDialog = ({ open, onClose, WhatAuthorSays, onSave, onFie
                             name="quote"
                             value={WhatAuthorSays ? WhatAuthorSays.quote : ''}
                             onChange={onFieldChange}
-                           />
+                        />
                         {errors.quote && <p style={{ color: 'red' }}>{errors.quote}</p>}
                     </div>
                     <div className="custom-file-input">

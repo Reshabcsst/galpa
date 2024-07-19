@@ -11,7 +11,7 @@ import EditAuthorDialog from './EditAuthorDialog';
 import DeleteDialog from '../../DeleteDialog';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 
-const MostPopularAuthors = () => {
+const MostPopularAuthors = ({ ServerURL }) => {
     const [authors, setAuthors] = useState([]);
     const [selectedAuthor, setSelectedAuthor] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
@@ -22,8 +22,8 @@ const MostPopularAuthors = () => {
     const token = JSON.parse(window.localStorage.getItem("AdminData"));
 
 
-      // Notification
-      const handleNotificationClose = (event, reason) => {
+    // Notification
+    const handleNotificationClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
@@ -32,7 +32,7 @@ const MostPopularAuthors = () => {
 
     // Fetching authors data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/MostPopularAuthors/get-authors', {
+        axios.get(`${ServerURL}/api/MostPopularAuthors/get-authors`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -42,7 +42,7 @@ const MostPopularAuthors = () => {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/MostPopularAuthors/delete-author/${id}`, {
+        axios.delete(`${ServerURL}/api/MostPopularAuthors/delete-author/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -54,10 +54,10 @@ const MostPopularAuthors = () => {
                 setAuthors(authors.filter(author => author.id !== id));
             })
             .catch(error => {
-                 console.error(error);
-                 setAdded({ text: 'Error deleteing item!', color: 'error' });
-                 setNotificationOpen(true);
-             });
+                console.error(error);
+                setAdded({ text: 'Error deleteing item!', color: 'error' });
+                setNotificationOpen(true);
+            });
         setIsDeleteDialogOpen(false);
     };
 
@@ -72,7 +72,7 @@ const MostPopularAuthors = () => {
         formData.append('instagramLink', selectedAuthor.instagramLink);
         formData.append('twitterLink', selectedAuthor.twitterLink);
 
-        axios.put(`http://localhost:5241/api/MostPopularAuthors/edit-author/${selectedAuthor.id}`, formData, {
+        axios.put(`${ServerURL}/api/MostPopularAuthors/edit-author/${selectedAuthor.id}`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -81,7 +81,7 @@ const MostPopularAuthors = () => {
             .then(response => {
                 console.log(response.data);
                 // Fetch updated authors data after edit
-                return axios.get('http://localhost:5241/api/MostPopularAuthors/get-authors', {
+                return axios.get(`${ServerURL}api/MostPopularAuthors/get-authors`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -91,7 +91,7 @@ const MostPopularAuthors = () => {
                 setAuthors(response.data);
                 setAdded({ text: 'Item Edited Successfully!', color: 'success' });
                 setNotificationOpen(true);
-                
+
             })
             .catch(error => {
                 console.error(error);
@@ -116,7 +116,7 @@ const MostPopularAuthors = () => {
         formData.append('instagramLink', selectedAuthor.instagramLink);
         formData.append('twitterLink', selectedAuthor.twitterLink);
 
-        axios.post('http://localhost:5241/api/MostPopularAuthors/add-author', formData, {
+        axios.post(`${ServerURL}/api/MostPopularAuthors/add-author`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -125,7 +125,7 @@ const MostPopularAuthors = () => {
             .then(response => {
                 console.log(response.data);
                 // Fetch updated authors data after adding
-                return axios.get('http://localhost:5241/api/MostPopularAuthors/get-authors', {
+                return axios.get(`${ServerURL}/api/MostPopularAuthors/get-authors`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -177,7 +177,7 @@ const MostPopularAuthors = () => {
 
     return (
         <div className="our_work">
-              <h2 className='admin_heading'>Most Popular Authors</h2>
+            <h2 className='admin_heading'>Most Popular Authors</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: "974px", position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
                     Add Author
@@ -196,7 +196,7 @@ const MostPopularAuthors = () => {
                                 width: 200,
                                 renderCell: (params) => (
                                     <img
-                                        src={`http://localhost:5241${params.row.profilePicture}`}
+                                        src={`${ServerURL}${params.row.profilePicture}`}
                                         alt={params.row.name}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
@@ -240,6 +240,7 @@ const MostPopularAuthors = () => {
                     />
                 </Box>
                 <EditAuthorDialog
+                    ServerURL={ServerURL}
                     open={isEditDialogOpen}
                     onClose={() => setIsEditDialogOpen(false)}
                     author={selectedAuthor}

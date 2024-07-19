@@ -10,7 +10,7 @@ import AvtarMenu from './AvtarMenu';
 import TabMenu from './TabMenu';
 import MenuItems from '../DemoData/TabMenus';
 
-const Header = () => {
+const Header = ({ServerURL}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -161,7 +161,7 @@ const Header = () => {
           )}
         </div>
       </div>
-      <SignIn open={isModalOpen} handleClose={toggleModal} />
+      <SignIn open={isModalOpen} handleClose={toggleModal} ServerURL={ServerURL}/>
     </header>
   );
 };

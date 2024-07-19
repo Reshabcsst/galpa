@@ -3,7 +3,7 @@ import design from '../../../Assets/Rectanglesmall.png';
 import Notification from './PopNotification/Notification';
 import axios from 'axios';
 
-const EnquireForm = () => {
+const EnquireForm = ({ServerURL}) => {
     const [notification, setNotification] = useState({ text: '', color: '' });
     const [notificationOpen, setNotificationOpen] = useState(false);
 
@@ -69,7 +69,7 @@ const EnquireForm = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5241/api/EnquireForm', formData, {
+            const response = await axios.post(`${ServerURL}/api/EnquireForm`, formData, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token.token}`

@@ -215,7 +215,6 @@
                 width: 100%;
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-image: url('../../Assets/AboutBoxpic1.jpg');
             }
 
             .lwr {
@@ -236,14 +235,6 @@
                     margin-top: 1rem;
                     color: $base-gray-color;
                 }
-            }
-
-            &:nth-child(2) .upr {
-                background-image: url('../../Assets/AboutBoxpic2.jpg');
-            }
-
-            &:nth-child(3) .upr {
-                background-image: url('../../Assets/AboutBoxpic3.jpg');
             }
         }
     }

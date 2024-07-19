@@ -5,12 +5,12 @@ import { CiMail } from 'react-icons/ci';
 import axios from 'axios';
 import { InfinitySpin } from 'react-loader-spinner';
 
-const Help = () => {
+const Help = ({ServerURL}) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/GalpaCanHelp/get-company-info')
+        axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`)
             .then(response => {
                 setData(response.data);
                 setLoading(false);

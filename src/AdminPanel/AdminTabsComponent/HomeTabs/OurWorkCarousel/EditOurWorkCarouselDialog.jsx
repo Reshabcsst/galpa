@@ -4,7 +4,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 
-const EditOurWorkCarouselDialog = ({ open, onClose, carousel, onSave, onFileChange }) => {
+const EditOurWorkCarouselDialog = ({ open, onClose, carousel, onSave, onFileChange, ServerURL }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [errors, setErrors] = useState({});
 
@@ -14,7 +14,7 @@ const EditOurWorkCarouselDialog = ({ open, onClose, carousel, onSave, onFileChan
                 const url = URL.createObjectURL(carousel.imagePath);
                 setPreviewUrl(url);
             } else {
-                const url = `http://localhost:5241${carousel.imagePath}`;
+                const url = `${ServerURL}${carousel.imagePath}`;
                 setPreviewUrl(url);
             }
         } else {

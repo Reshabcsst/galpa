@@ -5,22 +5,22 @@ const MenuItems = {
         { label: 'Galpa Can Help', path: '/admin-home-galpa-can-help' },
         { label: 'Most Popular Authors', path: '/admin-home-most-popular-authors' },
         { label: 'What Our Author says', path: '/admin-home-what-authors-say' },
-        { label: 'Enquire Form Data', path: '/admin-home-enquire-form' }
+        { label: 'Enquire Form Data', path: '/admin-home-enquire-form' },
+        { label: 'Popularity Cards', path: '/admin-home-popularity' }
     ],
     service: [
-        { label: 'Option 1', path: '/option1' },
-        { label: 'Option 2', path: '/option2' },
-        { label: 'Option 3', path: '/option3' }
+        { label: 'Banner', path: '/admin-service-banner' },
+        { label: 'Services', path: '/admin-service' }
     ],
     aboutUs: [
-        { label: 'Detail 1', path: '/detail1' },
-        { label: 'Detail 2', path: '/detail2' },
-        { label: 'Detail 3', path: '/detail3' }
+        { label: 'Banner', path: '/admin-about-banner' },
+        { label: 'Details', path: '/admin-about-details' },
+        { label: 'What Sets Us Apart', path: '/admin-about-cards' },
+        { label: 'FAQ', path: '/admin-about-faq' }
     ],
     blog: [
-        { label: 'Post 1', path: '/post1' },
-        { label: 'Post 2', path: '/post2' },
-        { label: 'Post 3', path: '/post3' }
+        { label: 'Banner', path: '/admin-blog-banner' },
+        { label: 'Blogs List', path: '/admin-blog-post' }
     ],
     partners: [
         { label: 'Partner 1', path: '/partner1' },

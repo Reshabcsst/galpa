@@ -3,7 +3,7 @@ import Google from '../../Assets/Google.svg';
 import Facebook from '../../Assets/facebook.svg';
 import './Signin.scss';
 
-const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose }) => {
+const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, ServerURL }) => {
     const [signInData, setSignInData] = useState({ userName: '', password: '' });
     const [signUpData, setSignUpData] = useState({ username: '', email: '', password: '' });
     const [errors, setErrors] = useState({});
@@ -26,7 +26,7 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose }) => 
         e.preventDefault();
         if (!validate()) return;
 
-        const url = activeTab === 'signIn' ? 'http://localhost:5241/api/Auth/login' : 'http://localhost:5241/api/Auth/registration';
+        const url = activeTab === 'signIn' ? `${ServerURL}/api/Auth/login` : `${ServerURL}/api/Auth/registration`;
         const data = activeTab === 'signIn' ? signInData : signUpData;
 
         try {
@@ -41,7 +41,7 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose }) => 
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
-                const userData =JSON.stringify(result)
+                const userData = JSON.stringify(result)
                 window.localStorage.setItem("UserData", userData);
                 handleNotification(activeTab === 'signIn' ? 'Login successful' : 'Signup successful', 'success');
                 setSignInData({ userName: '', password: '' });

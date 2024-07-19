@@ -11,7 +11,7 @@ import EditOurWorkCarouselDialog from './EditOurWorkCarouselDialog';
 import DeleteDialog from '../../DeleteDialog';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 
-const OurWorkCarouselTable = () => {
+const OurWorkCarouselTable = ({ ServerURL }) => {
     const [carousels, setCarousels] = useState([]);
     const [selectedCarousel, setSelectedCarousel] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
@@ -23,7 +23,7 @@ const OurWorkCarouselTable = () => {
 
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/OurWorkCarousel/get-our-work-carousel', {
+        axios.get(`${ServerURL}/api/OurWorkCarousel/get-our-work-carousel`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -33,7 +33,7 @@ const OurWorkCarouselTable = () => {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/OurWorkCarousel/delete-our-work-carousel/${id}`, {
+        axios.delete(`${ServerURL}/api/OurWorkCarousel/delete-our-work-carousel/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -59,7 +59,7 @@ const OurWorkCarouselTable = () => {
             formData.append('Image', selectedCarousel.imagePath);
         }
 
-        axios.put(`http://localhost:5241/api/OurWorkCarousel/edit-our-work-carousel/${selectedCarousel.id}`, formData, {
+        axios.put(`${ServerURL}/api/OurWorkCarousel/edit-our-work-carousel/${selectedCarousel.id}`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -70,7 +70,7 @@ const OurWorkCarouselTable = () => {
                 setAdded({ text: 'Item edited successful!', color: 'success' });
                 console.log(response.data);
                 // Fetch updated carousel data after edit
-                return axios.get('http://localhost:5241/api/OurWorkCarousel/get-our-work-carousel', {
+                return axios.get(`${ServerURL}/api/OurWorkCarousel/get-our-work-carousel`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -98,7 +98,7 @@ const OurWorkCarouselTable = () => {
         const formData = new FormData();
         formData.append('Image', selectedCarousel.imagePath);
 
-        axios.post('http://localhost:5241/api/OurWorkCarousel/add-our-work-carousel', formData, {
+        axios.post(`${ServerURL}/api/OurWorkCarousel/add-our-work-carousel`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -109,7 +109,7 @@ const OurWorkCarouselTable = () => {
                 setAdded({ text: 'Added Successful!', color: 'success' });
                 console.log(response.data);
                 // Fetch updated carousel data after adding
-                return axios.get('http://localhost:5241/api/OurWorkCarousel/get-our-work-carousel', {
+                return axios.get(`${ServerURL}/api/OurWorkCarousel/get-our-work-carousel`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -161,7 +161,7 @@ const OurWorkCarouselTable = () => {
 
     return (
         <div className="our_work">
-             <h2 className='admin_heading'>Our Work Carousel</h2>
+            <h2 className='admin_heading'>Our Work Carousel</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: "974px", position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
                     Add Carousel
@@ -178,7 +178,7 @@ const OurWorkCarouselTable = () => {
                                 width: 200,
                                 renderCell: (params) => (
                                     <img
-                                        src={`http://localhost:5241${params.row.imagePath}`}
+                                        src={`${ServerURL}${params.row.imagePath}`}
                                         alt="Carousel"
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
@@ -207,6 +207,7 @@ const OurWorkCarouselTable = () => {
                     />
                 </Box>
                 <EditOurWorkCarouselDialog
+                    ServerURL={ServerURL}
                     open={isEditDialogOpen}
                     onClose={() => setIsEditDialogOpen(false)}
                     carousel={selectedCarousel}

@@ -6,7 +6,7 @@ import DeleteDialog from '../../DeleteDialog';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 
-const EnquireFormGrid = () => {
+const EnquireFormGrid = ({ServerURL}) => {
     const [enquireForms, setEnquireForms] = useState([]);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [copiedMessage, setCopiedMessage] = useState('');
@@ -23,7 +23,7 @@ const EnquireFormGrid = () => {
 
     const fetchEnquireForms = async () => {
         try {
-            const response = await axios.get('http://localhost:5241/api/EnquireForm', {
+            const response = await axios.get(`${ServerURL}/api/EnquireForm`, {
                 headers: {
                     'Authorization': `Bearer ${token.token}`
                 }
@@ -86,7 +86,7 @@ const EnquireFormGrid = () => {
 
     // Delete Form 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/EnquireForm/${id}`, {
+        axios.delete(`${ServerURL}/api/EnquireForm/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }

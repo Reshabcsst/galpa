@@ -3,7 +3,7 @@ import './Signin.scss';
 import Notification from '../Components/Home/Components/PopNotification/Notification';
 import Forms from './LoginForms';
 
-const AdminLogin = () => {
+const AdminLogin = ({ ServerURL }) => {
     const [activeTab, setActiveTab] = useState('signIn');
     const [notificationOpen, setNotificationOpen] = useState(false);
     const [notificationText, setNotificationText] = useState('');
@@ -25,6 +25,7 @@ const AdminLogin = () => {
     return (
         <div className='admin_form'>
             <Forms
+                ServerURL={ServerURL}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
                 handleNotification={handleNotification}

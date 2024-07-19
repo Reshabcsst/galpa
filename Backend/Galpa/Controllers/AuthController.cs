@@ -1,4 +1,5 @@
 ﻿using Galpa.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -118,32 +119,11 @@ namespace Galpa.Controllers
                 {
                     if (reader.Read())
                     {
-                        // Generate JWT token
-                        var tokenHandler = new JwtSecurityTokenHandler();
-                        var key = Encoding.UTF8.GetBytes(_configuration.GetConnectionString("JWT_Secret"));
-
-                        var tokenDescriptor = new SecurityTokenDescriptor
-                        {
-                            Subject = new ClaimsIdentity(new Claim[]
-                            {
-                                new Claim(ClaimTypes.Name, login.UserName),
-                                // Add more claims if needed
-                            }),
-                            Expires = DateTime.UtcNow.AddDays(30), // Token expires in 30 days
-                            SigningCredentials = new SigningCredentials(
-                                new SymmetricSecurityKey(key),
-                                SecurityAlgorithms.HmacSha256Signature)
-                        };
-                        var token = tokenHandler.CreateToken(tokenDescriptor);
-                        var tokenString = tokenHandler.WriteToken(token);
-
-                        // Return the token along with user details
+                        // Return the user details
                         var userDetails = new
                         {
                             UserName = reader["UserName"].ToString(),
-                            Email = reader["Email"].ToString(),
-                            Token = tokenString  // Include the token in the response
-                                                 // Add other user details as needed
+                            Email = reader["Email"].ToString()
                         };
 
                         return Ok(userDetails);
@@ -217,6 +197,7 @@ namespace Galpa.Controllers
 
 
         // Admin registration
+        [Authorize]
         [HttpPost]
         [Route("admin/registration")]
         public IActionResult AdminRegister(RegistrationModel adminRegistration)

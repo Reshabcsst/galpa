@@ -5,14 +5,14 @@ import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
 import { InfinitySpin } from 'react-loader-spinner';
 
-const AuthorSays = () => {
+const AuthorSays = ({ServerURL}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [Feedbacks, setFeedbacks] = useState([]);
     const [loading, setLoading] = useState(true);
 
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/WhatAuthorSays')
+        axios.get(`${ServerURL}/api/WhatAuthorSays`)
             .then(response => {
                 setFeedbacks(response.data);
                 setLoading(false);
@@ -80,7 +80,7 @@ const AuthorSays = () => {
                                     {getVisibleImages().map((visibleAuthor, index) => (
                                         <img
                                             key={visibleAuthor.id}
-                                            src={`http://localhost:5241/${visibleAuthor.image}`}
+                                            src={`${ServerURL}/${visibleAuthor.image}`}
                                             alt={visibleAuthor.name}
                                             className={index === 1 ? 'active' : ''}
                                         />

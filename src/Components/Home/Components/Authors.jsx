@@ -5,12 +5,12 @@ import axios from 'axios';
 import { FaXTwitter } from 'react-icons/fa6';
 import { InfinitySpin } from 'react-loader-spinner';
 
-const Authors = () => {
+const Authors = ({ ServerURL }) => {
     const [Authors, setAuthors] = useState([]);
     const [loading, setLoading] = useState(true);
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/MostPopularAuthors/get-authors')
+        axios.get(`${ServerURL}/api/MostPopularAuthors/get-authors`)
             .then(response => {
                 setAuthors(response.data);
                 setLoading(false);
@@ -38,7 +38,7 @@ const Authors = () => {
             ) : (
                 <div className="authors-list">
                     {Authors.map((author, index) => (
-                        <AuthorCard key={index} author={author} />
+                        <AuthorCard ServerURL={ServerURL} key={index} author={author} />
                     ))}
                 </div>
             )}
@@ -46,12 +46,12 @@ const Authors = () => {
     );
 };
 
-const AuthorCard = ({ author }) => {
+const AuthorCard = ({ author, ServerURL }) => {
 
     return (
         <div className="author" >
             <div className="img-container">
-                <img src={`http://localhost:5241/${author.profilePicture}`} alt={author.name} />
+                <img src={`${ServerURL}/${author.profilePicture}`} alt={author.name} />
                 <div className="social-icons">
                     <a href={author.facebookLink}> <FaFacebookF /></a>
                     <a href={author.twitterLink}><FaXTwitter /></a>

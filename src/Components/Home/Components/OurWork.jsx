@@ -6,13 +6,13 @@ import design from '../../../Assets/Rectanglesmall.png';
 import axios from 'axios';
 import { InfinitySpin } from 'react-loader-spinner';
 
-const OurWork = () => {
+const OurWork = ({ServerURL}) => {
     const [carousels, setCarousels] = useState([]);
     const [loading, setLoading] = useState(true);
 
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/OurWorkCarousel/get-our-work-carousel')
+        axios.get(`${ServerURL}/api/OurWorkCarousel/get-our-work-carousel`)
             .then(response => { 
                 setCarousels(response.data); 
                 setLoading(false);
@@ -59,7 +59,7 @@ const OurWork = () => {
                     >
                         {carousels.map((carousel, index) => (
                             <div key={index} className='book'>
-                                <img src={`http://localhost:5241/${carousel.imagePath}`} alt={carousel.imagePath} />
+                                <img src={`${ServerURL}/${carousel.imagePath}`} alt={carousel.imagePath} />
                             </div>
                         ))}
                     </OwlCarousel>

@@ -7,7 +7,7 @@ import close from '../../Assets/Close.png';
 import Forms from './Forms';
 import Notification from '../Home/Components/PopNotification/Notification';
 
-const SignIn = ({ open, handleClose }) => {
+const SignIn = ({ open, handleClose, ServerURL }) => {
     const [activeTab, setActiveTab] = useState('signIn');
     const [notificationOpen, setNotificationOpen] = useState(false);
     const [notificationText, setNotificationText] = useState('');
@@ -45,7 +45,7 @@ const SignIn = ({ open, handleClose }) => {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        <Forms activeTab={activeTab} setActiveTab={setActiveTab} handleNotification={handleNotification} handleClose={handleClose} />
+                        <Forms ServerURL={ServerURL} activeTab={activeTab} setActiveTab={setActiveTab} handleNotification={handleNotification} handleClose={handleClose} />
                     </DialogContentText>
                 </DialogContent>
             </Dialog>

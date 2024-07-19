@@ -10,7 +10,7 @@ import Notification from '../../../../Components/Home/Components/PopNotification
 import DeleteDialog from '../../DeleteDialog';
 import EditWhatAuthorSaysDialog from './EditWhatAuthorSaysDialog';
 
-const WhatAuthorSays = () => {
+const WhatAuthorSays = ({ ServerURL }) => {
     const [WhatAuthorSays, setWhatAuthorSays] = useState([]);
     const [selectedWhatAuthorSays, setSelectedWhatAuthorSays] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
@@ -30,37 +30,37 @@ const WhatAuthorSays = () => {
 
     // Fetching feedback items
     useEffect(() => {
-        axios.get('http://localhost:5241/api/WhatAuthorSays', {
+        axios.get(`${ServerURL}/api/WhatAuthorSays`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
         })
-        .then(response => {
-            setWhatAuthorSays(response.data);
-        })
-        .catch(error => {
-            console.error("Error fetching Author's Thought:", error);
-        });
+            .then(response => {
+                setWhatAuthorSays(response.data);
+            })
+            .catch(error => {
+                console.error("Error fetching Author's Thought:", error);
+            });
     }, []);
 
     // Delete feedback item
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/WhatAuthorSays/${id}`, {
+        axios.delete(`${ServerURL}/api/WhatAuthorSays/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
         })
-        .then(response => {
-            console.log(response.data);
-            setNotification({ text: "Author's Thought deleted successfully", color: 'success' });
-            setNotificationOpen(true);
-            setWhatAuthorSays(WhatAuthorSays.filter(item => item.id !== id));
-        })
-        .catch(error => {
-            console.error("Error deleting Author's Thought:", error);
-            setNotification({ text: "Error deleting Author's Thought", color: 'error' });
-            setNotificationOpen(true);
-        });
+            .then(response => {
+                console.log(response.data);
+                setNotification({ text: "Author's Thought deleted successfully", color: 'success' });
+                setNotificationOpen(true);
+                setWhatAuthorSays(WhatAuthorSays.filter(item => item.id !== id));
+            })
+            .catch(error => {
+                console.error("Error deleting Author's Thought:", error);
+                setNotification({ text: "Error deleting Author's Thought", color: 'error' });
+                setNotificationOpen(true);
+            });
         setIsDeleteDialogOpen(false);
     };
 
@@ -73,30 +73,30 @@ const WhatAuthorSays = () => {
             formData.append('image', selectedWhatAuthorSays.image);
         }
 
-        axios.put(`http://localhost:5241/api/WhatAuthorSays/${selectedWhatAuthorSays.id}`, formData, {
+        axios.put(`${ServerURL}/api/WhatAuthorSays/${selectedWhatAuthorSays.id}`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
             }
         })
-        .then(response => {
-            console.log(response.data);
-            return axios.get('http://localhost:5241/api/WhatAuthorSays', {
-                headers: {
-                    'Authorization': `Bearer ${token.token}`
-                }
+            .then(response => {
+                console.log(response.data);
+                return axios.get(`${ServerURL}/api/WhatAuthorSays`, {
+                    headers: {
+                        'Authorization': `Bearer ${token.token}`
+                    }
+                });
+            })
+            .then(response => {
+                setWhatAuthorSays(response.data);
+                setNotification({ text: "Author's Thought edited successfully", color: 'success' });
+                setNotificationOpen(true);
+            })
+            .catch(error => {
+                console.error('Error editing feedback item:', error);
+                setNotification({ text: "Error editing Author's Thought", color: 'error' });
+                setNotificationOpen(true);
             });
-        })
-        .then(response => {
-            setWhatAuthorSays(response.data);
-            setNotification({ text: "Author's Thought edited successfully", color: 'success' });
-            setNotificationOpen(true);
-        })
-        .catch(error => {
-            console.error('Error editing feedback item:', error);
-            setNotification({ text: "Error editing Author's Thought", color: 'error' });
-            setNotificationOpen(true);
-        });
 
         setIsEditDialogOpen(false);
     };
@@ -108,30 +108,30 @@ const WhatAuthorSays = () => {
         formData.append('quote', selectedWhatAuthorSays.quote);
         formData.append('image', selectedWhatAuthorSays.image);
 
-        axios.post('http://localhost:5241/api/WhatAuthorSays', formData, {
+        axios.post(`${ServerURL}/api/WhatAuthorSays`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
             }
         })
-        .then(response => {
-            console.log(response.data);
-            return axios.get('http://localhost:5241/api/WhatAuthorSays', {
-                headers: {
-                    'Authorization': `Bearer ${token.token}`
-                }
+            .then(response => {
+                console.log(response.data);
+                return axios.get(`${ServerURL}/api/WhatAuthorSays`, {
+                    headers: {
+                        'Authorization': `Bearer ${token.token}`
+                    }
+                });
+            })
+            .then(response => {
+                setWhatAuthorSays(response.data);
+                setNotification({ text: "Author's Thought added successfully", color: 'success' });
+                setNotificationOpen(true);
+            })
+            .catch(error => {
+                console.error("Error adding Author's Thought:", error);
+                setNotification({ text: "Error adding Author's Thought", color: 'error' });
+                setNotificationOpen(true);
             });
-        })
-        .then(response => {
-            setWhatAuthorSays(response.data);
-            setNotification({ text: "Author's Thought added successfully", color: 'success' });
-            setNotificationOpen(true);
-        })
-        .catch(error => {
-            console.error("Error adding Author's Thought:", error);
-            setNotification({ text: "Error adding Author's Thought", color: 'error' });
-            setNotificationOpen(true);
-        });
 
         setIsEditDialogOpen(false);
     };
@@ -172,7 +172,7 @@ const WhatAuthorSays = () => {
 
     return (
         <div className="our_work">
-              <h2 className='admin_heading'>What Our Author Says</h2>
+            <h2 className='admin_heading'>What Our Author Says</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: '974px', position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
                     Add Author's Thought
@@ -191,7 +191,7 @@ const WhatAuthorSays = () => {
                                 width: 200,
                                 renderCell: (params) => (
                                     <img
-                                        src={`http://localhost:5241${params.row.image}`}
+                                        src={`${ServerURL}${params.row.image}`}
                                         alt={params.row.name}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
@@ -220,6 +220,7 @@ const WhatAuthorSays = () => {
                     />
                 </Box>
                 <EditWhatAuthorSaysDialog
+                    ServerURL={ServerURL}
                     open={isEditDialogOpen}
                     onClose={() => setIsEditDialogOpen(false)}
                     WhatAuthorSays={selectedWhatAuthorSays}

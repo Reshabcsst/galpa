@@ -3,7 +3,7 @@ import Google from '../Assets/Google.svg';
 import Facebook from '../Assets/facebook.svg';
 import './Signin.scss';
 
-const Forms = ({ handleNotification }) => {
+const Forms = ({ handleNotification, ServerURL }) => {
     const [signInData, setSignInData] = useState({ userName: '', password: '' });
     const [errors, setErrors] = useState({});
 
@@ -22,7 +22,7 @@ const Forms = ({ handleNotification }) => {
         const data = signInData;
 
         try {
-            const response = await fetch('http://localhost:5241/api/Auth/admin/login', {
+            const response = await fetch(`${ServerURL}/api/Auth/admin/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Forms = ({ handleNotification }) => {
 
     return (
         <div className='auth_signIn'>
-           <h2>Sign In</h2>
+            <h2>Sign In</h2>
             <div className="auth_tabContent">
                 <form className="auth_form" onSubmit={handleSubmit}>
                     <button type="button"><img src={Google} alt="Google" />Continue with Google</button>

@@ -5,12 +5,12 @@ import axios from 'axios';
 import { InfinitySpin } from 'react-loader-spinner';
 
 
-const HomeCarousel = () => {
+const HomeCarousel = ({ServerURL}) => {
     const [carousels, setCarousels] = useState([]);
     const [loading, setLoading] = useState(true);
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/HomeBannerCarousel/get-home-banner-carousel')
+        axios.get(`${ServerURL}/api/HomeBannerCarousel/get-home-banner-carousel`)
             .then(response => {
                 setCarousels(response.data);
                 setLoading(false);
@@ -44,7 +44,7 @@ const HomeCarousel = () => {
                 >
                     {carousels.map((carousel, index) =>
                     (
-                        <div key={index} style={{ backgroundImage: `url(http://localhost:5241/${carousel.backgroundImage})` }} className='home-slider'>
+                        <div key={index} style={{ backgroundImage: `url(${ServerURL}/${carousel.backgroundImage})` }} className='home-slider'>
                             <div className="inr">
                                 <h1 className='bnr-heading'>{carousel.heading}
                                     <img className='img' src={Design} alt="design" />

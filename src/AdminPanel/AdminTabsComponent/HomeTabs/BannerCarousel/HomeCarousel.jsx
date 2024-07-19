@@ -11,7 +11,7 @@ import EditCarouselDialog from './EditCarouselDialog';
 import DeleteDialog from '../../DeleteDialog';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 
-const CarouselTable = () => {
+const CarouselTable = ({ ServerURL }) => {
     const [carousels, setCarousels] = useState([]);
     const [selectedCarousel, setSelectedCarousel] = useState(null);
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
@@ -22,8 +22,8 @@ const CarouselTable = () => {
     const token = JSON.parse(window.localStorage.getItem("AdminData"));
 
 
-     // Notification
-     const handleNotificationClose = (event, reason) => {
+    // Notification
+    const handleNotificationClose = (event, reason) => {
         if (reason === 'clickaway') {
             return;
         }
@@ -32,7 +32,7 @@ const CarouselTable = () => {
 
     // Fetching carousel data
     useEffect(() => {
-        axios.get('http://localhost:5241/api/HomeBannerCarousel/get-home-banner-carousel', {
+        axios.get(`${ServerURL}/api/HomeBannerCarousel/get-home-banner-carousel`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -42,7 +42,7 @@ const CarouselTable = () => {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5241/api/HomeBannerCarousel/delete-home-banner-carousel/${id}`, {
+        axios.delete(`${ServerURL}/api/HomeBannerCarousel/delete-home-banner-carousel/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
@@ -53,11 +53,11 @@ const CarouselTable = () => {
                 setNotificationOpen(true);
                 setCarousels(carousels.filter(carousel => carousel.id !== id));
             })
-            .catch(error => { 
+            .catch(error => {
                 console.error(error);
                 setAdded({ text: 'Error deleteing item!', color: 'error' });
                 setNotificationOpen(true);
-             });
+            });
         setIsDeleteDialogOpen(false);
     };
 
@@ -69,7 +69,7 @@ const CarouselTable = () => {
             formData.append('backgroundImage', selectedCarousel.backgroundImage);
         }
 
-        axios.put(`http://localhost:5241/api/HomeBannerCarousel/edit-home-banner-carousel/${selectedCarousel.id}`, formData, {
+        axios.put(`${ServerURL}/api/HomeBannerCarousel/edit-home-banner-carousel/${selectedCarousel.id}`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -78,7 +78,7 @@ const CarouselTable = () => {
             .then(response => {
                 console.log(response.data);
                 // Fetch updated carousel data after edit
-                return axios.get('http://localhost:5241/api/HomeBannerCarousel/get-home-banner-carousel', {
+                return axios.get(`${ServerURL}/api/HomeBannerCarousel/get-home-banner-carousel`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -111,7 +111,7 @@ const CarouselTable = () => {
             formData.append('backgroundImage', selectedCarousel.backgroundImage);
         }
 
-        axios.post('http://localhost:5241/api/HomeBannerCarousel/add-home-banner-carousel', formData, {
+        axios.post(`${ServerURL}/api/HomeBannerCarousel/add-home-banner-carousel`, formData, {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
@@ -120,7 +120,7 @@ const CarouselTable = () => {
             .then(response => {
                 console.log(response.data);
                 // Fetch updated carousel data after adding
-                return axios.get('http://localhost:5241/api/HomeBannerCarousel/get-home-banner-carousel', {
+                return axios.get(`${ServerURL}/api/HomeBannerCarousel/get-home-banner-carousel`, {
                     headers: {
                         'Authorization': `Bearer ${token.token}`
                     }
@@ -173,7 +173,7 @@ const CarouselTable = () => {
 
     return (
         <div className="our_work">
-             <h2 className='admin_heading'>Banner Carousel</h2>
+            <h2 className='admin_heading'>Banner Carousel</h2>
             <Box sx={{ height: 'auto', width: '100%', maxWidth: "974px", position: 'relative', padding: '0 16px' }}>
                 <button className='add' onClick={handleAddClick}>
                     Add Carousel
@@ -192,7 +192,7 @@ const CarouselTable = () => {
                                 width: 200,
                                 renderCell: (params) => (
                                     <img
-                                        src={`http://localhost:5241${params.row.backgroundImage}`}
+                                        src={`${ServerURL}${params.row.backgroundImage}`}
                                         alt={params.row.heading}
                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                     />
@@ -221,6 +221,7 @@ const CarouselTable = () => {
                     />
                 </Box>
                 <EditCarouselDialog
+                    ServerURL={ServerURL}
                     open={isEditDialogOpen}
                     onClose={() => setIsEditDialogOpen(false)}
                     carousel={selectedCarousel}

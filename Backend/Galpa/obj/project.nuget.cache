@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SyxdpxCUYL5QAaKCG3ogmEnXRzh1Eq+A0y5w2PtIsh31AZul6AbktH8HYx613lBrJc/NtJGzksGTTXVGgQQSKg==",
+  "dgSpecHash": "9L69ouW8oXOPhpd5z9Lp7F71MnG/yQ0EJFGLCBCpZX2KBwRiQ/nzGAVdnqUg5wqWZolMIM3+jnyhnIn8/JGt1Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\Galpa.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",

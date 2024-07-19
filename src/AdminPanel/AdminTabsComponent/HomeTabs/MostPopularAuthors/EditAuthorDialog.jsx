@@ -4,7 +4,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 
-const EditAuthorDialog = ({ open, onClose, author, onSave, onFieldChange, onFileChange }) => {
+const EditAuthorDialog = ({ open, onClose, author, onSave, onFieldChange, onFileChange, ServerURL }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [errors, setErrors] = useState({});
 
@@ -14,7 +14,7 @@ const EditAuthorDialog = ({ open, onClose, author, onSave, onFieldChange, onFile
                 const url = URL.createObjectURL(author.profilePicture);
                 setPreviewUrl(url);
             } else {
-                const url = `http://localhost:5241${author.profilePicture}`;
+                const url = `${ServerURL}${author.profilePicture}`;
                 setPreviewUrl(url);
             }
         } else {

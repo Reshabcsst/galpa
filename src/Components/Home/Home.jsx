@@ -13,7 +13,7 @@ import EnquireForm from './Components/EnquireForm';
 import Popularity from './Components/Popularity';
 import Bookprint from '../BookPrint/Bookprint';
 
-const Home = () => {
+const Home = ({ServerURL}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
   
     const toggleModal = () => {
@@ -21,20 +21,20 @@ const Home = () => {
     };
     return (
         <div>
-            <HomeCarousel />
+            <HomeCarousel ServerURL={ServerURL}/>
             <div className='home'>
                 <Cards />
-                <AboutCompany />
-                <Services toggleModal={toggleModal}/>
+                <AboutCompany ServerURL={ServerURL}/>
+                <Services toggleModal={toggleModal} ServerURL={ServerURL}/>
             </div>
-            <Help />
+            <Help ServerURL={ServerURL}/>
             <div className="pink-bg">
-                <OurWork />
-                <Authors />
-                <AuthorSays />
-                <EnquireForm />
+                <OurWork ServerURL={ServerURL}/>
+                <Authors ServerURL={ServerURL}/>
+                <AuthorSays ServerURL={ServerURL}/>
+                <EnquireForm ServerURL={ServerURL}/>
             </div>
-            <Popularity />
+            <Popularity ServerURL={ServerURL}/>
             <Bookprint open={isModalOpen} handleClose={toggleModal}/>
         </div>
     );
