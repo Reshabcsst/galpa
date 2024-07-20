@@ -24,7 +24,7 @@ namespace Galpa.Controllers.HomePageController
         }
 
         // Add blog post
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddBlogPost([FromForm] BlogPostModel blogPost)
         {
@@ -119,6 +119,52 @@ namespace Galpa.Controllers.HomePageController
                 }
             }
         }
+
+
+        // Fetch single blog post by ID
+        //[Authorize]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBlogPostById(int id)
+        {
+            string connectionString = _configuration.GetConnectionString("UserConnection");
+
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                con.Open();
+
+                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM BlogPost WHERE Id = @Id", con))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    using (MySqlDataReader reader = (MySqlDataReader)await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.Read())
+                        {
+                            var blogPost = new
+                            {
+                                Id = reader["Id"],
+                                Image = reader["Image"],
+                                PostedBy = reader["PostedBy"],
+                                AuthorPic = reader["AuthorPic"],
+                                Date = reader["Date"],
+                                Author = reader["Author"],
+                                BookImg = reader["BookImg"],
+                                Heading = reader["Heading"],
+                                Details = reader["Details"],
+                                Comments = reader["Comments"]
+                            };
+
+                            return Ok(blogPost);
+                        }
+                        else
+                        {
+                            return NotFound("Blog post not found");
+                        }
+                    }
+                }
+            }
+        }
+
 
         // Edit blog post
         [Authorize]

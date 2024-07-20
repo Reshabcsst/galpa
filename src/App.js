@@ -29,6 +29,11 @@ import Cards from './AdminPanel/AdminTabsComponent/About/Cards/Cards';
 import FAQ from './AdminPanel/AdminTabsComponent/About/FAQ/FAQ';
 import BlogPosts from './AdminPanel/AdminTabsComponent/Blogs/BlogList/BlogPosts';
 import BlogBanner from './AdminPanel/AdminTabsComponent/Blogs/Banner/Banner';
+import AddPartners from './AdminPanel/AdminTabsComponent/Partners/Partners/AddPartners';
+import PartnerBanner from './AdminPanel/AdminTabsComponent/Partners/Banner/Banner';
+import ContactBanner from './AdminPanel/AdminTabsComponent/Contact/Banner/ContactBanner';
+import ContactForm from './AdminPanel/AdminTabsComponent/Contact/ContactForm/ContactForm';
+import NeedHelp from './AdminPanel/AdminTabsComponent/Contact/NeedHelpSayHello/NeedHelp';
 
 function App() {
   const ServerURL='http://localhost:5241';
@@ -66,6 +71,11 @@ function App() {
         <Route path='/admin-about-faq' element={isAdminLogin ? <FAQ ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/admin-blog-banner' element={isAdminLogin ? <BlogBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/admin-blog-post' element={isAdminLogin ? <BlogPosts ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-partners' element={isAdminLogin ? <AddPartners ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-partner-banner' element={isAdminLogin ? <PartnerBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-banner' element={isAdminLogin ? <ContactBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-form' element={isAdminLogin ? <ContactForm ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-need-help' element={isAdminLogin ? <NeedHelp ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/*' element={<Home />} />
       </Routes>
       <Footer />

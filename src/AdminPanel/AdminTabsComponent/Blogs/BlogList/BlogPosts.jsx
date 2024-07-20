@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../../Main.scss';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
-import EditBlogPostDialog from './EditBlogPostDialog';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Notification from '../../../../Components/Home/Components/PopNotification/Notification';
 import DeleteDialog from '../../DeleteDialog';
+import EditBlogPostDialog from './EditBlogPostDialog';
 
 const BlogPosts = ({ ServerURL }) => {
     const [blogPosts, setBlogPosts] = useState([]);
@@ -29,14 +28,22 @@ const BlogPosts = ({ ServerURL }) => {
     };
 
     useEffect(() => {
+        fetchBlogPosts();
+    }, []);
+
+    const fetchBlogPosts = () => {
         axios.get(`${ServerURL}/api/BlogPost`, {
             headers: {
                 'Authorization': `Bearer ${token.token}`
             }
         })
-            .then(response => { setBlogPosts(response.data); })
-            .catch(error => console.error('Error:', error));
-    }, [token.token]);
+            .then(response => {
+                setBlogPosts(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching blog posts:', error);
+            });
+    };
 
     const handleEdit = () => {
         const formData = new FormData();
@@ -57,20 +64,13 @@ const BlogPosts = ({ ServerURL }) => {
             }
         })
             .then(response => {
-                console.log(response.data);
-                return axios.get(`${ServerURL}/api/BlogPost`, {
-                    headers: {
-                        'Authorization': `Bearer ${token.token}`
-                    }
-                });
-            })
-            .then(response => {
-                setBlogPosts(response.data);
+                console.log('Blog post edited successfully:', response.data);
+                fetchBlogPosts(); // Update the list of blog posts after editing
                 setNotification({ text: 'Blog Post Edited Successfully!', color: 'success' });
                 setNotificationOpen(true);
             })
             .catch(error => {
-                console.error(error);
+                console.error('Error editing blog post:', error);
                 setNotification({ text: 'Error editing blog post!', color: 'error' });
                 setNotificationOpen(true);
             });
@@ -79,11 +79,6 @@ const BlogPosts = ({ ServerURL }) => {
     };
 
     const handleAdd = () => {
-        if (!selectedBlogPost.image || !selectedBlogPost.postedBy || !selectedBlogPost.authorPic || !selectedBlogPost.date || !selectedBlogPost.author || !selectedBlogPost.bookImg || !selectedBlogPost.heading || !selectedBlogPost.details || selectedBlogPost.comments == null) {
-            alert('All fields are required for adding a blog post.');
-            return;
-        }
-
         const formData = new FormData();
         formData.append('image', selectedBlogPost.image);
         formData.append('postedBy', selectedBlogPost.postedBy);
@@ -102,20 +97,13 @@ const BlogPosts = ({ ServerURL }) => {
             }
         })
             .then(response => {
-                console.log(response.data);
-                return axios.get(`${ServerURL}/api/BlogPost`, {
-                    headers: {
-                        'Authorization': `Bearer ${token.token}`
-                    }
-                });
-            })
-            .then(response => {
-                setBlogPosts(response.data);
+                console.log('Blog post added successfully:', response.data);
+                fetchBlogPosts(); // Update the list of blog posts after adding
                 setNotification({ text: 'Blog Post Added Successfully!', color: 'success' });
                 setNotificationOpen(true);
             })
             .catch(error => {
-                console.error(error);
+                console.error('Error adding blog post:', error);
                 setNotification({ text: 'Error adding blog post!', color: 'error' });
                 setNotificationOpen(true);
             });
@@ -130,16 +118,17 @@ const BlogPosts = ({ ServerURL }) => {
             }
         })
             .then(response => {
-                console.log(response.data);
+                console.log('Blog post deleted successfully:', response.data);
+                fetchBlogPosts(); // Update the list of blog posts after deleting
                 setNotification({ text: 'Blog Post Deleted Successfully!', color: 'success' });
                 setNotificationOpen(true);
-                setBlogPosts(blogPosts.filter(post => post.id !== id));
             })
             .catch(error => {
-                console.error(error);
+                console.error('Error deleting blog post:', error);
                 setNotification({ text: 'Error deleting blog post!', color: 'error' });
                 setNotificationOpen(true);
             });
+
         setIsDeleteDialogOpen(false);
     };
 
@@ -147,6 +136,7 @@ const BlogPosts = ({ ServerURL }) => {
         setSelectedBlogPost(post);
         setIsEditDialogOpen(true);
     };
+
     const handleDeleteClick = (id) => {
         setSelectedBlogPost(id);
         setIsDeleteDialogOpen(true);
@@ -162,12 +152,22 @@ const BlogPosts = ({ ServerURL }) => {
     const handleFileChange = (e) => {
         setSelectedBlogPost({
             ...selectedBlogPost,
-            image: e.target.files[0]
+            [e.target.name]: e.target.files[0]
         });
     };
 
     const handleAddClick = () => {
-        setSelectedBlogPost({ image: '', postedBy: '', authorPic: '', date: '', author: '', bookImg: '', heading: '', details: '', comments: '' });
+        setSelectedBlogPost({
+            image: null,
+            postedBy: '',
+            authorPic: null,
+            date: '',
+            author: '',
+            bookImg: null,
+            heading: '',
+            details: '',
+            comments: ''
+        });
         setIsEditDialogOpen(true);
     };
 
@@ -187,7 +187,7 @@ const BlogPosts = ({ ServerURL }) => {
                         rows={blogPosts}
                         columns={[
                             { field: 'id', headerName: 'ID', width: 50 },
-                            { field: 'heading', headerName: 'Heading', width: 380 },
+                            { field: 'heading', headerName: 'Heading', width: 370 },
                             { field: 'author', headerName: 'Author', width: 80 },
                             { field: 'date', headerName: 'Date', width: 123 },
                             {
@@ -225,10 +225,10 @@ const BlogPosts = ({ ServerURL }) => {
                     />
                 </Box>
                 <EditBlogPostDialog
-                    ServerURL={ServerURL}
                     open={isEditDialogOpen}
                     onClose={() => setIsEditDialogOpen(false)}
                     blogPost={selectedBlogPost}
+                    ServerURL={ServerURL}
                     onSave={selectedBlogPost && selectedBlogPost.id ? handleEdit : handleAdd}
                     onFieldChange={handleFieldChange}
                     onFileChange={handleFileChange}

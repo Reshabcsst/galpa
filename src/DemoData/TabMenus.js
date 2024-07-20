@@ -23,9 +23,8 @@ const MenuItems = {
         { label: 'Blogs List', path: '/admin-blog-post' }
     ],
     partners: [
-        { label: 'Partner 1', path: '/partner1' },
-        { label: 'Partner 2', path: '/partner2' },
-        { label: 'Partner 3', path: '/partner3' }
+        { label: 'Banner', path: '/admin-partner-banner' },
+        { label: 'Partners', path: '/admin-partners' }
     ],
     pricing: [
         { label: 'Pricing 1', path: '/pricing1' },
@@ -33,9 +32,9 @@ const MenuItems = {
         { label: 'Pricing 3', path: '/pricing3' }
     ],
     contactUs: [
-        { label: 'Email', path: '/email' },
-        { label: 'Phone', path: '/phone' },
-        { label: 'Address', path: '/address' }
+        { label: 'Banner', path: '/admin-contact-banner' },
+        { label: 'Need Help', path: '/admin-contact-need-help' },
+        { label: 'Contact Form', path: '/admin-contact-form' }
     ]
 };
 

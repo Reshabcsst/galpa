@@ -225,7 +225,7 @@ const Services = ({ ServerURL }) => {
                 />
                  <DeleteDialog
                     open={isDeleteDialogOpen}
-                    Name='carousel'
+                    Name='Service'
                     Data={selectedService}
                     onClose={() => setIsDeleteDialogOpen(false)}
                     onDelete={() => handleDelete(selectedService)}

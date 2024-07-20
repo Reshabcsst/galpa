@@ -1,13 +1,36 @@
-import React, { useState } from 'react';
-import bg from '../../Assets/ContactBg.jpg';
+import React, { useEffect, useState } from 'react';
 import './Contact.scss';
 import design from '../../Assets/Rectanglesmall.png';
 import Banner from '../CommonComponents/Banner';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoCallOutline } from 'react-icons/io5';
 import { IoMdTime } from 'react-icons/io';
+import axios from 'axios';
 
-const Contact = () => {
+const Contact = ({ ServerURL }) => {
+    const [BannerData, setBannerData] = useState('');
+    const [DetailsData, setDetailsData] = useState('');
+
+    useEffect(() => {
+        axios.get(`${ServerURL}/api/ContactBanner/get-contact-banner`)
+            .then(response => {
+                setBannerData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        // Fetch Need Help Details
+        axios.get(`${ServerURL}/api/NeedHelp/get-need-help`)
+            .then(response => {
+                setDetailsData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, [ServerURL])
+
+    console.log(DetailsData.title)
 
     const [formData, setFormData] = useState({
         name: '',
@@ -25,7 +48,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('https://your-server-endpoint.com/submit', {
+            const response = await fetch(`${ServerURL}/api/ContactForm`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -34,6 +57,13 @@ const Contact = () => {
             });
 
             if (response.ok) {
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    date: '',
+                    message: ''
+                });
                 console.log('Form submitted successfully');
             } else {
                 console.log('Form submission error');
@@ -45,9 +75,9 @@ const Contact = () => {
     return (
         <div>
             <Banner
-                Heading="Contact Us"
-                SubHeading="Connect with Us to Turn Your Manuscript into a Published Masterpiece Today!"
-                imgURL={bg}
+                Heading={BannerData.heading}
+                SubHeading={BannerData.subheading}
+                imgURL={`${ServerURL}/${BannerData.backgroundImage}`}
             />
             <div className="main2">
                 <div className="orange-big"></div>
@@ -57,11 +87,11 @@ const Contact = () => {
                 <div className="orange-small-bottom"></div>
                 <div className="purple-bottom"></div>
                 <h2 className='heading'>
-                    Need Help? Say Hello
+                    {DetailsData.title}
                     <img src={design} alt={design} />
                 </h2>
-                <p className='detail'>we're here to assist you every step of the way. Whether you have questions about our products, need assistance with an order, or simply want to say hello, we're just a message away. Our dedicated team is committed to providing you with prompt and friendly support to ensure your experience with us is nothing short of exceptional.</p>
-                <p className='detail'>Feel free to reach out to us via email, phone, or social media, and we'll be happy to help. Your satisfaction is our priority, and we're here to make sure you have everything you need. So don't hesitate to get in touch – we're looking forward to hearing from you!</p>
+                <p className='detail'>{DetailsData.details1}</p>
+                <p className='detail'>{DetailsData.details2}</p>
                 <div className="form">
                     <form className="in" onSubmit={handleSubmit}>
                         <h2>Enquire Now</h2>

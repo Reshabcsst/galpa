@@ -20,10 +20,12 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                     const url = `${ServerURL}${blogPost[field]}`;
                     newPreviewUrls[field] = url;
                 }
+            } else {
+                newPreviewUrls[field] = null;
             }
         });
         setPreviewUrls(newPreviewUrls);
-    }, [blogPost]);
+    }, [blogPost, ServerURL]);
 
     const handleImageChange = (e, field) => {
         const file = e.target.files[0];
@@ -46,13 +48,13 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
         if (!blogPost.authorPic) newErrors.authorPic = 'Author Picture is required';
         if (!blogPost.bookImg) newErrors.bookImg = 'Book Image is required';
         if (!blogPost.comments && blogPost.comments !== 0) newErrors.comments = 'Comments are required';
-        if (!blogPost.image) newErrors.image = 'Image is required';
+        if (!blogPost.image) newErrors.image = 'Main Image is required';
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSave = () => {
-        if (blogPost && !blogPost.id && !validateFields()) {
+        if (!validateFields()) {
             return;
         }
         onSave();
@@ -68,7 +70,7 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                         <input
                             type="text"
                             id="heading"
-                            placeholder='Heading'
+                            placeholder="Heading"
                             name="heading"
                             value={blogPost ? blogPost.heading : ''}
                             onChange={onFieldChange}
@@ -79,7 +81,7 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                         <label htmlFor="details">Details</label>
                         <textarea
                             id="details"
-                            placeholder='Details'
+                            placeholder="Details"
                             name="details"
                             value={blogPost ? blogPost.details : ''}
                             onChange={onFieldChange}
@@ -93,7 +95,7 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                         <input
                             type="text"
                             id="author"
-                            placeholder='Author'
+                            placeholder="Author"
                             name="author"
                             value={blogPost ? blogPost.author : ''}
                             onChange={onFieldChange}
@@ -116,7 +118,7 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                         <input
                             type="text"
                             id="postedBy"
-                            placeholder='Posted By'
+                            placeholder="Posted By"
                             name="postedBy"
                             value={blogPost ? blogPost.postedBy : ''}
                             onChange={onFieldChange}
@@ -132,6 +134,13 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                             onChange={(e) => handleImageChange(e, 'authorPic')}
                         />
                         {errors.authorPic && <p style={{ color: 'red' }}>{errors.authorPic}</p>}
+                        {previewUrls.authorPic && (
+                            <img
+                                src={previewUrls.authorPic}
+                                alt="Author Preview"
+                                style={{ maxWidth: '100%', maxHeight: '150px', objectFit: 'cover' }}
+                            />
+                        )}
                     </div>
                     <div>
                         <label htmlFor="bookImg">Book Image</label>
@@ -142,53 +151,48 @@ const EditBlogPostDialog = ({ open, onClose, blogPost, onSave, onFieldChange, on
                             onChange={(e) => handleImageChange(e, 'bookImg')}
                         />
                         {errors.bookImg && <p style={{ color: 'red' }}>{errors.bookImg}</p>}
+                        {previewUrls.bookImg && (
+                            <img
+                                src={previewUrls.bookImg}
+                                alt="Book Preview"
+                                style={{ maxWidth: '100%', maxHeight: '150px', objectFit: 'cover' }}
+                            />
+                        )}
+                    </div>
+                    <div>
+                        <label htmlFor="image">Main Image</label>
+                        <input
+                            type="file"
+                            id="image"
+                            name="image"
+                            onChange={(e) => handleImageChange(e, 'image')}
+                        />
+                        {errors.image && <p style={{ color: 'red' }}>{errors.image}</p>}
+                        {previewUrls.image && (
+                            <img
+                                src={previewUrls.image}
+                                alt="Main Preview"
+                                style={{ maxWidth: '100%', maxHeight: '150px', objectFit: 'cover' }}
+                            />
+                        )}
                     </div>
                     <div>
                         <label htmlFor="comments">Comments</label>
                         <input
                             type="number"
                             id="comments"
-                            placeholder='Comments'
+                            placeholder="Comments"
                             name="comments"
                             value={blogPost ? blogPost.comments : ''}
                             onChange={onFieldChange}
                         />
                         {errors.comments && <p style={{ color: 'red' }}>{errors.comments}</p>}
                     </div>
-                    <div className="custom-file-input">
-                        <label style={{ marginRight: ".5rem" }} htmlFor="image">Choose image</label>
-                        <button className="button">Choose File</button>
-                        <input
-                            margin="dense"
-                            id="image"
-                            name="image"
-                            type="file"
-                            onChange={(e) => handleImageChange(e, 'image')}
-                        />
-                    </div>
-                    {errors.image && <p style={{ color: 'red' }}>{errors.image}</p>}
-                </div>
-                <div style={{ flex: 1 }}>
-                    {previewUrls.image && (
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
-                            <img src={previewUrls.image} alt="Main Preview" style={{ maxHeight: '150px', objectFit: 'cover' }} />
-                        </div>
-                    )}
-                    {previewUrls.authorPic && (
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
-                            <img src={previewUrls.authorPic} alt="Author Pic Preview" style={{ maxHeight: '150px', objectFit: 'cover' }} />
-                        </div>
-                    )}
-                    {previewUrls.bookImg && (
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}>
-                            <img src={previewUrls.bookImg} alt="Book Img Preview" style={{ maxHeight: '150px', objectFit: 'cover' }} />
-                        </div>
-                    )}
                 </div>
             </DialogContent>
             <DialogActions>
-                <button className='add' onClick={handleSave}>Save</button>
-                <button className='add' onClick={onClose}>Cancel</button>
+                <button className="add" onClick={handleSave}>Save</button>
+                <button className="add" onClick={onClose}>Cancel</button>
             </DialogActions>
         </Dialog>
     );

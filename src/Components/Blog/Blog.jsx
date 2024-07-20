@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import bg from '../../Assets/BlogBg.jpg';
 import Banner from '../CommonComponents/Banner';
 import './Blog.scss';
-import Blogs from '../../DemoData/Blogs';
 import profile from '../../Assets/Profile.svg';
 import calender from '../../Assets/Calender.svg';
 import comments from '../../Assets/Comments.svg';
 import rightTick from '../../Assets/RightTickPurple.svg';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const Blog = () => {
+const Blog = ({ ServerURL }) => {
     const navigate = useNavigate();
+    const [BlogData, setBlogData] = useState([]);
+    const [BannerData, setBannerData] = useState('');
+    // Fetching data
+    useEffect(() => {
+        axios.get(`${ServerURL}/api/BlogPost`)
+            .then(response => {
+                setBlogData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        // Banner
+        axios.get(`${ServerURL}/api/BlogsBanner/get-blog-banner`)
+            .then(response => {
+                setBannerData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, [ServerURL]);
+
 
     const handleReadMore = (id) => {
         navigate(`/blog-content/${id}`);
@@ -18,9 +39,9 @@ const Blog = () => {
     return (
         <div>
             <Banner
-                Heading='Blog'
-                SubHeading='Dive Deeper into the World of Publishing with Our Insightful Blog'
-                imgURL={bg}
+                Heading={BannerData.heading}
+                SubHeading={BannerData.subheading}
+                imgURL={`${ServerURL}/${BannerData.backgroundImage}`}
             />
             <div className="blog-container">
                 <div className="pink">
@@ -34,13 +55,13 @@ const Blog = () => {
                 <div className="purple-bottom"></div>
 
                 <div className="blogs">
-                    {Blogs.map((blog, index) => {
+                    {BlogData.map((blog, index) => {
                         return (
                             <div key={index} className="blog">
-                                <div style={{ backgroundImage: `url(${blog.image})` }} className="upr">
+                                <div style={{ backgroundImage: `url(${ServerURL}/${blog.image})` }} className="upr">
                                     <div className="author-details">
                                         <div className="in">
-                                            <img src={blog.authorPic} alt="profile img" />
+                                            <img src={`${ServerURL}/${blog.authorPic}`} alt="profile img" />
                                             <p>Posted by : <span>{blog.postedBy}</span></p>
                                         </div>
 

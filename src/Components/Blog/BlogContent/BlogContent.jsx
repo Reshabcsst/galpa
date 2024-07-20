@@ -1,20 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Blog.scss';
 import profile from '../../../Assets/Profile.svg';
 import calender from '../../../Assets/Calender.svg';
-import { useNavigate, useParams } from 'react-router-dom';
-import Blogs from '../../../DemoData/Blogs';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const BlogContent = () => {
+const BlogContent = ({ ServerURL }) => {
+    const [BlogData, setBlogData] = useState('');
+    const [BlogsData, setBlogsData] = useState([]);
     const { id } = useParams();
-    const blog = Blogs.find(blog => blog.id === parseInt(id));
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     const handleReadMore = (id) => {
         navigate(`/blog-content/${id}`);
     };
 
-    if (!blog) {
+    // Fetching data
+    useEffect(() => {
+        axios.get(`${ServerURL}/api/BlogPost/${id}`)
+            .then(response => {
+                setBlogData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+
+        axios.get(`${ServerURL}/api/BlogPost`)
+            .then(response => {
+                setBlogsData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, [pathname]);
+
+    if (!BlogData) {
         return (
             <div className='blog-not-found'>
                 <p>Blog not found</p>
@@ -24,14 +46,14 @@ const BlogContent = () => {
     return (
         <div className='blog-content'>
             <div className="lft_panel">
-                <img src={blog.image} alt="blog-image" />
-                <h1>{blog.heading}</h1>
+                <img src={`${ServerURL}/${BlogData.image}`} alt="blog-image" />
+                <h1>{BlogData.heading}</h1>
                 <div className="author-date">
-                    <p><img className='icon' src={profile} alt='profile' />{blog.author}</p>
-                    <p><img className='icon' src={calender} alt='calender' />{blog.date}</p>
+                    <p><img className='icon' src={profile} alt='profile' />{BlogData.author}</p>
+                    <p><img className='icon' src={calender} alt='calender' />{BlogData.date}</p>
                 </div>
-                <p>{blog.details}</p>
-                <img className='book' src={blog.bookImg} alt="book-image" />
+                <p>{BlogData.details}</p>
+                <img className='book' src={`${ServerURL}/${BlogData.bookImg}`} alt="book-image" />
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in the incididunt ut labore et dolore Lorem ipsum Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p>Sed do eiusmod tempor in the incididunt ut labore et dolore Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in the incididunt ut labore et dolore Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
                 <p>tempor in the incididunt ut labore et dolore Lorem ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in the incididunt ut labore et dolore Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in the incididunt tempor in the incididunt ut labore et dolore Lorem ipsum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in the incididunt ut labore et dolore Lorem ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor in the incididunt</p>
@@ -40,10 +62,10 @@ const BlogContent = () => {
                 <div className="top">
                     <h2>Related Blogs</h2>
                     <div className="related_blog">
-                        {Blogs.map((relatedBlog, index) => {
+                        {BlogsData.map((relatedBlog, index) => {
                             return (
                                 <div key={index} className="blog">
-                                    <div className="blog_image" style={{ backgroundImage: `url(${relatedBlog.image})` }}></div>
+                                    <div className="blog_image" style={{ backgroundImage: `url(${ServerURL}/${relatedBlog.image})` }}></div>
                                     <div className="rht_details">
                                         <h3 onClick={() => { handleReadMore(relatedBlog.id) }}>{relatedBlog.heading}</h3>
                                         <p>By {relatedBlog.author}</p>
