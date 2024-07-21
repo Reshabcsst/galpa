@@ -181,7 +181,7 @@ const AddPartners = ({ ServerURL }) => {
                             {
                                 field: 'imageLink',
                                 headerName: 'Image',
-                                width: 350,
+                                width: 400,
                                 renderCell: (params) => (
                                     <div>
                                         {params.row.imageLink.split(';').map((link, index) => (
@@ -189,7 +189,7 @@ const AddPartners = ({ ServerURL }) => {
                                                 key={index}
                                                 src={`${ServerURL}${link}`}
                                                 alt={params.row.name}
-                                                style={{ width: '65px', height: '65px', objectFit: 'cover', marginRight: '5px' }}
+                                                style={{ width: '70px', height: '70px', objectFit: 'cover', marginRight: '5px' }}
                                             />
                                         ))}
                                     </div>

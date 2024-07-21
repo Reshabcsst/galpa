@@ -184,7 +184,7 @@ const WhatAuthorSays = ({ ServerURL }) => {
                         columns={[
                             { field: 'id', headerName: 'ID', width: 90 },
                             { field: 'name', headerName: 'Name', width: 150 },
-                            { field: 'quote', headerName: 'Quote', width: 250 },
+                            { field: 'quote', headerName: 'Quote', width: 333 },
                             {
                                 field: 'image',
                                 headerName: 'Image',

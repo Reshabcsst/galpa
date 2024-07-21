@@ -4,29 +4,44 @@ import Banner from '../CommonComponents/Banner';
 import Services from './Components/Services';
 import Bookprint from '../BookPrint/Bookprint';
 import axios from 'axios';
+import { InfinitySpin } from 'react-loader-spinner';
 
-const Service = ({ServerURL}) => {
+const Service = ({ ServerURL }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [BannerData, setBannerData] = useState('');
     // Fetching data
     useEffect(() => {
         axios.get(`${ServerURL}/api/ServiceBanner/get-service-banner`)
             .then(response => {
                 setBannerData(response.data);
+                setLoading(false);
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }, []);
 
-  
+
     const toggleModal = () => {
-      setIsModalOpen(!isModalOpen);
+        setIsModalOpen(!isModalOpen);
     };
     return (
         <div>
-            <Banner imgURL={`${ServerURL}/${BannerData.backgroundImage}`} Heading={BannerData.heading} SubHeading={BannerData.subheading} />
-            <Services toggleModal={toggleModal} ServerURL={ServerURL}/>
+            {loading ? (
+                <p className='banner-loading'>
+                    <InfinitySpin
+                        visible={true}
+                        width="200"
+                        color="#8a07f0"
+                        ariaLabel="infinity-spin-loading"
+                    />
+                </p>
+            ) : (
+                <Banner imgURL={`${ServerURL}/${BannerData.backgroundImage}`} Heading={BannerData.heading} SubHeading={BannerData.subheading} />
+            )}
+            
+            <Services toggleModal={toggleModal} ServerURL={ServerURL} />
             <div className="get-in-touch">
                 <div className="inr">
                     <h2 className='heading'>GET IN TOUCH</h2>
@@ -34,7 +49,7 @@ const Service = ({ServerURL}) => {
                     <button>Explore with Us</button>
                 </div>
             </div>
-            <Bookprint open={isModalOpen} handleClose={toggleModal}/>
+            <Bookprint open={isModalOpen} handleClose={toggleModal} />
         </div>
     );
 };

@@ -27,14 +27,13 @@ const MenuItems = {
         { label: 'Partners', path: '/admin-partners' }
     ],
     pricing: [
-        { label: 'Pricing 1', path: '/pricing1' },
-        { label: 'Pricing 2', path: '/pricing2' },
-        { label: 'Pricing 3', path: '/pricing3' }
+        { label: 'Pricing Details', path: '/admin-Pricing-details' }
     ],
     contactUs: [
         { label: 'Banner', path: '/admin-contact-banner' },
         { label: 'Need Help', path: '/admin-contact-need-help' },
-        { label: 'Contact Form', path: '/admin-contact-form' }
+        { label: 'Contact Form', path: '/admin-contact-form' },
+        { label: 'Contact Galpa Details', path: '/admin-contact-galpa-details' }
     ]
 };
 

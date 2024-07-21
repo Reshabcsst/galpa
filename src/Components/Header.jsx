@@ -4,13 +4,14 @@ import { RiInstagramFill, RiCloseLine } from "react-icons/ri";
 import Logo from '../Assets/Logo.png';
 import './Main.scss';
 import { CiLogin } from 'react-icons/ci';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SignIn from './SignInOptions/SignIn';
 import AvtarMenu from './AvtarMenu';
 import TabMenu from './TabMenu';
 import MenuItems from '../DemoData/TabMenus';
 
-const Header = ({ServerURL}) => {
+const Header = ({ ServerURL }) => {
+  const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -48,6 +49,9 @@ const Header = ({ServerURL}) => {
   const LogoutFunction = () => {
     window.localStorage.removeItem("UserData");
     window.location.reload();
+  };
+  const AddAdminFunction = () => {
+    navigate('/admin-add');
   };
 
   const LogoutFunctionForAdmin = () => {
@@ -117,7 +121,7 @@ const Header = ({ServerURL}) => {
               </button>
             </>
           )}
-         {location.pathname.startsWith('/admin') && adminData && (
+          {location.pathname.startsWith('/admin') && adminData && (
             <>
               <ul className={`nav-links ${isSidebarOpen ? 'open' : ''}`}>
                 <li>
@@ -150,6 +154,7 @@ const Header = ({ServerURL}) => {
                 </li>
                 <AvtarMenu
                   userName={adminData.userName}
+                  AddAdminFunction={AddAdminFunction}
                   LogoutFunction={LogoutFunctionForAdmin}
                 />
                 <div className="close-sidebar"><button onClick={toggleSidebar}><RiCloseLine /></button></div>
@@ -161,7 +166,7 @@ const Header = ({ServerURL}) => {
           )}
         </div>
       </div>
-      <SignIn open={isModalOpen} handleClose={toggleModal} ServerURL={ServerURL}/>
+      <SignIn open={isModalOpen} handleClose={toggleModal} ServerURL={ServerURL} />
     </header>
   );
 };

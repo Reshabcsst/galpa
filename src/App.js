@@ -34,6 +34,9 @@ import PartnerBanner from './AdminPanel/AdminTabsComponent/Partners/Banner/Banne
 import ContactBanner from './AdminPanel/AdminTabsComponent/Contact/Banner/ContactBanner';
 import ContactForm from './AdminPanel/AdminTabsComponent/Contact/ContactForm/ContactForm';
 import NeedHelp from './AdminPanel/AdminTabsComponent/Contact/NeedHelpSayHello/NeedHelp';
+import ContactGalpa from './AdminPanel/AdminTabsComponent/Contact/ContactGalpa/ContactGalpa';
+import AdminPricing from './AdminPanel/AdminTabsComponent/Pricing/AdminPricing';
+import AddAdmin from './AdminPanel/AddAdmin';
 
 function App() {
   const ServerURL='http://localhost:5241';
@@ -76,6 +79,9 @@ function App() {
         <Route path='/admin-contact-banner' element={isAdminLogin ? <ContactBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/admin-contact-form' element={isAdminLogin ? <ContactForm ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/admin-contact-need-help' element={isAdminLogin ? <NeedHelp ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-galpa-details' element={isAdminLogin ? <ContactGalpa ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-Pricing-details' element={isAdminLogin ? <AdminPricing ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-add' element={isAdminLogin ? <AddAdmin ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/*' element={<Home />} />
       </Routes>
       <Footer />

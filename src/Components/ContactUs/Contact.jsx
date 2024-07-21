@@ -6,15 +6,21 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { IoCallOutline } from 'react-icons/io5';
 import { IoMdTime } from 'react-icons/io';
 import axios from 'axios';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const Contact = ({ ServerURL }) => {
     const [BannerData, setBannerData] = useState('');
     const [DetailsData, setDetailsData] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [loading1, setLoading1] = useState(true);
+    const [loading2, setLoading2] = useState(true);
+    const [CompanyDetailsData, setCompanyDetailsData] = useState('');
 
     useEffect(() => {
         axios.get(`${ServerURL}/api/ContactBanner/get-contact-banner`)
             .then(response => {
                 setBannerData(response.data);
+                setLoading2(false);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -24,6 +30,18 @@ const Contact = ({ ServerURL }) => {
         axios.get(`${ServerURL}/api/NeedHelp/get-need-help`)
             .then(response => {
                 setDetailsData(response.data);
+                setLoading1(false);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+
+        // Fetch company Details
+        axios.get(`${ServerURL}/api/ContactGalpa/get-contact-details`)
+            .then(response => {
+                setCompanyDetailsData(response.data);
+                setLoading(false);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -74,11 +92,22 @@ const Contact = ({ ServerURL }) => {
     };
     return (
         <div>
-            <Banner
-                Heading={BannerData.heading}
-                SubHeading={BannerData.subheading}
-                imgURL={`${ServerURL}/${BannerData.backgroundImage}`}
-            />
+            {loading2 ? (
+                <p className='banner-loading'>
+                    <InfinitySpin
+                        visible={true}
+                        width="200"
+                        color="#8a07f0"
+                        ariaLabel="infinity-spin-loading"
+                    />
+                </p>
+            ) : (
+                <Banner
+                    Heading={BannerData.heading}
+                    SubHeading={BannerData.subheading}
+                    imgURL={`${ServerURL}/${BannerData.backgroundImage}`}
+                />
+            )}
             <div className="main2">
                 <div className="orange-big"></div>
                 <div className="orange-small"></div>
@@ -86,12 +115,25 @@ const Contact = ({ ServerURL }) => {
                 <div className="orange-big-bottom"></div>
                 <div className="orange-small-bottom"></div>
                 <div className="purple-bottom"></div>
-                <h2 className='heading'>
-                    {DetailsData.title}
-                    <img src={design} alt={design} />
-                </h2>
-                <p className='detail'>{DetailsData.details1}</p>
-                <p className='detail'>{DetailsData.details2}</p>
+                {loading1 ? (
+                    <p className='loading'>
+                        <InfinitySpin
+                            visible={true}
+                            width="200"
+                            color="#8a07f0"
+                            ariaLabel="infinity-spin-loading"
+                        />
+                    </p>
+                ) : (
+                    <div>
+                        <h2 className='heading'>
+                            {DetailsData.title}
+                            <img src={design} alt={design} />
+                        </h2>
+                        <p className='detail'>{DetailsData.details1}</p>
+                        <p className='detail'>{DetailsData.details2}</p>
+                    </div>
+                )}
                 <div className="form">
                     <form className="in" onSubmit={handleSubmit}>
                         <h2>Enquire Now</h2>
@@ -137,26 +179,36 @@ const Contact = ({ ServerURL }) => {
                         <button type="submit">Enquire Now</button>
                     </form>
                 </div>
-                <div className="details">
-                    <div className="box">
-                        <FaLocationDot className='icon' />
-                        <h2>Our Location</h2>
-                        <p>BB 42, BB Block, Sector I,
-                            Salt Lake, Bidhannagar, Kolkata</p>
+                {loading ? (
+                    <p className='loading'>
+                        <InfinitySpin
+                            visible={true}
+                            width="200"
+                            color="#8a07f0"
+                            ariaLabel="infinity-spin-loading"
+                        />
+                    </p>
+                ) : (
+                    <div className="details">
+                        <div className="box">
+                            <FaLocationDot className='icon' />
+                            <h2>Our Location</h2>
+                            <p>{CompanyDetailsData.ourLocation}</p>
+                        </div>
+                        <div className="box">
+                            <IoCallOutline className='icon' />
+                            <h2>Let's Talk</h2>
+                            <p>{CompanyDetailsData.number1}</p>
+                            <p>{CompanyDetailsData.number2}</p>
+                        </div>
+                        <div className="box">
+                            <IoMdTime className='icon' />
+                            <h2>Working Hours</h2>
+                            <p>{CompanyDetailsData.opensAt}</p>
+                            <p>{CompanyDetailsData.closeAt}</p>
+                        </div>
                     </div>
-                    <div className="box">
-                        <IoCallOutline className='icon' />
-                        <h2>Let's Talk</h2>
-                        <p>+91 90001 10009</p>
-                        <p>+91 90001 10009</p>
-                    </div>
-                    <div className="box">
-                        <IoMdTime className='icon' />
-                        <h2>Working Hours</h2>
-                        <p>10:00AM</p>
-                        <p>6:00PM</p>
-                    </div>
-                </div>
+                )}
             </div>
         </div>
     );

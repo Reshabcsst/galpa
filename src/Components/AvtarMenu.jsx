@@ -1,8 +1,8 @@
-import { Logout } from '@mui/icons-material';
+import { Add, Logout } from '@mui/icons-material';
 import { Avatar, Divider, ListItemIcon, Menu, MenuItem, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 
-const AvtarMenu = ({ userName, LogoutFunction }) => {
+const AvtarMenu = ({ userName, LogoutFunction, AddAdminFunction }) => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleMenu = (event) => {
@@ -74,6 +74,13 @@ const AvtarMenu = ({ userName, LogoutFunction }) => {
                         <Logout fontSize="small" />
                     </ListItemIcon>
                     Logout
+                </MenuItem>
+                <Divider />
+                <MenuItem onClick={AddAdminFunction}>
+                    <ListItemIcon>
+                        <Add fontSize="small" />
+                    </ListItemIcon>
+                    Add Admin
                 </MenuItem>
             </Menu>
         </div>
