@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import design from '../../../Assets/Rectanglesmall.png';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import axios from 'axios';
-import { FaXTwitter } from 'react-icons/fa6';
 import { InfinitySpin } from 'react-loader-spinner';
+import { useNavigate } from 'react-router-dom';
 
 const Authors = ({ ServerURL }) => {
-    const [Authors, setAuthors] = useState([]);
     const [loading, setLoading] = useState(true);
-    // Fetching carousel data
+    const [authors, setAuthors] = useState([]);
+
     useEffect(() => {
-        axios.get(`${ServerURL}/api/MostPopularAuthors/get-authors`)
-            .then(response => {
+        const fetchAuthors = async () => {
+            try {
+                const response = await axios.get(`${ServerURL}/api/Authors`);
                 setAuthors(response.data);
                 setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }, []);
+            } catch (error) {
+                console.error('Error fetching authors', error);
+            }
+        };
 
+        fetchAuthors();
+    }, [ServerURL]);
 
     return (
         <div className='authors'>
@@ -37,7 +38,7 @@ const Authors = ({ ServerURL }) => {
                 </p>
             ) : (
                 <div className="authors-list">
-                    {Authors.map((author, index) => (
+                    {authors.map((author, index) => (
                         <AuthorCard ServerURL={ServerURL} key={index} author={author} />
                     ))}
                 </div>
@@ -47,19 +48,23 @@ const Authors = ({ ServerURL }) => {
 };
 
 const AuthorCard = ({ author, ServerURL }) => {
+    const navigate = useNavigate();
+    const seeMorePage = (id) => {
+        navigate(`/author/${id}`);
+    };
 
     return (
         <div className="author" >
-            <div className="img-container">
-                <img src={`${ServerURL}/${author.profilePicture}`} alt={author.name} />
-                <div className="social-icons">
+            <div onClick={() => { seeMorePage(author.id) }} className="img-container">
+                <img src={`${ServerURL}/${author.profilePic}`} alt={author.name} />
+                {/* <div className="social-icons">
                     <a href={author.facebookLink}> <FaFacebookF /></a>
                     <a href={author.twitterLink}><FaXTwitter /></a>
                     <a href={author.instagramLink}><FaInstagram /></a>
-                </div>
+                </div> */}
             </div>
             <p className='name'>{author.name}</p>
-            <p className='role'>{author.role}</p>
+            <p className='role'>Author</p>
         </div>
     );
 };

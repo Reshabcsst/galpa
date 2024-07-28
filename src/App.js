@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
@@ -37,6 +37,10 @@ import NeedHelp from './AdminPanel/AdminTabsComponent/Contact/NeedHelpSayHello/N
 import ContactGalpa from './AdminPanel/AdminTabsComponent/Contact/ContactGalpa/ContactGalpa';
 import AdminPricing from './AdminPanel/AdminTabsComponent/Pricing/AdminPricing';
 import AddAdmin from './AdminPanel/AddAdmin';
+import AuthorForm from './AdminPanel/AdminTabsComponent/Authors/Authors/AuthorForm';
+import AuthorBanner from './AdminPanel/AdminTabsComponent/Authors/Banner/AuthorBanner';
+import Authors from './Components/Authors/Authors';
+import Author from './Components/Authors/AuthorDetails/Author';
 
 function App() {
   const ServerURL='http://localhost:5241';
@@ -50,6 +54,8 @@ function App() {
         {/* User */}
         <Route path='/' element={<Home ServerURL={ServerURL}/>} />
         <Route path='/service' element={<Service ServerURL={ServerURL}/>} />
+        <Route path='/authors' element={<Authors ServerURL={ServerURL}/>} />
+        <Route path='/author/:id' element={<Author ServerURL={ServerURL}/>} />
         <Route path='/Pricing' element={<Pricing ServerURL={ServerURL}/>} />
         <Route path='/about-us' element={<About ServerURL={ServerURL}/>} />
         <Route path='/contact-us' element={<Contact ServerURL={ServerURL}/>} />
@@ -82,7 +88,9 @@ function App() {
         <Route path='/admin-contact-galpa-details' element={isAdminLogin ? <ContactGalpa ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/admin-Pricing-details' element={isAdminLogin ? <AdminPricing ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
         <Route path='/admin-add' element={isAdminLogin ? <AddAdmin ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/*' element={<Home />} />
+        <Route path='/admin-authors-add' element={isAdminLogin ? <AuthorForm ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        <Route path='/admin-authors-banner' element={isAdminLogin ? <AuthorBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

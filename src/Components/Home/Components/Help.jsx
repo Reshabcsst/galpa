@@ -6,9 +6,9 @@ import axios from 'axios';
 import { InfinitySpin } from 'react-loader-spinner';
 
 const Help = ({ServerURL}) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState('');
     const [loading, setLoading] = useState(true);
-    // Fetching carousel data
+    // Fetching company data
     useEffect(() => {
         axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`)
             .then(response => {

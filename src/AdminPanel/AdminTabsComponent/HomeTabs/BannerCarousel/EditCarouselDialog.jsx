@@ -3,8 +3,9 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
+import CircularProgress from '@mui/material/CircularProgress';
 
-const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, onFileChange,ServerURL }) => {
+const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, onFileChange, ServerURL, uploadProgress }) => {
     const [previewUrl, setPreviewUrl] = useState(null);
     const [errors, setErrors] = useState({});
 
@@ -63,7 +64,7 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
                             name="heading"
                             value={carousel ? carousel.heading : ''}
                             onChange={onFieldChange}
-                            />
+                        />
                         {errors.heading && <p style={{ color: 'red' }}>{errors.heading}</p>}
                     </div>
                     <div style={{ marginBottom: '10px' }}>
@@ -75,7 +76,7 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
                             name="subheading"
                             value={carousel ? carousel.subheading : ''}
                             onChange={onFieldChange}
-                            />
+                        />
                         {errors.subheading && <p style={{ color: 'red' }}>{errors.subheading}</p>}
                     </div>
                     <div className="custom-file-input">
@@ -88,6 +89,12 @@ const EditCarouselDialog = ({ open, onClose, carousel, onSave, onFieldChange, on
                             type="file"
                             onChange={handleImageChange}
                         />
+                        {uploadProgress > 0 && (
+                            <div style={{ display: 'flex', alignItems: 'center', marginTop: 10 }}>
+                                <CircularProgress variant="determinate" value={uploadProgress} />
+                                <span style={{ marginLeft: 10 }}>{uploadProgress}%</span>
+                            </div>
+                        )}
                     </div>
                     {errors.backgroundImage && <p style={{ color: 'red' }}>{errors.backgroundImage}</p>}
                 </div>

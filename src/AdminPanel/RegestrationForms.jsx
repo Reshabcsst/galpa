@@ -38,7 +38,9 @@ const RegestrationForms = ({ handleNotification, ServerURL }) => {
             if (response.ok) {
                 handleNotification('Regestration successful', 'success');
                 setsignUpData({ userName: '', password: '', email: '' });
-                navigate('/admin-panel');
+                setTimeout(function () {
+                    navigate('/admin-panel');
+                }, 2000);
             } else {
                 const errorResult = await response.json();
                 console.error('Error submitting form', errorResult);

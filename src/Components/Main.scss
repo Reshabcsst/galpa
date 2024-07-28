@@ -237,10 +237,25 @@ footer {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1137px) {
     .bottom-nav .in .nav-links li a {
         padding: 5px 10px;
         font-size: 15px;
+    }
+}
+
+@media (max-width: 925px) {
+    .bottom-nav .in .nav-links li a {
+        padding: 5px 8px;
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 876px) {
+    .bottom-nav .in .nav-links li a {
+        padding: 5px 9px;
+        font-size: 13px;
     }
 }
 

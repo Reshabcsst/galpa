@@ -18,6 +18,10 @@ const MenuItems = {
         { label: 'What Sets Us Apart', path: '/admin-about-cards' },
         { label: 'FAQ', path: '/admin-about-faq' }
     ],
+    authors: [
+        { label: 'Banner', path: '/admin-authors-banner' },
+        { label: 'Authors', path: '/admin-authors-add' }
+    ],
     blog: [
         { label: 'Banner', path: '/admin-blog-banner' },
         { label: 'Blogs List', path: '/admin-blog-post' }

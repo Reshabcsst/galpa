@@ -18,6 +18,7 @@ const CarouselTable = ({ ServerURL }) => {
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [added, setAdded] = useState({ color: '', text: '' });
     const [notificationOpen, setNotificationOpen] = useState(false);
+    const [uploadProgress, setUploadProgress] = useState(0);
 
     const token = JSON.parse(window.localStorage.getItem("AdminData"));
 
@@ -73,6 +74,10 @@ const CarouselTable = ({ ServerURL }) => {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
+            },
+            onUploadProgress: (progressEvent) => {
+                const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                setUploadProgress(percentCompleted);
             }
         })
             .then(response => {
@@ -88,11 +93,13 @@ const CarouselTable = ({ ServerURL }) => {
                 setCarousels(response.data);
                 setAdded({ text: 'Item Edited Successfully!', color: 'success' });
                 setNotificationOpen(true);
+                setUploadProgress(0);
             })
             .catch(error => {
                 console.error(error);
                 setAdded({ text: 'Error editing item!', color: 'error' });
                 setNotificationOpen(true);
+                setUploadProgress(0);
             });
 
         setIsEditDialogOpen(false);
@@ -115,6 +122,10 @@ const CarouselTable = ({ ServerURL }) => {
             headers: {
                 'Authorization': `Bearer ${token.token}`,
                 'Content-Type': 'multipart/form-data'
+            },
+            onUploadProgress: (progressEvent) => {
+                const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                setUploadProgress(percentCompleted);
             }
         })
             .then(response => {
@@ -130,11 +141,13 @@ const CarouselTable = ({ ServerURL }) => {
                 setCarousels(response.data);
                 setAdded({ text: 'Added Successfully!', color: 'success' });
                 setNotificationOpen(true);
+                setUploadProgress(0);
             })
             .catch(error => {
                 console.error(error);
                 setAdded({ text: 'Error adding item!', color: 'error' });
                 setNotificationOpen(true);
+                setUploadProgress(0);
             });
 
         setIsEditDialogOpen(false);
@@ -228,6 +241,7 @@ const CarouselTable = ({ ServerURL }) => {
                     onSave={selectedCarousel && selectedCarousel.id ? handleEdit : handleAdd}
                     onFieldChange={handleFieldChange}
                     onFileChange={handleFileChange}
+                    uploadProgress={uploadProgress}
                 />
 
                 <DeleteDialog

@@ -1,4 +1,5 @@
-﻿namespace Galpa.Models.Home
+﻿
+namespace Galpa.Models.Home
 {
     public class AuthorModel
     {

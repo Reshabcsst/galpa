@@ -9,6 +9,7 @@ import SignIn from './SignInOptions/SignIn';
 import AvtarMenu from './AvtarMenu';
 import TabMenu from './TabMenu';
 import MenuItems from '../DemoData/TabMenus';
+import axios from 'axios';
 
 const Header = ({ ServerURL }) => {
   const navigate = useNavigate();
@@ -70,12 +71,25 @@ const Header = ({ ServerURL }) => {
     setMenuAnchor({ ...menuAnchor, [tab]: null });
   };
 
+
+  const [data, setData] = useState('');
+  // Fetching Company data
+  useEffect(() => {
+      axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`)
+          .then(response => {
+              setData(response.data);
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+  }, []);
+
   return (
     <header>
       <nav>
         <div className="contact">
           <a href="tel:+919000110009">
-            <span>+91 9000110009</span>
+            <span>+91 {data.phoneNumber}</span>
           </a>
           <div className="social-icons">
             <a href="#"><FaFacebookSquare /></a>
@@ -83,7 +97,7 @@ const Header = ({ ServerURL }) => {
             <a href="#"><RiInstagramFill /></a>
           </div>
           <a href="mailto:demo@example.com">
-            <span>demo@example.com</span>
+            <span>{data.email}</span>
           </a>
         </div>
       </nav>
@@ -98,6 +112,7 @@ const Header = ({ ServerURL }) => {
                 <li><Link onClick={toggleSidebar} to='/'>Home</Link></li>
                 <li><Link onClick={toggleSidebar} to='/service'>Service</Link></li>
                 <li><Link onClick={toggleSidebar} to='/about-us'>About Us</Link></li>
+                <li><Link onClick={toggleSidebar} to='/authors'>Authors</Link></li>
                 <li><Link onClick={toggleSidebar} to='/blog'>Blog</Link></li>
                 <li><Link onClick={toggleSidebar} to='/partners'>Partners</Link></li>
                 <li><Link onClick={toggleSidebar} to='/Pricing'>Pricing</Link></li>
@@ -137,6 +152,10 @@ const Header = ({ ServerURL }) => {
                   <TabMenu anchorEl={menuAnchor.aboutUs} open={Boolean(menuAnchor.aboutUs)} onClose={() => handleMenuClose('aboutUs')} menuItems={MenuItems.aboutUs} />
                 </li>
                 <li>
+                  <Link onClick={(e) => handleMenuOpen(e, 'authors')}>Authors</Link>
+                  <TabMenu anchorEl={menuAnchor.authors} open={Boolean(menuAnchor.authors)} onClose={() => handleMenuClose('authors')} menuItems={MenuItems.authors} />
+                </li>
+                <li>
                   <Link onClick={(e) => handleMenuOpen(e, 'blog')}>Blog</Link>
                   <TabMenu anchorEl={menuAnchor.blog} open={Boolean(menuAnchor.blog)} onClose={() => handleMenuClose('blog')} menuItems={MenuItems.blog} />
                 </li>
@@ -154,6 +173,7 @@ const Header = ({ ServerURL }) => {
                 </li>
                 <AvtarMenu
                   userName={adminData.userName}
+                  Admin={true}
                   AddAdminFunction={AddAdminFunction}
                   LogoutFunction={LogoutFunctionForAdmin}
                 />
