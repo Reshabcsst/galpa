@@ -41,6 +41,8 @@ import AuthorBanner from './AdminPanel/AdminTabsComponent/Authors/Banner/AuthorB
 import Authors from './Components/Authors/Authors';
 import Author from './Components/Authors/AuthorDetails/Author';
 import CheckIfUserTokenIsValid from './AdminPanel/CheckIfUserTokenIsValid';
+import CheckIfServerIsRunning from './AdminPanel/CheckIfServerIsRunning';
+import CompanyDetails from './AdminPanel/AdminTabsComponent/HomeTabs/CompanyDetails/CompanyDetails';
 
 function App() {
   const ServerURL = 'http://localhost:5241';
@@ -49,6 +51,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header ServerURL={ServerURL} />
+      <CheckIfServerIsRunning ServerURL={ServerURL} />
       <CheckIfUserTokenIsValid ServerURL={ServerURL} />
       <ScrollToTop />
       <Routes>
@@ -68,6 +71,7 @@ function App() {
         <Route path='/admin-panel' element={isAdminLogin ? <AdminHome /> : <AdminLogin ServerURL={ServerURL} />} />
         <Route path='/admin-home-banner-carousel' element={isAdminLogin ? <CarouselTable ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-our-work-carousel' element={isAdminLogin ? <OurWorkCarouselTable ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-Company-details' element={isAdminLogin ? <CompanyDetails ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-galpa-can-help' element={isAdminLogin ? <GalpaCanHelp ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-most-popular-authors' element={isAdminLogin ? <MostPopularAuthors ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
         <Route path='/admin-home-what-authors-say' element={isAdminLogin ? <WhatAuthorSays ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
@@ -92,7 +96,7 @@ function App() {
         <Route path='/admin-authors-banner' element={isAdminLogin ? <AuthorBanner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <Footer />
+      <Footer ServerURL={ServerURL}/>
     </BrowserRouter>
   );
 }

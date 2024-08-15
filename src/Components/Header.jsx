@@ -75,7 +75,7 @@ const Header = ({ ServerURL }) => {
   const [data, setData] = useState('');
   // Fetching Company data
   useEffect(() => {
-      axios.get(`${ServerURL}/api/GalpaCanHelp/get-company-info`)
+      axios.get(`${ServerURL}/api/CompanyDetails/get-company-details`)
           .then(response => {
               setData(response.data);
           })
@@ -92,9 +92,9 @@ const Header = ({ ServerURL }) => {
             <span>+91 {data.phoneNumber}</span>
           </a>
           <div className="social-icons">
-            <a aria-label='facebook' href="#"><FaFacebookSquare /></a>
-            <a aria-label='youtube' href="#"><FaYoutube /></a>
-            <a aria-label='instagram' href="#"><RiInstagramFill /></a>
+            <a aria-label='facebook' href={data.facebookLink}><FaFacebookSquare /></a>
+            <a aria-label='youtube' href={data.youtubeLink}><FaYoutube /></a>
+            <a aria-label='instagram' href={data.instagramLink}><RiInstagramFill /></a>
           </div>
           <a href="mailto:demo@example.com">
             <span>{data.email}</span>

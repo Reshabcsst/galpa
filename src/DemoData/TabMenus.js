@@ -5,7 +5,8 @@ const MenuItems = {
         { label: 'Galpa Can Help', path: '/admin-home-galpa-can-help' },
         { label: 'Most Popular Authors', path: '/admin-home-most-popular-authors' },
         { label: 'What Our Author says', path: '/admin-home-what-authors-say' },
-        { label: 'Popularity Cards', path: '/admin-home-popularity' }
+        { label: 'Popularity Cards', path: '/admin-home-popularity' },
+        { label: 'Company Details', path: '/admin-home-Company-details' },
     ],
     service: [
         { label: 'Banner', path: '/admin-service-banner' },

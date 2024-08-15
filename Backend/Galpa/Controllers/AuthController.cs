@@ -276,5 +276,12 @@ namespace Galpa.Controllers
         {
             return Content("Route is Working");
         }
+
+
+        [HttpGet("test")]
+        public IActionResult TestRoute()
+        {
+            return Content("Test Route is Working");
+        }
     }
 }

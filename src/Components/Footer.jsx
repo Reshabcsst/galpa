@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import Logo from '../Assets/Logo footer.png';
 import { RiTwitterXLine } from 'react-icons/ri';
 import { Link, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
-const Footer = () => {
+const Footer = ({ ServerURL }) => {
     const location = useLocation();
+
+    const [data, setData] = useState('');
+    // Fetching Company data
+    useEffect(() => {
+        axios.get(`${ServerURL}/api/CompanyDetails/get-company-details`)
+            .then(response => {
+                setData(response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }, []);
+
     return (
         <>
             {!location.pathname.startsWith('/admin') && (
@@ -16,7 +30,7 @@ const Footer = () => {
                             <div className="col">
                                 <Link to='/'><img src={Logo} alt="logo" /></Link>
                                 <h3>Galpa</h3>
-                                <p>Golpa is passionate about books and committed to helping authors bring their stories to life. As a leading provider of comprehensive publishing services, including writing, editing, proofreading, and marketing services, we strive to provide authors with the tools and resources they need to publish and distribute their unique voices with the world.</p>
+                                <p>{data.companyBio}</p>
                             </div>
                             <div className="col">
                                 <h3>Company</h3>
@@ -29,17 +43,17 @@ const Footer = () => {
                             </div>
                             <div className="col">
                                 <h3>Contact Us</h3>
-                                <p>+91 9000110009</p>
-                                <p>demo@gmail.com</p>
-                                <p>BB 42, BB Block, Sector I, Salt Lake, Bidhannagar, Kolkata</p>
+                                <p>{data.phoneNumber && <>+91 {data.phoneNumber}</>}</p>
+                                <p>{data.email}</p>
+                                <p>{data.address}</p>
                             </div>
                             <div className="col">
                                 <h3>Social Media</h3>
                                 <div className="social-icons">
-                                    <a aria-label='facebook' href="#"><FaFacebookF /></a>
-                                    <a aria-label='instagram' href="#"><FaInstagram /></a>
-                                    <a aria-label='twitter' href="#"><RiTwitterXLine /></a>
-                                    <a aria-label='linkedin' href="#"><FaLinkedinIn /></a>
+                                    <a aria-label='facebook' href={data.facebookLink}><FaFacebookF /></a>
+                                    <a aria-label='instagram' href={data.instagramLink}><FaInstagram /></a>
+                                    <a aria-label='twitter' href={data.twitterLink}><RiTwitterXLine /></a>
+                                    <a aria-label='linkedin' href={data.linkedInLink}><FaLinkedinIn /></a>
                                 </div>
                             </div>
                         </div>
