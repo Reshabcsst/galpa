@@ -75,13 +75,13 @@ const Header = ({ ServerURL }) => {
   const [data, setData] = useState('');
   // Fetching Company data
   useEffect(() => {
-      axios.get(`${ServerURL}/api/CompanyDetails/get-company-details`)
-          .then(response => {
-              setData(response.data);
-          })
-          .catch(error => {
-              console.error('Error:', error);
-          });
+    axios.get(`${ServerURL}/api/CompanyDetails/get-company-details`)
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }, []);
 
   return (
@@ -89,7 +89,7 @@ const Header = ({ ServerURL }) => {
       <nav>
         <div className="contact">
           <a href="tel:+919000110009">
-            <span>+91 {data.phoneNumber}</span>
+            <span>{data.phoneNumber && <>+91 {data.phoneNumber}</>}</span>
           </a>
           <div className="social-icons">
             <a aria-label='facebook' href={data.facebookLink}><FaFacebookSquare /></a>
