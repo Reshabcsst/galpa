@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import Google from '../Assets/Google.svg';
 import Facebook from '../Assets/facebook.svg';
 import './Signin.scss';
+import { InfinitySpin, Oval } from 'react-loader-spinner';
 
 const Forms = ({ handleNotification, ServerURL }) => {
     const [signInData, setSignInData] = useState({ userName: '', password: '' });
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false); // New state for button loading
 
     const validate = () => {
         let tempErrors = {};
-        if (!signInData.userName) tempErrors.userName = 'userName is required';
+        if (!signInData.userName) tempErrors.userName = 'Username is required';
         if (!signInData.password) tempErrors.password = 'Password is required';
         setErrors(tempErrors);
         return Object.keys(tempErrors).length === 0;
@@ -18,6 +20,8 @@ const Forms = ({ handleNotification, ServerURL }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validate()) return;
+
+        setIsSubmitting(true); // Start loading
 
         const data = signInData;
 
@@ -33,7 +37,7 @@ const Forms = ({ handleNotification, ServerURL }) => {
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
-                const userData = JSON.stringify(result)
+                const userData = JSON.stringify(result);
                 window.localStorage.setItem("AdminData", userData);
                 handleNotification('Login successful', 'success');
                 setSignInData({ userName: '', password: '' });
@@ -46,6 +50,8 @@ const Forms = ({ handleNotification, ServerURL }) => {
         } catch (error) {
             console.error('Error:', error);
             handleNotification('Submission failed', 'error');
+        } finally {
+            setIsSubmitting(false); // Stop loading
         }
     };
 
@@ -75,7 +81,21 @@ const Forms = ({ handleNotification, ServerURL }) => {
                         onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                     />
                     {errors.password && <p className="auth_error">{errors.password}</p>}
-                    <button type="submit" className="auth_submitButton">Sign In</button>
+                    <button type="submit" className="auth_submitButton" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                             <Oval
+                             visible={true}
+                             height="25"
+                             width="25"
+                             color="#ffff"
+                             ariaLabel="oval-loading"
+                             wrapperStyle={{}}
+                             wrapperClass=""
+                         />
+                        ) : (
+                            'Sign In'
+                        )}
+                    </button>
                     <a href="/">Forgot password</a>
                 </form>
             </div>

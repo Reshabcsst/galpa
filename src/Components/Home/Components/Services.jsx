@@ -46,7 +46,7 @@ const Services = ({ toggleModal, ServerURL }) => {
                             <div className="head">
                                 <div className="imgs">
                                     <img className='main' src={`${ServerURL}/${service.image}`} alt={service.name} />
-                                    <img className='shadow' src={getShadowImage(index)} alt={service.img2} />
+                                    <img className='shadow' src={getShadowImage(index)} alt='shadow' />
                                 </div>
                                 <h2>{service.name}</h2>
                             </div>

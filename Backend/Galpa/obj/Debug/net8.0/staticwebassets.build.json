@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "71/GZ4FNSLaa7/MhwOCeN7fG91gilOcYM9Gd0UtpRe0=",
+  "Hash": "jn+hXoOO4Te32aU7tzs+Ym7rVaeBAQIJ1e3SMgx6MMc=",
   "Source": "Galpa",
   "BasePath": "_content/Galpa",
   "Mode": "Default",
@@ -1860,6 +1860,25 @@
       "OriginalItemSpec": "wwwroot\\images\\42376405-d035-4fa1-906e-1af7f1d2873e.png"
     },
     {
+      "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\429df9e0-9898-4a75-aea7-9c33887f08f0.png",
+      "SourceId": "Galpa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\",
+      "BasePath": "_content/Galpa",
+      "RelativePath": "images/429df9e0-9898-4a75-aea7-9c33887f08f0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\429df9e0-9898-4a75-aea7-9c33887f08f0.png"
+    },
+    {
       "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\42d494da-1bae-43ab-a9fc-28cec98c00bc.jpg",
       "SourceId": "Galpa",
       "SourceType": "Discovered",
@@ -2865,6 +2884,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\63526a7b-71f4-4de8-9f53-ec25beeaed58.png"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\636d8a4e-4d6e-430e-aa3e-c0902a69ffb2.png",
+      "SourceId": "Galpa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\",
+      "BasePath": "_content/Galpa",
+      "RelativePath": "images/636d8a4e-4d6e-430e-aa3e-c0902a69ffb2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\636d8a4e-4d6e-430e-aa3e-c0902a69ffb2.png"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\63fc19d2-8c0e-4ce6-a0e7-024edc5ffcfa.png",
@@ -5774,6 +5812,25 @@
       "OriginalItemSpec": "wwwroot\\images\\c6c94c5d-c8ea-4d7d-ba1b-4fa3451e0d75.jpg"
     },
     {
+      "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\c6d04bb3-3f87-4e6d-aedb-9be403b2c3f7.png",
+      "SourceId": "Galpa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\",
+      "BasePath": "_content/Galpa",
+      "RelativePath": "images/c6d04bb3-3f87-4e6d-aedb-9be403b2c3f7.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\c6d04bb3-3f87-4e6d-aedb-9be403b2c3f7.png"
+    },
+    {
       "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\c7006a5a-b8f6-47f5-996f-8c31bd85fec9.jpg",
       "SourceId": "Galpa",
       "SourceType": "Discovered",
@@ -5810,6 +5867,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\c805b6bb-a631-42e9-9b22-895ab23df125.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\c8ae911f-eea3-4bb9-8681-9bc6b5b5b4fb.jpg",
+      "SourceId": "Galpa",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\",
+      "BasePath": "_content/Galpa",
+      "RelativePath": "images/c8ae911f-eea3-4bb9-8681-9bc6b5b5b4fb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\c8ae911f-eea3-4bb9-8681-9bc6b5b5b4fb.jpg"
     },
     {
       "Identity": "C:\\Users\\USER\\Desktop\\galpa\\Backend\\Galpa\\wwwroot\\images\\c8ed16ce-0806-44d8-9bd1-f50e655719e6.png",

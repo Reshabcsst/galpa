@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Signin.scss';
 import Notification from '../Components/Home/Components/PopNotification/Notification';
-import RegestrationForms from './RegestrationForms';
+import RegistrationForms from './RegistrationForms';
 
 const AddAdmin = ({ ServerURL }) => {
     const [activeTab, setActiveTab] = useState('signUp');
@@ -24,7 +24,7 @@ const AddAdmin = ({ ServerURL }) => {
 
     return (
         <div className='admin_form'>
-            <RegestrationForms
+            <RegistrationForms
                 ServerURL={ServerURL}
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}

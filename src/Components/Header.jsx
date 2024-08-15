@@ -92,9 +92,9 @@ const Header = ({ ServerURL }) => {
             <span>+91 {data.phoneNumber}</span>
           </a>
           <div className="social-icons">
-            <a href="#"><FaFacebookSquare /></a>
-            <a href="#"><FaYoutube /></a>
-            <a href="#"><RiInstagramFill /></a>
+            <a aria-label='facebook' href="#"><FaFacebookSquare /></a>
+            <a aria-label='youtube' href="#"><FaYoutube /></a>
+            <a aria-label='instagram' href="#"><RiInstagramFill /></a>
           </div>
           <a href="mailto:demo@example.com">
             <span>{data.email}</span>
@@ -129,9 +129,9 @@ const Header = ({ ServerURL }) => {
                   </li>
                 }
                 <li><Link onClick={toggleSidebar} className="btn">Get Started</Link></li>
-                <div className="close-sidebar"><button onClick={toggleSidebar}><RiCloseLine /></button></div>
+                <div className="close-sidebar"><button aria-label='close' onClick={toggleSidebar}><RiCloseLine /></button></div>
               </ul>
-              <button className="hamburger" onClick={toggleSidebar}>
+              <button aria-label='hamburger' className="hamburger" onClick={toggleSidebar}>
                 <FaBars />
               </button>
             </>
@@ -177,9 +177,9 @@ const Header = ({ ServerURL }) => {
                   AddAdminFunction={AddAdminFunction}
                   LogoutFunction={LogoutFunctionForAdmin}
                 />
-                <div className="close-sidebar"><button onClick={toggleSidebar}><RiCloseLine /></button></div>
+                <div className="close-sidebar"><button aria-label='close' onClick={toggleSidebar}><RiCloseLine /></button></div>
               </ul>
-              <button className="hamburger" onClick={toggleSidebar}>
+              <button aria-label='hamburger' className="hamburger" onClick={toggleSidebar}>
                 <FaBars />
               </button>
             </>

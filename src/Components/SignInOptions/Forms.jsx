@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import Google from '../../Assets/Google.svg';
 import Facebook from '../../Assets/facebook.svg';
 import './Signin.scss';
+import { Oval } from 'react-loader-spinner';
 
 const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, ServerURL }) => {
     const [signInData, setSignInData] = useState({ userName: '', password: '' });
     const [signUpData, setSignUpData] = useState({ username: '', email: '', password: '' });
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false); // New state for button loading
 
     const validate = () => {
         let tempErrors = {};
         if (activeTab === 'signIn') {
-            if (!signInData.userName) tempErrors.userName = 'userName is required';
+            if (!signInData.userName) tempErrors.userName = 'Username is required';
             if (!signInData.password) tempErrors.password = 'Password is required';
         } else {
             if (!signUpData.username) tempErrors.username = 'Username is required';
@@ -25,6 +27,8 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, Serve
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validate()) return;
+
+        setIsSubmitting(true); // Start loading
 
         const url = activeTab === 'signIn' ? `${ServerURL}/api/Auth/login` : `${ServerURL}/api/Auth/registration`;
         const data = activeTab === 'signIn' ? signInData : signUpData;
@@ -41,12 +45,14 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, Serve
             if (response.ok) {
                 const result = await response.json();
                 console.log(result);
-                const userData = JSON.stringify(result)
+                const userData = JSON.stringify(result);
                 window.localStorage.setItem("UserData", userData);
                 handleNotification(activeTab === 'signIn' ? 'Login successful' : 'Signup successful', 'success');
                 setSignInData({ userName: '', password: '' });
                 setSignUpData({ username: '', email: '', password: '' });
                 handleClose();
+            } else if (response.status === 409 && activeTab === 'signUp') {
+                handleNotification('User already exists with this email', 'error');
             } else {
                 const errorResult = await response.json();
                 console.error('Error submitting form', errorResult);
@@ -55,6 +61,8 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, Serve
         } catch (error) {
             console.error('Error:', error);
             handleNotification('Submission failed', 'error');
+        } finally {
+            setIsSubmitting(false); // Stop loading
         }
     };
 
@@ -80,11 +88,11 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, Serve
                         <button type="button"><img src={Google} alt="Google" />Continue with Google</button>
                         <button type="button"><img src={Facebook} alt="Facebook" />Continue with Facebook</button>
                         <span>or</span>
-                        <label htmlFor="userName">Username or email</label>
+                        <label htmlFor="userName">Username</label>
                         <input
                             id='userName'
                             type="text"
-                            placeholder="Username or email"
+                            placeholder="Username"
                             value={signInData.userName}
                             onChange={(e) => setSignInData({ ...signInData, userName: e.target.value })}
                         />
@@ -98,7 +106,21 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, Serve
                             onChange={(e) => setSignInData({ ...signInData, password: e.target.value })}
                         />
                         {errors.password && <p className="error">{errors.password}</p>}
-                        <button type="submit" className="submit-button">Sign In</button>
+                        <button type="submit" className="submit-button" disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <Oval
+                                    visible={true}
+                                    height="25"
+                                    width="25"
+                                    color="#ffff"
+                                    ariaLabel="oval-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                />
+                            ) : (
+                                'Sign In'
+                            )}
+                        </button>
                         <a href="/">Forgot password</a>
                     </form>
                 )}
@@ -134,7 +156,21 @@ const Forms = ({ activeTab, setActiveTab, handleNotification, handleClose, Serve
                             onChange={(e) => setSignUpData({ ...signUpData, password: e.target.value })}
                         />
                         {errors.password && <p className="error">{errors.password}</p>}
-                        <button type="submit" className="submit-button">Sign Up</button>
+                        <button type="submit" className="submit-button" disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <Oval
+                                    visible={true}
+                                    height="25"
+                                    width="25"
+                                    color="#ffff"
+                                    ariaLabel="oval-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                />
+                            ) : (
+                                'Sign Up'
+                            )}
+                        </button>
                     </form>
                 )}
             </div>

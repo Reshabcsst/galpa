@@ -488,7 +488,7 @@
 
                 &:hover img {
                     filter: drop-shadow(2px 3px 10px $base-black-color);
-                }                
+                }
             }
 
             .name {
@@ -730,6 +730,8 @@
 
                 button {
                     border-radius: 4px;
+                    display: flex;
+                    justify-content: center;
                 }
             }
         }

@@ -39,16 +39,16 @@ namespace Galpa.Controllers
             {
                 con.Open();
 
-                // Check if user already exists
-                using (MySqlCommand checkUserCmd = new MySqlCommand("SELECT COUNT(*) FROM Login WHERE UserName = @UserName", con))
+                // Check if email already exists
+                using (MySqlCommand checkUserCmd = new MySqlCommand("SELECT COUNT(*) FROM Login WHERE Email = @Email", con))
                 {
-                    checkUserCmd.Parameters.AddWithValue("@UserName", registration.UserName);
+                    checkUserCmd.Parameters.AddWithValue("@Email", registration.Email);
 
                     int existingUserCount = Convert.ToInt32(checkUserCmd.ExecuteScalar());
 
                     if (existingUserCount > 0)
                     {
-                        return Conflict("User already exists with this UserName");
+                        return Conflict("User already exists with this Email");
                     }
                 }
 
@@ -144,7 +144,7 @@ namespace Galpa.Controllers
                 return BadRequest(ModelState);
             }
 
-            string connectionString = _configuration.GetConnectionString("UserConnection"); // Adjust connection string name as needed
+            string connectionString = _configuration.GetConnectionString("UserConnection");
 
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
@@ -213,16 +213,16 @@ namespace Galpa.Controllers
             {
                 con.Open();
 
-                // Check if admin already exists
-                using (MySqlCommand checkAdminCmd = new MySqlCommand("SELECT COUNT(*) FROM Admin WHERE UserName = @UserName", con))
+                // Check if admin email already exists
+                using (MySqlCommand checkAdminCmd = new MySqlCommand("SELECT COUNT(*) FROM Admin WHERE Email = @Email", con))
                 {
-                    checkAdminCmd.Parameters.AddWithValue("@UserName", adminRegistration.UserName);
+                    checkAdminCmd.Parameters.AddWithValue("@Email", adminRegistration.Email);
 
                     int existingAdminCount = Convert.ToInt32(checkAdminCmd.ExecuteScalar());
 
                     if (existingAdminCount > 0)
                     {
-                        return Conflict("Admin already exists with this UserName");
+                        return Conflict("Admin already exists with this Email");
                     }
                 }
 
@@ -268,6 +268,13 @@ namespace Galpa.Controllers
                     }
                 }
             }
+        }
+
+        [Authorize]
+        [HttpGet("check")]
+        public IActionResult CheckRoute()
+        {
+            return Content("Route is Working");
         }
     }
 }

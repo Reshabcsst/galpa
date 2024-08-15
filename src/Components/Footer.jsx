@@ -36,10 +36,10 @@ const Footer = () => {
                             <div className="col">
                                 <h3>Social Media</h3>
                                 <div className="social-icons">
-                                    <a href="#"><FaFacebookF /></a>
-                                    <a href="#"><FaInstagram /></a>
-                                    <a href="#"><RiTwitterXLine /></a>
-                                    <a href="#"><FaLinkedinIn /></a>
+                                    <a aria-label='facebook' href="#"><FaFacebookF /></a>
+                                    <a aria-label='instagram' href="#"><FaInstagram /></a>
+                                    <a aria-label='twitter' href="#"><RiTwitterXLine /></a>
+                                    <a aria-label='linkedin' href="#"><FaLinkedinIn /></a>
                                 </div>
                             </div>
                         </div>

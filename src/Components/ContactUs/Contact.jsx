@@ -5,16 +5,27 @@ import Banner from '../CommonComponents/Banner';
 import { FaLocationDot } from 'react-icons/fa6';
 import { IoCallOutline } from 'react-icons/io5';
 import { IoMdTime } from 'react-icons/io';
+import Notification from '../Home/Components/PopNotification/Notification';
 import axios from 'axios';
-import { InfinitySpin } from 'react-loader-spinner';
+import { InfinitySpin, Oval } from 'react-loader-spinner';
 
 const Contact = ({ ServerURL }) => {
+    const [notification, setNotification] = useState({ text: '', color: '' });
+    const [notificationOpen, setNotificationOpen] = useState(false);
     const [BannerData, setBannerData] = useState('');
     const [DetailsData, setDetailsData] = useState('');
     const [loading, setLoading] = useState(true);
     const [loading1, setLoading1] = useState(true);
     const [loading2, setLoading2] = useState(true);
     const [CompanyDetailsData, setCompanyDetailsData] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false); // New state for button loading
+
+    const handleNotificationClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setNotificationOpen(false);
+    };
 
     useEffect(() => {
         axios.get(`${ServerURL}/api/ContactBanner/get-contact-banner`)
@@ -36,7 +47,6 @@ const Contact = ({ ServerURL }) => {
                 console.error('Error:', error);
             });
 
-
         // Fetch company Details
         axios.get(`${ServerURL}/api/ContactGalpa/get-contact-details`)
             .then(response => {
@@ -46,9 +56,8 @@ const Contact = ({ ServerURL }) => {
             .catch(error => {
                 console.error('Error:', error);
             });
-    }, [ServerURL])
+    }, [ServerURL]);
 
-    console.log(DetailsData.title)
 
     const [formData, setFormData] = useState({
         name: '',
@@ -65,6 +74,7 @@ const Contact = ({ ServerURL }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true); // Disable the button and show loading
         try {
             const response = await fetch(`${ServerURL}/api/ContactForm`, {
                 method: 'POST',
@@ -82,14 +92,20 @@ const Contact = ({ ServerURL }) => {
                     date: '',
                     message: ''
                 });
-                console.log('Form submitted successfully');
+                setNotificationOpen(true);
+                setNotification({ text: 'Form submitted successfully!', color: 'success' });
             } else {
-                console.log('Form submission error');
+                setNotificationOpen(true);
+                setNotification({ text: 'Error Sending Form!', color: 'error' });
             }
         } catch (error) {
-            console.error('Form submission error:', error);
+            setNotificationOpen(true);
+            setNotification({ text: 'Error Sending Form!', color: 'error' });
+        } finally {
+            setIsSubmitting(false); // Enable the button and hide loading
         }
     };
+
     return (
         <div>
             {loading2 ? (
@@ -176,7 +192,20 @@ const Contact = ({ ServerURL }) => {
                             onChange={handleChange}
                             required
                         ></textarea>
-                        <button type="submit">Enquire Now</button>
+                        <button type="submit" disabled={isSubmitting}>
+                            {isSubmitting ? (
+                                <Oval
+                                    visible={true}
+                                    height="30"
+                                    width="30"
+                                    color="#ffff"
+                                    ariaLabel="oval-loading"
+                                    wrapperClass="loader"
+                                />
+                            ) : (
+                                'Enquire Now'
+                            )}
+                        </button>
                     </form>
                 </div>
                 {loading ? (
@@ -210,6 +239,12 @@ const Contact = ({ ServerURL }) => {
                     </div>
                 )}
             </div>
+            <Notification
+                text={notification.text}
+                color={notification.color}
+                open={notificationOpen}
+                handleClose={handleNotificationClose}
+            />
         </div>
     );
 };

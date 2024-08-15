@@ -18,7 +18,6 @@ import LoginToVisitThePage from './AdminPanel/LoginToVisitThePage';
 import OurWorkCarouselTable from './AdminPanel/AdminTabsComponent/HomeTabs/OurWorkCarousel/OurWorkCarousel';
 import GalpaCanHelp from './AdminPanel/AdminTabsComponent/HomeTabs/GalpaCanHelp/GalpaCanHelp';
 import MostPopularAuthors from './AdminPanel/AdminTabsComponent/HomeTabs/MostPopularAuthors/MostPopularAuthors';
-import EnquireFormGrid from './AdminPanel/AdminTabsComponent/HomeTabs/EnqurieForm/EnquireForm';
 import WhatAuthorSays from './AdminPanel/AdminTabsComponent/HomeTabs/WhatAuthorSays/WhatAuthorSays';
 import Popularity from './AdminPanel/AdminTabsComponent/HomeTabs/Popularity/Popularity';
 import Banner from './AdminPanel/AdminTabsComponent/Services/Banner/Banner';
@@ -41,56 +40,57 @@ import AuthorForm from './AdminPanel/AdminTabsComponent/Authors/Authors/AuthorFo
 import AuthorBanner from './AdminPanel/AdminTabsComponent/Authors/Banner/AuthorBanner';
 import Authors from './Components/Authors/Authors';
 import Author from './Components/Authors/AuthorDetails/Author';
+import CheckIfUserTokenIsValid from './AdminPanel/CheckIfUserTokenIsValid';
 
 function App() {
-  const ServerURL='http://localhost:5241';
+  const ServerURL = 'http://localhost:5241';
 
   const isAdminLogin = JSON.parse(window.localStorage.getItem("AdminData"));
   return (
     <BrowserRouter>
-      <Header ServerURL={ServerURL}/>
+      <Header ServerURL={ServerURL} />
+      <CheckIfUserTokenIsValid ServerURL={ServerURL} />
       <ScrollToTop />
       <Routes>
         {/* User */}
-        <Route path='/' element={<Home ServerURL={ServerURL}/>} />
-        <Route path='/service' element={<Service ServerURL={ServerURL}/>} />
-        <Route path='/authors' element={<Authors ServerURL={ServerURL}/>} />
-        <Route path='/author/:id' element={<Author ServerURL={ServerURL}/>} />
-        <Route path='/Pricing' element={<Pricing ServerURL={ServerURL}/>} />
-        <Route path='/about-us' element={<About ServerURL={ServerURL}/>} />
-        <Route path='/contact-us' element={<Contact ServerURL={ServerURL}/>} />
-        <Route path='/partners' element={<Partners ServerURL={ServerURL}/>} />
-        <Route path='/blog' element={<Blog ServerURL={ServerURL}/>} />
-        <Route path='/blog-content/:id' element={<BlogContent ServerURL={ServerURL}/>} />
+        <Route path='/' element={<Home ServerURL={ServerURL} />} />
+        <Route path='/service' element={<Service ServerURL={ServerURL} />} />
+        <Route path='/authors' element={<Authors ServerURL={ServerURL} />} />
+        <Route path='/author/:id' element={<Author ServerURL={ServerURL} />} />
+        <Route path='/Pricing' element={<Pricing ServerURL={ServerURL} />} />
+        <Route path='/about-us' element={<About ServerURL={ServerURL} />} />
+        <Route path='/contact-us' element={<Contact ServerURL={ServerURL} />} />
+        <Route path='/partners' element={<Partners ServerURL={ServerURL} />} />
+        <Route path='/blog' element={<Blog ServerURL={ServerURL} />} />
+        <Route path='/blog-content/:id' element={<BlogContent ServerURL={ServerURL} />} />
 
         {/* Admin */}
-        <Route path='/admin-panel' element={isAdminLogin ? <AdminHome /> : <AdminLogin ServerURL={ServerURL}/>} />
-        <Route path='/admin-home-banner-carousel' element={isAdminLogin ? <CarouselTable ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-home-our-work-carousel' element={isAdminLogin ? <OurWorkCarouselTable ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-home-galpa-can-help' element={isAdminLogin ? <GalpaCanHelp ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-home-most-popular-authors' element={isAdminLogin ? <MostPopularAuthors ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-home-what-authors-say' element={isAdminLogin ? <WhatAuthorSays ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-home-enquire-form' element={isAdminLogin ? <EnquireFormGrid ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-home-popularity' element={isAdminLogin ? <Popularity ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-service-banner' element={isAdminLogin ? <Banner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-service' element={isAdminLogin ? <Services ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-about-banner' element={isAdminLogin ? <AboutBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-about-details' element={isAdminLogin ? <AboutDetails ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-about-cards' element={isAdminLogin ? <Cards ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-about-faq' element={isAdminLogin ? <FAQ ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-blog-banner' element={isAdminLogin ? <BlogBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-blog-post' element={isAdminLogin ? <BlogPosts ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-partners' element={isAdminLogin ? <AddPartners ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-partner-banner' element={isAdminLogin ? <PartnerBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-contact-banner' element={isAdminLogin ? <ContactBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-contact-form' element={isAdminLogin ? <ContactForm ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-contact-need-help' element={isAdminLogin ? <NeedHelp ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-contact-galpa-details' element={isAdminLogin ? <ContactGalpa ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-Pricing-details' element={isAdminLogin ? <AdminPricing ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-add' element={isAdminLogin ? <AddAdmin ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-authors-add' element={isAdminLogin ? <AuthorForm ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        <Route path='/admin-authors-banner' element={isAdminLogin ? <AuthorBanner ServerURL={ServerURL}/> : <LoginToVisitThePage />} />
-        {/* <Route path="*" element={<Navigate to="/" />} /> */}
+        <Route path='/admin-panel' element={isAdminLogin ? <AdminHome /> : <AdminLogin ServerURL={ServerURL} />} />
+        <Route path='/admin-home-banner-carousel' element={isAdminLogin ? <CarouselTable ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-our-work-carousel' element={isAdminLogin ? <OurWorkCarouselTable ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-galpa-can-help' element={isAdminLogin ? <GalpaCanHelp ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-most-popular-authors' element={isAdminLogin ? <MostPopularAuthors ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-what-authors-say' element={isAdminLogin ? <WhatAuthorSays ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-home-popularity' element={isAdminLogin ? <Popularity ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-service-banner' element={isAdminLogin ? <Banner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-service' element={isAdminLogin ? <Services ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-about-banner' element={isAdminLogin ? <AboutBanner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-about-details' element={isAdminLogin ? <AboutDetails ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-about-cards' element={isAdminLogin ? <Cards ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-about-faq' element={isAdminLogin ? <FAQ ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-blog-banner' element={isAdminLogin ? <BlogBanner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-blog-post' element={isAdminLogin ? <BlogPosts ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-partners' element={isAdminLogin ? <AddPartners ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-partner-banner' element={isAdminLogin ? <PartnerBanner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-banner' element={isAdminLogin ? <ContactBanner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-form' element={isAdminLogin ? <ContactForm ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-need-help' element={isAdminLogin ? <NeedHelp ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-contact-galpa-details' element={isAdminLogin ? <ContactGalpa ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-Pricing-details' element={isAdminLogin ? <AdminPricing ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-add' element={isAdminLogin ? <AddAdmin ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-authors-add' element={isAdminLogin ? <AuthorForm ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path='/admin-authors-banner' element={isAdminLogin ? <AuthorBanner ServerURL={ServerURL} /> : <LoginToVisitThePage />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
     </BrowserRouter>
