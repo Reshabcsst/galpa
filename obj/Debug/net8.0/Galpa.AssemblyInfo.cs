@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Galpa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f558163093af7e25d6b25d8f195f9e369fcf7c20")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36e03c64ef5999d941c62193b19e580789ad52b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Galpa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Galpa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
